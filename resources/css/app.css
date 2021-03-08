@@ -4,3 +4,13 @@ form {
     direction: rtl;
     margin: 30px auto;
 }
+
+.error {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    background-color: salmon;
+    border: 1px solid black;
+    padding: 5px;
+}
+

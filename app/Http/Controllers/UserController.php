@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Events\RegisterHandlerEvent;
+
 
 class UserController extends Controller
 {
@@ -15,6 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        return response()->json(['statuses'=>56565]);
     }
 
     /**
@@ -36,12 +38,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $user = User::create([
-            'name'=> str_replace('@gmail.com','',$request->email),
-            'email'=>$request->email,
-            'password'=>bcrypt($request->password),
-        ]);
+            $user = event(new RegisterHandlerEvent($request->email,$request->password));
+           
 
+            return $user;
+          
+             
     }
 
     /**
