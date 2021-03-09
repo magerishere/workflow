@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Events\RegisterHandlerEvent;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Events\UserHandlerEvent;
+
 
 
 class UserController extends Controller
@@ -16,7 +19,13 @@ class UserController extends Controller
     public function index()
     {
         //
-        return response()->json(['statuses'=>56565]);
+        if(Auth::check()) {
+            // return response()->json(['id'=>Auth::id()]);
+            return 'auth' . Auth::id();
+        }
+        // return response()->json(['status'=>'no Id']);
+        return 'customer';
+
     }
 
     /**
@@ -37,12 +46,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-            $user = event(new RegisterHandlerEvent($request->email,$request->password));
-           
+        // for login and register users
 
-            return $user;
-          
+        return  $result = event(new UserHandlerEvent($request));
+
              
     }
 
@@ -90,4 +97,16 @@ class UserController extends Controller
     {
         //
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return response()->json(['status'=>450]);
+    }
+
+
 }

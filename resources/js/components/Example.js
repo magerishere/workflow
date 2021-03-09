@@ -7,6 +7,7 @@ import Register from "./frontend/form/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Example = () => {
+    console.log("exampple");
     return (
         <>
             <Router>

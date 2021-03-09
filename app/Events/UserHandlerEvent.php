@@ -10,22 +10,23 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class RegisterHandlerEvent
+class UserHandlerEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-
-    public $email,$password;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($email,$password)
+    public function __construct($request)
     {
         //
-        $this->email = $email;
-        $this->password = $password;
+        $this->request = $request;
+        $this->email = $request->email;
+        $this->password = $request->password;
+        $this->confirm = $request->confirm;
+
     }
 
     /**

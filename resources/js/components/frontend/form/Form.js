@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { validation } from "./validation";
 
 const Form = (props) => {
@@ -9,13 +10,20 @@ const Form = (props) => {
 
     const register = async (e) => {
         e.preventDefault();
-        const result = await validation(email, password, confirm);
-        setMessage(result);
-        if (result === "موفق! درحال آماده سازی حساب شما ...") {
-            document.getElementById("message").classList.add("bg-success");
-            setTimeout(() => {
-                window.location.replace("/");
-            }, 3000);
+        if (props.isRegister) {
+            const result = await validation(email, password, confirm);
+            setMessage(result);
+            if (result === "موفق! درحال آماده سازی حساب شما ...") {
+                document.getElementById("message").classList.add("bg-success");
+                setTimeout(() => {
+                    window.location.replace("/");
+                }, 3000);
+            }
+        } else {
+            const response = await axios.post("/user", { email, password });
+            if (response.data[0].original.status === 200) {
+                window.location.replace("/user");
+            }
         }
     };
 

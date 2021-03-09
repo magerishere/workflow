@@ -15,9 +15,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        \App\Events\RegisterHandlerEvent::class => [
-         \App\Listeners\StoreFormDataListeners::class,    
-        ],
+        \App\Events\UserHandlerEvent::class => [
+            \App\Listeners\UserHandlerListener::class,
+        ]
     ];
 
     /**

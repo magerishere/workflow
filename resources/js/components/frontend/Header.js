@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const Header = () => {
+    const logout = async () => {
+        const res = await axios.post("/logout", null);
+        console.log(res);
+    };
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,6 +37,16 @@ const Header = () => {
                                 >
                                     ثبت نام
                                 </Link>
+                            </li>
+                            <li className="nav-item">
+                                <a
+                                    href="#"
+                                    className="nav-link active"
+                                    aria-current="page"
+                                    onClick={() => logout()}
+                                >
+                                    خروج
+                                </a>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/login">
