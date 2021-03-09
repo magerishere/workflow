@@ -49,6 +49,7 @@ class UserHandlerListener
         if($result || !$event->confirm) {
            if(Auth::attempt(['email'=>$event->email,'password'=>$event->password])) 
            {
+               $event->request->session()->regenerate();
                return response()->json(['status'=>200]);
            }
         }

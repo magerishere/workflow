@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 Route::resource('/user',UserController::class);
 Route::post('/logout',[UserController::class,'logout']);
+Route::get('/test',function(){
+    return view('test');
+});

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { validation } from "./validation";
 
-const Form = (props) => {
+const Form = ({ isRegister }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("");
@@ -10,7 +10,7 @@ const Form = (props) => {
 
     const register = async (e) => {
         e.preventDefault();
-        if (props.isRegister) {
+        if (isRegister) {
             const result = await validation(email, password, confirm);
             setMessage(result);
             if (result === "موفق! درحال آماده سازی حساب شما ...") {
@@ -47,10 +47,12 @@ const Form = (props) => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <div id="emailHelp" className="form-text">
-                        {" "}
-                        مثال: example@gmail.com
-                    </div>
+                    {isRegister && (
+                        <div id="emailHelp" className="form-text">
+                            {" "}
+                            مثال: example@gmail.com
+                        </div>
+                    )}
                 </div>
                 <div className="mb-3">
                     <label
@@ -67,11 +69,13 @@ const Form = (props) => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <div id="passwordHelp" className="form-text">
-                        بیشتر از 8 رقم
-                    </div>
+                    {isRegister && (
+                        <div id="passwordHelp" className="form-text">
+                            بیشتر از 8 رقم
+                        </div>
+                    )}
                 </div>
-                {props.isRegister && (
+                {isRegister && (
                     <div className="mb-3">
                         <label
                             htmlFor="exampleInputPassword2"
@@ -95,7 +99,7 @@ const Form = (props) => {
                 )}
 
                 <button type="submit" className="btn btn-primary">
-                    {props.isRegister ? "ثبت نام" : "ورود"}
+                    {isRegister ? "ثبت نام" : "ورود"}
                 </button>
             </form>
         </>

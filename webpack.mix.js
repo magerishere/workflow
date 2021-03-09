@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js("resources/js/app.js", "public/js")
     .react()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass("resources/sass/app.scss", "public/css");
+
+mix.css("resources/css/assets/bootstrap.min.css", "public/css/app.css")
+    .css("resources/css/assets/bootstrap-select.min.css", "public/css/app.css")
+    .css("resources/css/assets/font-awesome.min.css", "public/css/app.css")
+    .css("resources/css/assets/prettyPhoto.css", "public/css/app.css")
+    .css("resources/css/assets/owl.carousel.min.css", "public/css/app.css")
+    .css("resources/css/assets/owl.theme.default.min.css", "public/css/app.css")
+    .css("resources/css/assets/animate.min.css", "public/css/app.css")
+    .css("resources/css/assets/theme.css", "public/css/app.css");

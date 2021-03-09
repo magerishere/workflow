@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "../../css/app.css";
 import Header from "./frontend/Header";
 import Login from "./frontend/form/Login";
 import Register from "./frontend/form/Register";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Content from './frontend/Content';
 
 const Example = () => {
     console.log("exampple");
@@ -17,6 +18,9 @@ const Example = () => {
                 </Switch>
                 <Switch>
                     <Route path="/login" exact component={Login} />
+                </Switch>
+                <Switch>
+                    <Route path="/content" exact component={Content} />
                 </Switch>
             </Router>
         </>
