@@ -64,8 +64,8 @@ class Content extends Component {
                         </div>
                         <hr className="line-bottom" />
 
-                        {products.map((product) => (
                             <div id="Container" className="row">
+                        {products.map((product) => (
                                 <div className="col-lg-3 col-sm-6">
                                     <div className="arrival-product">
                                         <div className="arrival-img">
@@ -132,8 +132,8 @@ class Content extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         ))}
+                            </div>
                     </div>
                 </section>
                 {/* <!-- Product New Arrival End --> */}

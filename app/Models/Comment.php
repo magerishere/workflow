@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $fillable = ['productId','name','price','image','description'];
-
+    protected $fillable = ['user_id','productId','name','email','body'];
 }

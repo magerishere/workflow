@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\Comment;
 
-class ProductController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all();
-        return response()->json(['products'=>$products]);
+        
     }
 
     /**
@@ -39,6 +37,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $comment = Comment::create([
+            'user_id'=>1,
+            'productId'=>2,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'body'=>$request->body
+        ]);
+
+        return response()->json(['status'=>200]);
     }
 
     /**
@@ -50,9 +57,6 @@ class ProductController extends Controller
     public function show($id)
     {
         //
-        $product = Product::where(['productId'=>$id])->first();
-        $comments = Comment::where(['productId'=>$id])->get();
-        return response()->json(['product'=>$product,'comments'=>$comments]);
     }
 
     /**
