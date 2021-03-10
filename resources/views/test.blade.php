@@ -1,1422 +1,1659 @@
-<!DOCTYPE html>
-<html lang="en"><!-- sherad by mellatweb.com -->
+<!doctype html>
+<html lang="zxx">
+    
+
+<!-- Mirrored from atiyehahmadi.ir/olex/rtl/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Mar 2021 16:49:57 GMT -->
 <head>
-    <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Bella Shop by www.mellatweb.com</title>
-
-    <!-- Favicon -->
-    <link rel="stylesheet" href="./css/app.css">
-
-   
-    <!--[if lt IE 9]>
-    <script src="assets/plugins/iesupport/html5shiv.js"></script>
-    <script src="assets/plugins/iesupport/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body id="home" class="wide">
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<!-- WRAPPER -->
-<div class="wrapper">
 
-    <!-- Popup: Shopping cart items -->
-    <div class="modal fade popup-cart" id="popup-cart" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
+        <!-- Favicon -->
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <title> اولکس - الگوی HTML تجارت الکترونیکی چند منظوره </title>
+    </head>
+
+    <body class="body-color">
+        {{-- <div class="preloader">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div> --}}
+       
+        <!-- Top Header Start -->
+        <header class="top-header top-header-bg">
             <div class="container">
-                <div class="cart-items">
-                    <div class="cart-items-inner">
-                        <div class="media">
-                            <a class="pull-left" href="#"><img class="media-object item-image" src="assets/img/preview/shop/order-1s.jpg" alt=""></a>
-                            <p class="pull-right item-price">$450.00</p>
-                            <div class="media-body">
-                                <h4 class="media-heading item-title"><a href="#">1x Standard Product</a></h4>
-                                <p class="item-desc">Lorem ipsum dolor</p>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <p class="pull-right item-price">$450.00</p>
-                            <div class="media-body">
-                                <h4 class="media-heading item-title summary">Subtotal</h4>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <div class="media-body">
-                                <div>
-                                    <a href="#" class="btn btn-theme btn-theme-dark" data-dismiss="modal">Close</a><!--
-                                    --><a href="shopping-cart.html" class="btn btn-theme btn-theme-transparent btn-call-checkout">Checkout</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Popup: Shopping cart items -->
-
-    <!-- Header top bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-left">
-                <ul class="list-inline">
-                    <li class="icon-user"><a href="login.html"><img src="assets/img/icon-1.png" alt=""/> <span>Login</span></a></li>
-                    <li class="icon-form"><a href="login.html"><img src="assets/img/icon-2.png" alt=""/> <span>Not a Member? <span class="colored">Sign Up</span></span></a></li>
-                    <li><a href="https://www.mellatweb.com/"><i class="fa fa-envelope"></i> <span>Mellatweb.com</span></a></li>
-                </ul>
-            </div>
-            <div class="top-bar-right">
-                <ul class="list-inline">
-                    <li class="hidden-xs"><a href="about.html">About</a></li>
-                    <li class="hidden-xs"><a href="blog.html">Blog</a></li>
-                    <li class="hidden-xs"><a href="contact.html">Contact</a></li>
-                    <li class="hidden-xs"><a href="faq.html">FAQ</a></li>
-                    <li class="hidden-xs"><a href="wishlist.html">My Wishlist</a></li>
-                    <li class="dropdown currency">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">€ EURO<i class="fa fa-angle-down"></i></a>
-                        <ul role="menu" class="dropdown-menu">
-                            <li><a href="#">€ EURO</a></li>
-                            <li><a href="#">€ EURO</a></li>
-                            <li><a href="#">€ EURO</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown flags">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/flag.gif" alt=""/> Eng<i class="fa fa-angle-down"></i></a>
-                        <ul role="menu" class="dropdown-menu">
-                            <li><a href="#"><img src="assets/img/flag.gif" alt=""/> Eng</a></li>
-                            <li><a href="#"><img src="assets/img/flag.gif" alt=""/> Eng</a></li>
-                            <li><a href="#"><img src="assets/img/flag.gif" alt=""/> Eng</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /Header top bar -->
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-wrapper">
-            <div class="container">
-
-                <!-- Logo -->
-                <div class="logo">
-                    <a href="index.html"><img src="assets/img/logo-bella-shop.png" alt="Bella Shop"/></a>
-                </div>
-                <!-- /Logo -->
-
-                <!-- Header search -->
-                <div class="header-search">
-                    <input class="form-control" type="text" placeholder="What are you looking?"/>
-                    <button><i class="fa fa-search"></i></button>
-                </div>
-                <!-- /Header search -->
-
-                <!-- Header shopping cart -->
-                <div class="header-cart">
-                    <div class="cart-wrapper">
-                        <a href="wishlist.html" class="btn btn-theme-transparent hidden-xs hidden-sm"><i class="fa fa-heart"></i></a>
-                        <a href="compare-products.html" class="btn btn-theme-transparent hidden-xs hidden-sm"><i class="fa fa-exchange"></i></a>
-                        <a href="#" class="btn btn-theme-transparent" data-toggle="modal" data-target="#popup-cart"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs"> 0 item(s) - $0.00 </span> <i class="fa fa-angle-down"></i></a>
-                        <!-- Mobile menu toggle button -->
-                        <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
-                        <!-- /Mobile menu toggle button -->
-                    </div>
-                </div>
-                <!-- Header shopping cart -->
-
-            </div>
-        </div>
-        <div class="navigation-wrapper">
-            <div class="container">
-                <!-- Navigation -->
-                <nav class="navigation closed clearfix">
-                    <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
-                    <ul class="nav sf-menu">
-                        <li class="active"><a href="index.html">Homepage</a>
-                            <ul>
-                                <li><a href="index.html">Homepage 1</a></li>
-                                <li><a href="index-2.html">Homepage 2</a></li>
-                                <li><a href="index-3.html">Homepage 3</a></li>
-                                <li><a href="index-4.html">Homepage 4</a></li>
-                                <li><a href="index-5.html">Homepage 5</a></li>
-                                <li><a href="index-6.html">Homepage 6</a></li>
-                                <li><a href="index-7.html">Homepage 7</a></li>
-                                <li><a href="index-8.html">Homepage 8</a></li>
-                                <li><a href="index-9.html">Homepage 9</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="category.html">Shop</a>
-                            <ul>
-                                <li><a href="category.html">Shop Sidebar Left</a></li>
-                                <li><a href="category-right.html">Shop Sidebar Right</a></li>
-                                <li><a href="category-list.html">Shop List View</a></li>
-                                <li><a href="product-details.html">Product Page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="blog.html">Blog Sidebar Left </a></li>
-                                <li><a href="blog-right.html">Blog Sidebar Right</a></li>
-                                <li><a href="blog-post.html">Blog Single Post</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="portfolio.html">Portfolio</a>
-                            <ul>
-                                <li><a href="portfolio.html">Portfolio 3 columns</a></li>
-                                <li><a href="portfolio-4col.html">Portfolio 4 columns</a></li>
-                                <li><a href="portfolio-alt.html">Portfolio Alternate</a></li>
-                                <li><a href="portfolio-single.html">Portfolio Single</a></li>
-                            </ul>
-                        </li>
-                        <li class="megamenu"><a href="#">Features</a>
-                            <ul>
-                                <li class="row">
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span>Womens</span></h4>
-                                        <ul>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Rompers & Jumpsuits</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Shirts & Blouses</a></li>
-                                            <li><a href="#">Coats & Jackets</a></li>
-                                            <li><a href="#">Blazers</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span>Mens</span></h4>
-                                        <ul>
-                                            <li><a href="#">T-Shirts & Vests</a></li>
-                                            <li><a href="#">Sweaters & Cardigans</a></li>
-                                            <li><a href="#">Hoodies & Sweats</a></li>
-                                            <li><a href="#">Coats & Jackets</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Shorts</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <h4 class="block-title"><span>Pages</span></h4>
-                                        <ul>
-                                            <li><a href="shortcodes.html"><strong>Shortcodes</strong></a></li>
-                                            <li><a href="typography.html"><strong>Typography</strong></a></li>
-                                            <li><a href="coming-soon.html"><strong>Coming soon</strong></a></li>
-                                            <li><a href="error-page.html"><strong>404 Page</strong></a></li>
-                                            <li><a href="about.html"><strong>About</strong></a></li>
-                                            <li><a href="login.html"><strong>Login</strong></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4 class="block-title"><span>Paragraph</span></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-                                        <p>Suspendisse molestie est nec tortor placerat, vel pellentesque metus sollicitudin. Suspendisse congue sem mauris, at ultrices felis blandit non.</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="product-list">
-                                            <div class="media">
-                                                <a class="pull-left media-link" href="#">
-                                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-2.jpg" alt="">
-                                                    <i class="fa fa-plus"></i>
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                                    <div class="rating">
-                                                        <span class="star"></span><!--
-                                                        --><span class="star active"></span><!--
-                                                        --><span class="star active"></span><!--
-                                                        --><span class="star active"></span><!--
-                                                        --><span class="star active"></span>
-                                                    </div>
-                                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                                </div>
-                                            </div>
-                                            <div class="media">
-                                                <a class="pull-left media-link" href="#">
-                                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-3.jpg" alt="">
-                                                    <i class="fa fa-plus"></i>
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                                    <div class="rating">
-                                                        <span class="star"></span><!--
-                                                        --><span class="star active"></span><!--
-                                                        --><span class="star active"></span><!--
-                                                        --><span class="star active"></span><!--
-                                                        --><span class="star active"></span>
-                                                    </div>
-                                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                                </div>
-                                            </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="top-header-form">
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>دسته‌بندی</option>
+                                                <option>الکترونیکی</option>
+                                                <option>کودک و نوزاد</option>
+                                                <option>کفش و لباس</option>
+                                                <option>سلامت و زیبایی</option>
+                                                <option>سرگرمی و هنر</option>
+                                            </select>	
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="category.html">Men</a></li>
-                        <li><a href="category.html">Women</a></li>
-                        <li><a href="category.html">Kids</a></li>
-                        <li><a href="category.html">New</a></li>
-                        <li class="sale"><a href="category.html">Sale</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <!-- /Navigation -->
-            </div>
-        </div>
-    </header>
-    <!-- /HEADER -->
 
-    <!-- CONTENT AREA -->
-    <div class="content-area">
-
-        <!-- PAGE -->
-        <section class="page-section no-padding slider">
-            <div class="container full-width">
-
-                <div class="main-slider">
-                    <div class="owl-carousel" id="main-slider">
-
-                        <!-- Slide 1 -->
-                        <div class="item slide1">
-                            <img class="slide-img" src="assets/img/preview/slider/slide-1.jpg" alt=""/>
-                            <div class="caption">
-                                <div class="container">
-                                    <div class="div-table">
-                                        <div class="div-cell">
-                                            <div class="caption-content">
-                                                <h2 class="caption-title">The Biggest</h2>
-                                                <h3 class="caption-subtitle">Sale</h3>
-                                                <p class="caption-text">
-                                                    <a class="btn btn-theme" href="#">Shop Now</a>
-                                                </p>
-                                            </div>
+                                    <div class="col-lg-8 pl-0">
+                                        <div class="form-group search-form">
+                                            <input type="search" class="form-control" placeholder="جستجو محصولات">
+                                            <button type="submit">
+                                                <i class="bx bx-search"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Slide 1 -->
-
-                        <!-- Slide 2 -->
-                        <div class="item slide2 alt">
-                            <img class="slide-img" src="assets/img/preview/slider/slide-2.jpg" alt=""/>
-                            <div class="caption">
-                                <div class="container">
-                                    <div class="div-table">
-                                        <div class="div-cell">
-                                            <div class="caption-content">
-                                                <h2 class="caption-title">New Arrivals On Sale</h2>
-                                                <h3 class="caption-subtitle"><span>Summer Collection</span></h3>
-                                                <div class="price">
-                                                    <span>$</span><ins>49</ins>
-                                                    <span>$</span><del>86</del>
-                                                </div>
-                                                <p class="caption-text">
-                                                    <a class="btn btn-theme" href="#">Shop this item Now</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Slide 2 -->
-
-                        <!-- Slide 3 -->
-                        <div class="item slide3 dark">
-                            <img class="slide-img" src="assets/img/preview/slider/slide-3.jpg" alt=""/>
-                            <div class="caption">
-                                <div class="container">
-                                    <div class="div-table">
-                                        <div class="div-cell">
-                                            <div class="caption-content">
-                                                <h2 class="caption-title">New Arrivals On Sale</h2>
-                                                <h3 class="caption-subtitle"><span>Summer Collection</span></h3>
-                                                <p class="caption-text">
-                                                    <a class="btn btn-theme" href="#">Shop this item Now</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Slide 3 -->
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="thumbnail no-border no-padding thumbnail-banner size-1x3">
-                            <div class="media">
-                                <a class="media-link" href="#">
-                                    <div class="img-bg" style="background-image: url('assets/img/preview/shop/banner-1.jpg')"></div>
-                                    <div class="caption">
-                                        <div class="caption-wrapper div-table">
-                                        <div class="caption-inner div-cell">
-                                            <h2 class="caption-title"><span>Lorem Ipsum</span></h2>
-                                            <h3 class="caption-sub-title"><span>Dolor Sir Amet Percpectum</span></h3>
-                                            <span class="btn btn-theme btn-theme-sm">Shop Now</span>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="thumbnail no-border no-padding thumbnail-banner size-1x3">
-                            <div class="media">
-                                <a class="media-link" href="#">
-                                    <div class="img-bg" style="background-image: url('assets/img/preview/shop/banner-2.jpg')"></div>
-                                    <div class="caption text-right">
-                                        <div class="caption-wrapper div-table">
-                                            <div class="caption-inner div-cell">
-                                                <h2 class="caption-title"><span>Lorem Ipsum</span></h2>
-                                                <h3 class="caption-sub-title"><span>Dolor Sir Amet Percpectum</span></h3>
-                                                <span class="btn btn-theme btn-theme-sm">Shop Now</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-
-                <div class="tabs">
-                    <ul id="tabs" class="nav nav-justified-off"><!--
-                        --><li class=""><a href="#tab-1" data-toggle="tab">Featured</a></li><!--
-                        --><li class="active"><a href="#tab-2" data-toggle="tab">Newest</a></li><!--
-                        --><li class=""><a href="#tab-3" data-toggle="tab">Top Sellers</a></li>
-                    </ul>
-                </div>
-
-                <div class="tab-content">
-
-                    <!-- tab 1 -->
-                    <div class="tab-pane fade" id="tab-1">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-3.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-4.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-1.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-2.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- tab 2 -->
-                    <div class="tab-pane fade active in" id="tab-2">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-1.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-2.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-3.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-4.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- tab 3 -->
-                    <div class="tab-pane fade" id="tab-3">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-2.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-3.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-4.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="thumbnail no-border no-padding">
-                                    <div class="media">
-                                        <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                            <img src="assets/img/preview/shop/product-1.jpg" alt=""/>
-                                            <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                                        </a>
-                                    </div>
-                                    <div class="caption text-center">
-                                        <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                                        <div class="rating">
-                                            <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-                                        </div>
-                                        <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                        <div class="buttons">
-                                            <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-icon-left" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a><!--
-                                            --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-                <div class="message-box">
-                    <div class="message-box-inner">
-                        <h2>Free shipping on all orders over $45</h2>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-                <h2 class="section-title"><span>Top Rated Products</span></h2>
-                <div class="top-products-carousel">
-                    <div class="owl-carousel" id="top-products-carousel">
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-1.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-2.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-3.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-4.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-5.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-6.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-1.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="thumbnail no-border no-padding">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="assets/img/preview/shop/product-1-big.jpg">
-                                <img src="assets/img/preview/shop/top-rated-2.jpg" alt=""/>
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption text-center">
-                            <h4 class="caption-title"><a href="product-details.html">Standard Product Header</a></h4>
-                            <div class="rating">
-                                <span class="star"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span><!--
-                                --><span class="star active"></span>
-                            </div>
-                            <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                            <div class="buttons">
-                                <a class="btn btn-theme btn-theme-transparent btn-wish-list" href="#"><i class="fa fa-heart"></i></a><!--
-                                --><a class="btn btn-theme btn-theme-transparent" href="#">Add to Cart</a><!--
-                                --><a class="btn btn-theme btn-theme-transparent btn-compare" href="#"><i class="fa fa-exchange"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-                <a class="btn btn-theme btn-title-more btn-icon-left" href="#"><i class="fa fa-file-text-o"></i>See All Posts</a>
-                <h2 class="block-title"><span>Our Recent posts</span></h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="recent-post">
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/blog/recent-post-1.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <p class="media-category"><a href="#">Shoes</a> / <a href="#">Dress</a></p>
-                                    <h4 class="media-heading"><a href="#">Standard Post Comment Header Here</a></h4>
-                                    Fusce gravida interdum eros a mollis. Sed non lorem varius, volutpat nisl in, laoreet ante.
-                                    <div class="media-meta">
-                                        6th June 2014
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-comment"></i>27</a>
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-heart"></i>18</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="recent-post">
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/blog/recent-post-2.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <p class="media-category"><a href="#">Wedding</a> / <a href="#">Meeting</a></p>
-                                    <h4 class="media-heading"><a href="#">Standard Post Comment Header Here</a></h4>
-                                    Fusce gravida interdum eros a mollis. Sed non lorem varius, volutpat nisl in, laoreet ante.
-                                    <div class="media-meta">
-                                        6th June 2014
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-comment"></i>27</a>
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-heart"></i>18</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="recent-post">
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/blog/recent-post-3.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <p class="media-category"><a href="#">Children</a> / <a href="#">Kids</a></p>
-                                    <h4 class="media-heading"><a href="#">Standard Post Comment Header Here</a></h4>
-                                    Fusce gravida interdum eros a mollis. Sed non lorem varius, volutpat nisl in, laoreet ante.
-                                    <div class="media-meta">
-                                        6th June 2014
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-comment"></i>27</a>
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-heart"></i>18</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="recent-post">
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/blog/recent-post-4.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <p class="media-category"><a href="#">Man</a> / <a href="#">Accessories</a></p>
-                                    <h4 class="media-heading"><a href="#">Standard Post Comment Header Here</a></h4>
-                                    Fusce gravida interdum eros a mollis. Sed non lorem varius, volutpat nisl in, laoreet ante.
-                                    <div class="media-meta">
-                                        6th June 2014
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-comment"></i>27</a>
-                                        <span class="divider">/</span><a href="#"><i class="fa fa-heart"></i>18</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-                <h2 class="section-title"><span>Brand &amp; Clients</span></h2>
-                <div class="partners-carousel">
-                    <div class="owl-carousel" id="partners">
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                        <div><a href="#"><img src="assets/img/preview/partners/brand-logo.jpg" alt=""/></a></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="product-list">
-                            <a class="btn btn-theme btn-title-more" href="#">See All</a>
-                            <h4 class="block-title"><span>Top Sellers</span></h4>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-1.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-2.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-3.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-list">
-                            <a class="btn btn-theme btn-title-more" href="#">See All</a>
-                            <h4 class="block-title"><span>Top Accessories</span></h4>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-4.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-5.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-6.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="product-list">
-                            <a class="btn btn-theme btn-title-more" href="#">See All</a>
-                            <h4 class="block-title"><span>Top Newest</span></h4>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-7.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-8.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="pull-left media-link" href="#">
-                                    <img class="media-object" src="assets/img/preview/shop/top-sellers-9.jpg" alt="">
-                                    <i class="fa fa-plus"></i>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Standard Product Header</a></h4>
-                                    <div class="rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span>
-                                    </div>
-                                    <div class="price"><ins>$400.00</ins> <del>$425.00</del></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-        <!-- PAGE -->
-        <section class="page-section no-padding-top">
-            <div class="container">
-                <div class="row blocks shop-info-banners">
-                    <div class="col-md-4">
-                        <div class="block">
-                            <div class="media">
-                                <div class="pull-right"><i class="fa fa-gift"></i></div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Buy 1 Get 1</h4>
-                                    Proin dictum elementum velit. Fusce euismod consequat ante.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="block">
-                            <div class="media">
-                                <div class="pull-right"><i class="fa fa-comments"></i></div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Call to Free</h4>
-                                    Proin dictum elementum velit. Fusce euismod consequat ante.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="block">
-                            <div class="media">
-                                <div class="pull-right"><i class="fa fa-trophy"></i></div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Money Back!</h4>
-                                    Proin dictum elementum velit. Fusce euismod consequat ante.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /PAGE -->
-
-    </div>
-    <!-- /CONTENT AREA -->
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-widgets">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-3">
-                        <div class="widget">
-                            <h4 class="widget-title">About Us</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin ultrices suscipit. Sed commodo vel mauris vel dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <ul class="social-icons">
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="widget">
-                            <h4 class="widget-title">News Letter</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <form action="#">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Enter Your Mail and Get $10 Cash"/>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-theme btn-theme-transparent">Subscribe</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="widget widget-categories">
-                            <h4 class="widget-title">Information</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Delivery Information</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Terms and Conditions</a></li>
-                                <li><a href="#">Private Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="widget widget-tag-cloud">
-                            <h4 class="widget-title">Item Tags</h4>
-                            <ul>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Jeans</a></li>
-                                <li><a href="#">Top Sellers</a></li>
-                                <li><a href="#">E commerce</a></li>
-                                <li><a href="#">Hot Deals</a></li>
-                                <li><a href="#">Supplier</a></li>
-                                <li><a href="#">Shop</a></li>
-                                <li><a href="#">Theme</a></li>
-                                <li><a href="#">Website</a></li>
-                                <li><a href="#">Isamercan</a></li>
-                                <li><a href="#">Themeforest</a></li>
-                            </ul>
-                        </div>
-                    </div>
 
+                    <div class="col-lg-5 col-md-5">
+                        <div class="top-header-right">
+                            <div class="phone-btn">
+                                <span><i class='bx bx-mobile-alt'></i><a href="tel:+501-529-1747">+501-529-1747</a></span>
+                            </div>
+
+                            <div class="other-option">
+<div class="option-item">
+<div class="language-list">
+<select class="language-list-item">
+<option>English</option>
+<option>العربيّة</option>
+<option>Deutsch</option>
+<option>Português</option>
+<option>简体中文</option>
+</select>
+</div>
+</div>
+<div class="option-item">
+<div class="cart-btn-area">
+<a href="#" class="cart-btn"><i class='bx bx-cart'></i></a>
+<span>1</span>
+</div>
+</div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Top Header End -->
+
+        <!-- Start Navbar Area -->
+        <div class="navbar-area">
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index-2.html" class="logo">
+                    <img src="assets/images/logos/logo-1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light ">
+                        <a class="navbar-brand" href="index-2.html">
+                            <img src="assets/images/logos/logo-1.png" alt="Logo">
+                        </a>
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav m-auto">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active">
+                                        خانه  
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="index-2.html" class="nav-link active">
+                                                خانه یک   
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="index-3.html" class="nav-link">
+                                                خانه دو 
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="index-4.html" class="nav-link">
+                                                خانه سه
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        صفحات  
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="about.html" class="nav-link">
+                                                درباره ما 
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                فروشگاه
+                                                <i class='bx bx-chevron-down'></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item">
+                                                    <a href="shop-details.html" class="nav-link">
+                                                        جزییات محصول
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="shop-details-left-sidebar.html" class="nav-link">
+                                                      جزییات محصول با سایدبار چپ
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="shop-details-right-sidebar.html" class="nav-link">
+                                                        جزییات محصول با سایدبار راست
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="tracking-order.html" class="nav-link">
+                                                       پیگیری سفارش
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="size-guides.html" class="nav-link">
+                                                       راهنمای سایزبندی
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="customer-services.html" class="nav-link">
+                                                      خدمات مشتری
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="compare.html" class="nav-link">
+                                                        مقایسه
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="cart.html" class="nav-link">
+                                                        سبد خرید
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="checkout.html" class="nav-link">
+                                                      ادامه خرید  
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="wishlist.html" class="nav-link">
+                                                        علاقه‌مندی‌ها
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="my-account.html" class="nav-link">
+                                                        اکانت من
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="faq.html" class="nav-link">
+                                                پرسش و پاسخ                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="team.html" class="nav-link">
+                                                تیم
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="testimonials.html" class="nav-link">
+                                                رضایت مشتریان
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                کاربر
+                                                <i class='bx bx-chevron-down'></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item">
+                                                    <a href="log-in.html" class="nav-link">
+                                                   ورود
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="register.html" class="nav-link">
+                                                        ثبت‌نام
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="forget-password.html" class="nav-link">
+                                            فراموشی رمزعبور
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="terms-condition.html" class="nav-link">
+                                               شرایط و مقررات
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="privacy-policy.html" class="nav-link">
+                                               سیاست حریم شخصی
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="404.html" class="nav-link">
+                                                404 صفحه
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="search-page.html" class="nav-link">
+                                                صفحه جستجو
+                                            </a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="coming-soon.html" class="nav-link">
+                                               به زودی
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        فروشگاه
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                         <li class="nav-item">
+                                            <a href="shop-left-sidebar.html" class="nav-link">
+                                               فروشگاه با سایدبار راست
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="shop-right-sidebar.html" class="nav-link">
+                                                  فروشگاه با سایدبار چپ
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="shop-grid.html" class="nav-link">
+                                              فروشگاه با گرید
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="shop-full-width-sidebar.html" class="nav-link">
+فروشگاه با عرض کامل سایدبار     </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        دسته‌بندی
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="categories-1.html" class="nav-link">
+                                                دسته‌بندی(2 در صف)
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="categories-2.html" class="nav-link">
+                                                دسته‌بندی (3 در صف) 
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="categories-full-width.html" class="nav-link">
+                                                دسته‌بندی تمام عرض 
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        بلاگ
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="blog-1.html" class="nav-link">
+                                                بلاگ استایل یک 
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="blog-2.html" class="nav-link">
+                                                بلاگ استایل دو  
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="blog-details.html" class="nav-link">
+                                                بلاگ جزییات
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="contact.html" class="nav-link">
+                                        ارتباط با ما
+                                    </a>
+                                </li>
+
+                                <li class="nav-item-btn ">
+                                    <a href="log-in.html" class="default-btn border-radius-5 btn-bg-one">وارد شوید</a>
+                                </li>
+                            </ul>
+
+                            <div class="nav-btn">
+                                <a href="log-in.html" class="default-btn border-radius-5 btn-bg-one">وارد شوید</a>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
-        <div class="footer-meta">
+        <!-- End Navbar Area -->
+
+        <!-- Banner Area -->
+        <div class="banner-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="banner-content-area">
+                            <div class="banner-content">
+                                <span>20UNH22U رولکس 1002 ، کد </span>
+                                <h1> اولکس ، بهترین راه برای خرید </h1>
+                                <p>این یکی از بهترین روش های مناسب و مناسب برای خرید محصول با قیمت مناسب و مناسب است.</p>
+                                <a href="shop-details.html" class="default-btn btn-bg-one border-radius-5">خرید</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="banner-img-area">
+                            <div class="banner-img">
+                                <img src="assets/images/home-one/home-one1.png" alt="Images">
+                                <div class="banner-offer-tag">
+                                    <h3>60%</h3>
+                                    <span>پیشنهاد</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Area End -->
+
+        <!-- Product New Arrival  -->
+        <section class="product-new-arrival pt-100 pb-70">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="section-title">
+                            <h2>تازه رسیده ها</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-9">
+                        <ul class="filter-menu"> 
+                            <li class="filter active" data-filter="all">همه محصولات</li>
+                            <li class="filter" data-filter=".television">تلویزیون</li>
+                            <li class="filter" data-filter=".lamp">لامپ</li>
+                            <li class="filter" data-filter=".smartphone">گوشی همراه</li>
+                            <li class="filter" data-filter=".camera">دوربین</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="line-bottom">
+
+                <div id="Container" class="row"> 
+                    <div class="col-lg-3 col-sm-6 mix smartphone">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img1.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">هدفون سنهیزر</a></h3>
+                                <span>کد محصول # 20UN23HU</span>
+                                <div class="price-tag">
+                                    <h4>120 تومان<del>159 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix smartphone television camera">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img2.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">نیکون پی-1000</a></h3>
+                                <span>کد محصول # 30PN23HU</span>
+                                <div class="price-tag">
+                                    <h4>999 تومان<del>1050 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix smartphone lamp camera">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img3.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">گوشی سنهیزر</a></h3>
+                                <span>کد محصول # 40PN24LU</span>
+                                <div class="price-tag">
+                                    <h4>320 تومان<del>340 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix smartphone television">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img4.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">ای واچ گالری</a></h3>
+                                <span>کد محصول # 40PN24LU</span>
+                                <div class="price-tag">
+                                    <h4>310 تومان<del>340 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix lamp camera">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img5.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">توستر کلور 3569</a></h3>
+                                <span>کد محصول # 70PN24LU</span>
+                                <div class="price-tag">
+                                    <h4>129 تومان<del>159 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix television lamp">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img6.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">بریویل گیو بلندر</a></h3>
+                                <span>کد محصول # 60PN14LU</span>
+                                <div class="price-tag">
+                                    <h4>129 تومان<del>159 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix lamp ">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img7.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">الکتریک هاتپات</a></h3>
+                                <span>کد محصول # 60PN14LU</span>
+                                <div class="price-tag">
+                                    <h4>300 تومان<del>340 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 mix television camera">
+                        <div class="arrival-product">
+                            <div class="arrival-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/product-img8.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">میکرو اون سمی</a></h3>
+                                <span>کد محصول # 20PN10LU</span>
+                                <div class="price-tag">
+                                    <h4>400 تومان<del>500 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class='bx bx-show-alt'></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product New Arrival End -->
+
+        <!-- Product Category Area -->
+        <div class="product-category-area">
+            <div class="container-fluid">
+                <div class="section-max-bg pt-100 pb-70">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 col-md-6">
+                                <div class="section-title">
+                                    <h2>محصولات بر اساس دسته‌بندی</h2>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6">
+                                <div class="product-category-form">
+                                    <select class="form-control">
+                                        <option>دسته‌بندی</option>
+                                        <option>الکترونیکی</option>
+                                        <option>کودک و نوزاد</option>
+                                        <option>کفش و لباس</option>
+                                        <option>سلامت و زیبایی</option>
+                                        <option>سرگرمی و هنر</option>
+                                    </select>	
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-45">
+                            <div class="col-lg-9">
+                                <div class="product-category-bg-card">
+                                    <div class="content">
+                                        <span>این محصول را با قیمت پیشنهادی دریافت کنید</span>
+                                        <h3>بزرگترین پیشنهاد فروش فقط در تاریخ 30 آذر</h3>
+                                        <p>حداکثر 55٪ تخفبف</p>
+                                        <a href="#" class="default-btn border-radius-5 btn-bg-one">شروع کنید</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="product-category-card">
+                                    <div class="product-category-img">
+                                        <a href="shop-details.html">
+                                            <img src="assets/images/products/product-img9.png" alt="تصویر محصول">
+                                        </a>
+                                        <div class="new-tag">
+                                            <h3>جدید</h3>
+                                        </div>
+                                        <ul class="product-category-action">
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                                    <i class='bx bx-show-alt'></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="content">
+                                        <h3><a href="shop-details.html">تی-710 ایرفون</a></h3>
+                                        <span>کد محصول # 27PN10LU</span>
+                                        <div class="price-tag">
+                                            <h4>120 تومان<del>140 تومان</del></h4>
+                                        </div>
+        
+                                        <div class="add-btn">
+                                            <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="product-category-card">
+                                    <div class="product-category-img">
+                                        <a href="shop-details.html">
+                                            <img src="assets/images/products/product-img10.png" alt="تصویر محصول">
+                                        </a>
+                                        <div class="new-tag">
+                                            <h3>جدید</h3>
+                                        </div>
+                                        <ul class="product-category-action">
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                                    <i class='bx bx-show-alt'></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="content">
+                                        <h3><a href="shop-details.html">ساعت هوشمند مشکی</a></h3>
+                                        <span>کد محصول # 67HN10LU</span>
+                                        <div class="price-tag">
+                                            <h4>100 تومان<del>120 تومان</del></h4>
+                                        </div>
+        
+                                        <div class="add-btn">
+                                            <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="product-category-card">
+                                    <div class="product-category-img">
+                                        <a href="shop-details.html">
+                                            <img src="assets/images/products/product-img11.png" alt="تصویر محصول">
+                                        </a>
+                                        <div class="new-tag">
+                                            <h3>جدید</h3>
+                                        </div>
+                                        <ul class="product-category-action">
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                                    <i class='bx bx-show-alt'></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="content">
+                                        <h3><a href="shop-details.html">سونی ایکس ایرفون</a></h3>
+                                        <span>کد محصول # 47PN20LU</span>
+                                        <div class="price-tag">
+                                            <h4>240 تومان <del>270 تومان </del></h4>
+                                        </div>
+        
+                                        <div class="add-btn">
+                                            <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="product-category-card">
+                                    <div class="product-category-img">
+                                        <a href="shop-details.html">
+                                            <img src="assets/images/products/product-img12.png" alt="تصویر محصول">
+                                        </a>
+                                        <div class="new-tag">
+                                            <h3>جدید</h3>
+                                        </div>
+                                        <ul class="product-category-action">
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                                    <i class='bx bx-show-alt'></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="content">
+                                        <h3><a href="shop-details.html">بریویل گیو بلندر</a></h3>
+                                        <span>کد محصول # 47GN10HU</span>
+                                        <div class="price-tag">
+                                            <h4>700 تومان <del>800 تومان </del></h4>
+                                        </div>
+        
+                                        <div class="add-btn">
+                                            <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6 offset-lg-0 offset-sm-3">
+                                <div class="product-category-card">
+                                    <div class="product-category-img">
+                                        <a href="shop-details.html">
+                                            <img src="assets/images/products/product-img13.png" alt="تصویر محصول">
+                                        </a>
+                                        <div class="new-tag">
+                                            <h3>جدید</h3>
+                                        </div>
+                                        <ul class="product-category-action">
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="افزودن در علاقه‌مندی‌ها"><i class='bx bx-heart'></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-tooltip="tooltip" data-placement="top" title="نمایش سریع" data-toggle="modal" data-target="#productsQuickView">
+                                                    <i class='bx bx-show-alt'></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="content">
+                                        <h3><a href="shop-details.html">لنووو لپتاپ</a></h3>
+                                        <span>کد محصول # 47GN10HU</span>
+                                        <div class="price-tag">
+                                            <h4>1200 تومان <del>1400 تومان </del></h4>
+                                        </div>
+        
+                                        <div class="add-btn">
+                                            <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Category Area End -->
+
+        <!-- Other Product Area End -->
+        <div class="other-product-area pt-100 pb-70">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-sm-6">
-                        <div class="copyright">Copyright <a href="https://www.mellatweb.com/"> mellatweb.com<a/></div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="payments">
-                            <ul>
-                                <li><img src="assets/img/preview/payments/visa.jpg" alt=""/></li>
-                                <li><img src="assets/img/preview/payments/mastercard.jpg" alt=""/></li>
-                                <li><img src="assets/img/preview/payments/paypal.jpg" alt=""/></li>
-                                <li><img src="assets/img/preview/payments/american-express.jpg" alt=""/></li>
-                                <li><img src="assets/img/preview/payments/visa-electron.jpg" alt=""/></li>
-                                <li><img src="assets/img/preview/payments/maestro.jpg" alt=""/></li>
-                            </ul>
+                    <div class="col-lg-6">
+                        <div class="other-product-card">
+                            <img src="assets/images/products/smart-tv.png" alt="Images">
+                            <div class="content">
+                                <h3>تلویزیون <b>هوشمند</b></h3>
+                                <span>حالا در 5 کی نتورک</span>
+                            </div>
+                           
+                            <div class="price-title">
+                                <h2><sup>از <sup class="sup-text">99</sup></sup> 877  تومان</h2>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="other-product-champaign">
+                                    <div class="content">
+                                        <span>شروع از</span>
+                                        <h2>80 تومان </h2>
+                                        <h3>خرید رایگان در کمپین</h3>
+                                    </div>
+                                    <div class="product-champaign-img">
+                                        <img src="assets/images/products/product-img1.png" alt="Images">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="other-product-list">
+                                    <i class='bx bx-shopping-bag'></i>
+                                    <h3> تخفیف خرید </h3>
+                                    <p>
+                                        این یکی از بزرگترین و بزرگترین فروش بهترین محصولات این محصول است.
+                                         شما به راحتی می توانید این محصول را از یک پیشنهاد ویژه خریداری کنید و این واقعاً موثر است.
+                                    </p>
+                                    <a href="#" class="default-btn border-radius-5">شروع کنید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- /FOOTER -->
+        <!-- Other Product Area End -->
 
-    <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
+        <!-- Choose Area -->
+        <div class="choose-area pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2> چرا ما را انتخاب کنید </h2>
+                </div>
+                <div class="row pt-45">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="choose-card">
+                            <i class="flaticon-return"></i>
+                            <h3> بازگشت آسان </h3>
+                            <p>
+                                بازگشت 20 روزه بدون پرسش و سوال ، با خیال راحت. این یکی از بهترین پیشنهادات برای شما است.
+                            </p>
+                        </div>
+                    </div>
 
-</div>
-<!-- /WRAPPER -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="choose-card">
+                            <i class="flaticon-verified"></i>
+                            <h3> پرداخت امن </h3>
+                            <p>
+                                بازگشت 20 روزه بدون پرسش و سوال ، با خیال راحت. این یکی از بهترین پیشنهادات برای شما است.
+                            </p>
+                        </div>
+                    </div>
 
-<!-- JS Global -->
-<script src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
-<script src="assets/plugins/superfish/js/superfish.min.js"></script>
-<script src="assets/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
-<script src="assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
-<script src="assets/plugins/jquery.sticky.min.js"></script>
-<script src="assets/plugins/jquery.easing.min.js"></script>
-<script src="assets/plugins/jquery.smoothscroll.min.js"></script>
-<script src="assets/plugins/smooth-scrollbar.min.js"></script>
+                    <div class="col-lg-4 col-sm-6 offset-lg-0 offset-sm-3">
+                        <div class="choose-card">
+                            <i class="flaticon-planet-earth"></i>
+                            <h3> خرید جهانی </h3>
+                            <p>
+                                بازگشت 20 روزه بدون پرسش و سوال ، با خیال راحت. این یکی از بهترین پیشنهادات برای شما است.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Choose Area End -->
 
-<!-- JS Page Level -->
-<script src="assets/js/theme.js"></script>
+        <!-- Product Offer Area -->
+        <div class="product-offer-area">
+            <div class="container-fluid">
+                <div class="section-max-bg pt-100 pb-70">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5">
+                                <div class="offer-card">
+                                    <h2>این یکی از بزرگترین پیشنهادات است</h2>
+                                    <h3>330 تومان<del>500 تومان</del></h3>
+                                    <p>این یکی از بزرگترین و بزرگترین فروش این بهترین محصول است. شما به راحتی می توانید این محصول را از یک پیشنهاد ویژه خریداری کنید و این واقعاً موثر است.</p>
+                                    <div id="timer">
+                                        <div id="days"></div>
+                                        <div id="hours"></div>
+                                        <div id="minutes"></div>
+                                        <div id="seconds"></div>
+                                    </div>
+                                    <a href="shop-details.html" class="default-btn btn-bg-one border-radius-5">خرید</a>
+                                </div>
+                            </div>
 
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/plugins/jquery.cookie.js"></script>
-<script src="assets/js/theme-config.js"></script>
-<!--<![endif]-->
+                            <div class="col-lg-7">
+                                <div class="offer-slider owl-carousel owl-theme">
+                                    <div class="offer-img-item">
+                                        <img src="assets/images/offer-img/offer-img1.jpg" alt="Offer Images">
+                                        <div class="offer-tag">
+                                            <h3>60%</h3>
+                                            <span>پیشنهاد</span>
+                                        </div>
+                                    </div>
 
-</body>
+                                    <div class="offer-img-item">
+                                        <img src="assets/images/offer-img/offer-img2.jpg" alt="Offer Images">
+                                        <div class="offer-tag">
+                                            <h3>50%</h3>
+                                            <span>پیشنهاد</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Offer Area End -->
+
+        <!-- Best Sell Area -->
+        <div class="best-sell-area pt-100 pb-70">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="section-title">
+                            <h2>محصولات پرفروش</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-search-form">
+                            <input type="search" class="form-control" placeholder="جستجو محصولات">
+                            <button type="submit">
+                                <i class="bx bx-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pt-45">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product1.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">هیرز 7.5 کیلوگرم قسطی</a></h3>
+                                <span>کد محصول # 47GN10HU</span>
+                                <div class="price-tag">
+                                    <h4>129 تومان<del>159 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product2.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">دی اس تلویزیون</a></h3>
+                                <span>کد محصول # 57GN10HU</span>
+                                <div class="price-tag">
+                                    <h4>149 تومان<del>169 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product3.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">رنجز التی دی یخچال</a></h3>
+                                <span>کد محصول # 57GN10HU</span>
+                                <div class="price-tag">
+                                    <h4>1400 تومان<del>1600 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product4.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">الکتریک ایکس فالکس</a></h3>
+                                <span>کد محصول # 57GN10HU</span>
+                                <div class="price-tag">
+                                    <h4>200 تومان<del>300 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product5.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">چایساز میکسر</a></h3>
+                                <span>کد محصول # 67GN10HU</span>
+                                <div class="price-tag">
+                                    <h4>1000 تومان<del>1400 تومان </del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product6.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">الکترونیک مینی میکسر</a></h3>
+                                <span>کد محصول # 67GN40HU</span>
+                                <div class="price-tag">
+                                    <h4>220 تومان<del>200 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product7.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">پیروت واتر کاسر</a></h3>
+                                <span>کد محصول # 67GN40HU</span>
+                                <div class="price-tag">
+                                    <h4>210 تومان<del>220 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="best-sell-card">
+                            <div class="best-sell-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/products/best-sell-product8.png" alt="تصویر محصول">
+                                </a>
+                                <div class="new-tag">
+                                    <h3>جدید</h3>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="shop-details.html">میکرو اون سمی</a></h3>
+                                <span>کد محصول # 57GN30HU</span>
+                                <div class="price-tag">
+                                    <h4>888 تومان<del>900 تومان</del></h4>
+                                </div>
+
+                                <div class="add-btn">
+                                    <a href="shop-details.html" class="add-cart-btn">خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Best Sell Area End -->
+
+        <!-- Blog Area -->
+        <div class="blog-area pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>بلاگ ما</h2>
+                </div>
+
+                <div class="row pt-45">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img1.jpg" alt="Blog Images">
+                                </a>
+                                <div class="blog-date">27 آذر</div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="blog-details.html">در اپل واچ در مارکت 25٪ تخفیف بگیرید</a></h3>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <a href="blog-details.html" class="read-btn">بیشتر بخوانید</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img2.jpg" alt="Blog Images">
+                                </a>
+                                <div class="blog-date">29 آذر</div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="blog-details.html">چرخ دنده های بازی می توانند در محدوده قیمت مناسب خریداری کنند</a></h3>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <a href="blog-details.html" class="read-btn">بیشتر بخوانید</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <a href="blog-details.html">
+                                    <img src="assets/images/blog/blog-img3.jpg" alt="Blog Images">
+                                </a>
+                                <div class="blog-date">25 آذر</div>
+                            </div>
+
+                            <div class="content">
+                                <h3><a href="blog-details.html">بیایید با یک ساعت مچی مارک جدید آشنا شویم</a></h3>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <a href="blog-details.html" class="read-btn">بیشتر بخوانید</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Area End -->
+
+        <!-- Footer Area -->
+        <footer class="footer-area footer-bg">
+            <div class="container">
+                <div class="footer-contact">
+                    <div class="newsletter-area">
+                        <h2>به اشتراک خبرنامه ما اضافه شوید</h2>
+                        <form class="newsletter-form" data-toggle="validator" method="POST">
+                            <input type="email" class="form-control" placeholder="ایمیل خود را وارد کنید" name="EMAIL" required autocomplete="off">
+                            <button class="subscribe-btn" type="submit">
+                                اشتراک
+                            </button>
+                            <div id="validator-newsletter" class="form-result"></div>
+                        </form>
+                    </div>
+
+                    <div class="newsletter-shape">
+                        <div class="shape1">
+                            <img src="assets/images/shape/shape1.png" alt="Images">
+                        </div>
+                        <div class="shape2">
+                            <img src="assets/images/shape/shape2.png" alt="Images">
+                        </div>
+                        <div class="shape3">
+                            <img src="assets/images/shape/shape3.png" alt="Images">
+                        </div>
+                        <div class="shape4">
+                            <img src="assets/images/shape/shape4.png" alt="Images">
+                        </div>
+                        <div class="shape5">
+                            <img src="assets/images/shape/shape3.png" alt="Images">
+                        </div>
+                        <div class="shape6">
+                            <img src="assets/images/shape/shape2.png" alt="Images">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-top pb-70">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-widget">
+                                <div class="footer-logo">
+                                    <a href="index-2.html">
+                                        <img src="assets/images/logos/logo-1.png" alt="Images">
+                                    </a>
+                                </div>
+                                <p>
+                                   ما یکی از بهترین شرکت ها در جهان هستیم و شما می توانید به راحتی از ما خرید کنید.
+                                </p>
+                                <ul class="footer-list-contact">
+                                    <li>
+                                        <i class='flaticon-placeholder'></i>
+                                        <a href="#">2873  یورک شایر سیرکل ، کارولینا</a>
+                                    </li>
+                                    <li>
+                                        <i class='flaticon-smartphone'></i>
+                                        <a href="tel:+501-529-1747">+501-529-1747</a>
+                                    </li>
+                                    <li>
+                                        <i class='flaticon-messenger'></i>
+                                        <a href="mailto:hello@olex.com">hello@olex.com</a>
+                                    </li>
+                                </ul>
+
+                                <ul class="social-link">
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-pinterest-alt'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-youtube'></i></a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-widget">
+                                <h3>خدمات</h3>
+                                <ul class="footer-list">
+                                    <li>
+                                        <a href="wordpress-hosting.html" target="_blank">
+                                            اکانت من
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="tracking-order.html" target="_blank">
+                                            پیگیری سفارش 
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="customer-services.html" target="_blank">
+                                            خدمات مشتریان  
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="compare.html" target="_blank">
+                                            مقایسه
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="wishlist.html" target="_blank">
+                                            علاقه‌مندی‌ها
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="privacy-policy.html" target="_blank">
+                                           سیاست حفظ حریم شخصی      
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6">
+                            <div class="footer-widget">
+                                <h3>لینک‌های مفید</h3>
+                                <ul class="footer-list">
+                                    <li>
+                                        <a href="index-2.html" target="_blank">
+                                            خانه
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="about.html" target="_blank">
+                                            درباره ما  
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="blog-details.html" target="_blank">
+                                            بلاگ جزییات 
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="shop-details.html" target="_blank">
+                                           جزییات محصول     
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="testimonials.html" target="_blank">
+                                            رضایت مشتریان
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="team.html" target="_blank">
+                                            تیم
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-widget">
+                                <h3>ساعت کاری</h3>
+                                <p>
+                                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. 
+                                </p>
+                                <ul class="footer-work-hour-list">
+                                    <li>
+                                        <span>شنبه-پنجشنبه:</span> 8:30 قبل‌ازظهر - 5:30 بعدازظهر 
+                                    </li> 
+                                    <li>
+                                        <span> جمعه:</span> 9:00 قبل‌ازظهر - 2:00 بعدازظهر 
+                                    </li> 
+                                    <li>
+                                        <span>دوشنبه:</span>  بسته
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copy-right-area">
+                    <div class="copy-right-text">
+                        <p>
+                            کپی رایت @ 1399 اولکس. کلیه حقوق محفوظ است . ارایه از
+                            <a href=" " target="_blank">AFARIDTEAM</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Area End -->
+
+        <!-- QuickView Modal Area -->
+        <div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class='bx bx-x'></i></span>
+                    </button>
+
+                    <div class="row">
+                        <div class="col-lg-5 col-md-4">
+                            <div class="products-image"><img src="assets/images/products/shop-details-img1.png" alt="Images"></div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-8">
+                            <div class="product-content">
+                                <h3>خرس بزرگ تدی بر</h3>
+                                <div class="product-text">
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </p>
+                                </div>
+                                <div class="price-status">
+                                    <div class="price">
+                                        <span class="new-price">54100 تومان</span>
+                                        <div class="rating">
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="availability-status">
+                                        <ul>
+                                            <li>موجودی: <span>موجود در انبار</span></li>
+                                            <li>تاریخ انقضا: <span>12 آذر, 1399</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-add-to-cart">
+                                    <div class="input-counter">
+                                        <span class="minus-btn">
+                                            <i class='bx bx-minus'></i>
+                                        </span>
+                                        <input type="text" value="1">
+                                        <span class="plus-btn">
+                                            <i class='bx bx-plus'></i>
+                                        </span>
+                                    </div>
+                                    <button type="submit" class="default-btn btn-bg-three">
+                                        افزودن به سبد خرید
+                                    </button>
+
+                                    <button type="submit" class="default-btn btn-bg-three">
+                                        همین حالا بخرید
+                                    </button>
+                                </div>
+    
+                                <div class="advantage-list">
+                                    <h3>جرییات فنی این محصول:</h3>
+                                    <ul>
+                                        <li>بسیار تازه و با کیفیت کامل</li>
+                                        <li>این را از منبع طبیعی جمع آوری کنید</li>
+                                        <li>دامنه اعتبار مناسبی داشته باشید</li>
+                                        <li>تحویل رایگان خانه</li>
+                                    </ul>
+                                </div>
+    
+                                <div class="products-share">
+                                    <ul class="social">
+                                        <li><span>اشتراک:</span></li>
+                                        <li>
+                                            <a href="#" class="facebook" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="twitter" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="linkedin" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="instagram" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- QuickView Modal Area End -->
+
+
+      <script src="/js/main.js"></script>
+    </body>
+
+
+
+<!-- Mirrored from atiyehahmadi.ir/olex/rtl/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Mar 2021 16:51:38 GMT -->
 </html>

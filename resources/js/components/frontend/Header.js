@@ -8,433 +8,509 @@ const Header = () => {
     };
     return (
         <>
-            <header className="header">
-                <div className="header-wrapper">
-                    <div className="container">
-                        <div className="logo">
-                            <a href="index.html">
-                                <img
-                                    src="assets/img/logo-bella-shop.png"
-                                    alt="Bella Shop"
-                                />
-                            </a>
+            {/* <!-- Top Header Start --> */}
+            <header class="top-header top-header-bg">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7 col-md-7">
+                            <div class="top-header-form">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option>دسته‌بندی</option>
+                                                    <option>الکترونیکی</option>
+                                                    <option>
+                                                        کودک و نوزاد
+                                                    </option>
+                                                    <option>کفش و لباس</option>
+                                                    <option>
+                                                        سلامت و زیبایی
+                                                    </option>
+                                                    <option>
+                                                        سرگرمی و هنر
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-8 pl-0">
+                                            <div class="form-group search-form">
+                                                <input
+                                                    type="search"
+                                                    class="form-control"
+                                                    placeholder="جستجو محصولات"
+                                                />
+                                                <button type="submit">
+                                                    <i class="bx bx-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
 
-                        <div className="header-search">
-                            <input
-                                className="form-control"
-                                type="text"
-                                placeholder="What are you looking?"
-                            />
-                            <button>
-                                <i className="fa fa-search"></i>
-                            </button>
-                        </div>
+                        <div class="col-lg-5 col-md-5">
+                            <div class="top-header-right">
+                                <div class="phone-btn">
+                                    <span>
+                                        <i class="bx bx-mobile-alt"></i>
+                                        <a href="tel:+501-529-1747">
+                                            +501-529-1747
+                                        </a>
+                                    </span>
+                                </div>
 
-                        <div className="header-cart">
-                            <div className="cart-wrapper">
-                                <a
-                                    href="wishlist.html"
-                                    className="btn btn-theme-transparent hidden-xs hidden-sm"
-                                >
-                                    <i className="fa fa-heart"></i>
-                                </a>
-                                <a
-                                    href="compare-products.html"
-                                    className="btn btn-theme-transparent hidden-xs hidden-sm"
-                                >
-                                    <i className="fa fa-exchange"></i>
-                                </a>
-                                <a
-                                    href="#"
-                                    className="btn btn-theme-transparent"
-                                    data-toggle="modal"
-                                    data-target="#popup-cart"
-                                >
-                                    <i className="fa fa-shopping-cart"></i>{" "}
-                                    <span className="hidden-xs">
-                                        {" "}
-                                        0 item(s) - $0.00{" "}
-                                    </span>{" "}
-                                    <i className="fa fa-angle-down"></i>
-                                </a>
-
-                                <a
-                                    href="#"
-                                    className="menu-toggle btn btn-theme-transparent"
-                                >
-                                    <i className="fa fa-bars"></i>
-                                </a>
+                                <div class="other-option">
+                                    <div class="option-item">
+                                        <div class="language-list">
+                                            <select class="language-list-item">
+                                                <option>English</option>
+                                                <option>العربيّة</option>
+                                                <option>Deutsch</option>
+                                                <option>Português</option>
+                                                <option>简体中文</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="option-item">
+                                        <div class="cart-btn-area">
+                                            <a href="#" class="cart-btn">
+                                                <i class="bx bx-cart"></i>
+                                            </a>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="navigation-wrapper">
-                    <div className="container">
-                        <nav className="navigation closed clearfix">
-                            <a href="#" className="menu-toggle-close btn">
-                                <i className="fa fa-times"></i>
+            </header>
+            {/* <!-- Top Header End --> */}
+
+            {/* <!-- Start Navbar Area --> */}
+            <div class="navbar-area">
+                {/* <!-- Menu For Mobile Device --> */}
+                <div class="mobile-nav">
+                    <a href="index-2.html" class="logo">
+                        <img src="assets/images/logos/logo-1.png" alt="Logo" />
+                    </a>
+                </div>
+
+                {/* <!-- Menu For Desktop Device --> */}
+                <div class="main-nav">
+                    <div class="container">
+                        <nav class="navbar navbar-expand-md navbar-light ">
+                            <a class="navbar-brand" href="index-2.html">
+                                <img
+                                    src="assets/images/logos/logo-1.png"
+                                    alt="Logo"
+                                />
                             </a>
-                            <ul className="nav sf-menu">
-                                <li className="active">
-                                    <a href="index.html">Homepage</a>
-                                    <ul>
-                                        <li>
-                                            <a href="index.html">Homepage 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-2.html">
-                                                Homepage 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-3.html">
-                                                Homepage 3
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-4.html">
-                                                Homepage 4
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-5.html">
-                                                Homepage 5
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-6.html">
-                                                Homepage 6
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-7.html">
-                                                Homepage 7
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-8.html">
-                                                Homepage 8
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index-9.html">
-                                                Homepage 9
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="category.html">Shop</a>
-                                    <ul>
-                                        <li>
-                                            <a href="category.html">
-                                                Shop Sidebar Left
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="category-right.html">
-                                                Shop Sidebar Right
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="category-list.html">
-                                                Shop List View
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="product-details.html">
-                                                Product Page
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Blog</a>
-                                    <ul>
-                                        <li>
-                                            <a href="blog.html">
-                                                Blog Sidebar Left{" "}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-right.html">
-                                                Blog Sidebar Right
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-post.html">
-                                                Blog Single Post
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="portfolio.html">Portfolio</a>
-                                    <ul>
-                                        <li>
-                                            <a href="portfolio.html">
-                                                Portfolio 3 columns
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="portfolio-4col.html">
-                                                Portfolio 4 columns
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="portfolio-alt.html">
-                                                Portfolio Alternate
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="portfolio-single.html">
-                                                Portfolio Single
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="megamenu">
-                                    <a href="#">Features</a>
-                                    <ul>
-                                        <li className="row">
-                                            <div className="col-md-2">
-                                                <h4 className="block-title">
-                                                    <span>Womens</span>
-                                                </h4>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">Dresses</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Rompers & Jumpsuits
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Bodysuits
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Shirts & Blouses
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Coats & Jackets
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Blazers</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div className="col-md-2">
-                                                <h4 className="block-title">
-                                                    <span>Mens</span>
-                                                </h4>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            T-Shirts & Vests
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Sweaters & Cardigans
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Hoodies & Sweats
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            Coats & Jackets
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Shirts</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Shorts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div className="col-md-2">
-                                                <h4 className="block-title">
-                                                    <span>Pages</span>
-                                                </h4>
-                                                <ul>
-                                                    <li>
-                                                        <a href="shortcodes.html">
-                                                            <strong>
-                                                                Shortcodes
-                                                            </strong>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="typography.html">
-                                                            <strong>
-                                                                Typography
-                                                            </strong>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="coming-soon.html">
-                                                            <strong>
-                                                                Coming soon
-                                                            </strong>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="error-page.html">
-                                                            <strong>
-                                                                404 Page
-                                                            </strong>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="about.html">
-                                                            <strong>
-                                                                About
-                                                            </strong>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="login.html">
-                                                            <strong>
-                                                                Login
-                                                            </strong>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div className="col-md-3">
-                                                <h4 className="block-title">
-                                                    <span>Paragraph</span>
-                                                </h4>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing
-                                                    elit...
-                                                </p>
-                                                <p>
-                                                    Suspendisse molestie est nec
-                                                    tortor placerat, vel
-                                                    pellentesque metus
-                                                    sollicitudin. Suspendisse
-                                                    congue sem mauris, at
-                                                    ultrices felis blandit non.
-                                                </p>
-                                            </div>
-                                            <div className="col-md-3">
-                                                <div className="product-list">
-                                                    <div className="media">
+
+                            <div
+                                class="collapse navbar-collapse mean-menu"
+                                id="navbarSupportedContent"
+                            >
+                                <ul class="navbar-nav m-auto">
+                                    <li class="nav-item">
+                                        <a
+                                            href="#"
+                                            class="nav-link"
+                                            onClick={logout}
+                                        >
+                                            خروج
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            خانه
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a
+                                                    href="index-2.html"
+                                                    class="nav-link active"
+                                                >
+                                                    خانه یک
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="index-3.html"
+                                                    class="nav-link"
+                                                >
+                                                    خانه دو
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="index-4.html"
+                                                    class="nav-link"
+                                                >
+                                                    خانه سه
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            صفحات
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a
+                                                    href="about.html"
+                                                    class="nav-link"
+                                                >
+                                                    درباره ما
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    فروشگاه
+                                                    <i class="bx bx-chevron-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item">
                                                         <a
-                                                            className="pull-left media-link"
-                                                            href="#"
+                                                            href="shop-details.html"
+                                                            class="nav-link"
                                                         >
-                                                            <img
-                                                                className="media-object"
-                                                                src="assets/img/preview/shop/top-sellers-2.jpg"
-                                                                alt=""
-                                                            />
-                                                            <i className="fa fa-plus"></i>
+                                                            جزییات محصول
                                                         </a>
-                                                        <div className="media-body">
-                                                            <h4 className="media-heading">
-                                                                <a href="#">
-                                                                    Standard
-                                                                    Product
-                                                                    Header
-                                                                </a>
-                                                            </h4>
-                                                            <div className="rating">
-                                                                <span className="star"></span>
-                                                                <span className="star active"></span>
-                                                                <span className="star active"></span>
-                                                                <span className="star active"></span>
-                                                                <span className="star active"></span>
-                                                            </div>
-                                                            <div className="price">
-                                                                <ins>
-                                                                    $400.00
-                                                                </ins>{" "}
-                                                                <del>
-                                                                    $425.00
-                                                                </del>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="media">
+                                                    </li>
+                                                    <li class="nav-item">
                                                         <a
-                                                            className="pull-left media-link"
-                                                            href="#"
+                                                            href="shop-details-left-sidebar.html"
+                                                            class="nav-link"
                                                         >
-                                                            <img
-                                                                className="media-object"
-                                                                src="assets/img/preview/shop/top-sellers-3.jpg"
-                                                                alt=""
-                                                            />
-                                                            <i className="fa fa-plus"></i>
+                                                            جزییات محصول با
+                                                            سایدبار چپ
                                                         </a>
-                                                        <div className="media-body">
-                                                            <h4 className="media-heading">
-                                                                <a href="#">
-                                                                    Standard
-                                                                    Product
-                                                                    Header
-                                                                </a>
-                                                            </h4>
-                                                            <div className="rating">
-                                                                <span className="star"></span>
-                                                                <span className="star active"></span>
-                                                                <span className="star active"></span>
-                                                                <span className="star active"></span>
-                                                                <span className="star active"></span>
-                                                            </div>
-                                                            <div className="price">
-                                                                <ins>
-                                                                    $400.00
-                                                                </ins>{" "}
-                                                                <del>
-                                                                    $425.00
-                                                                </del>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="category.html">Men</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Women</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Kids</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">New</a>
-                                </li>
-                                <li className="sale">
-                                    <a href="category.html">Sale</a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">Contact</a>
-                                </li>
-                            </ul>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="shop-details-right-sidebar.html"
+                                                            class="nav-link"
+                                                        >
+                                                            جزییات محصول با
+                                                            سایدبار راست
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="tracking-order.html"
+                                                            class="nav-link"
+                                                        >
+                                                            پیگیری سفارش
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="size-guides.html"
+                                                            class="nav-link"
+                                                        >
+                                                            راهنمای سایزبندی
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="customer-services.html"
+                                                            class="nav-link"
+                                                        >
+                                                            خدمات مشتری
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="compare.html"
+                                                            class="nav-link"
+                                                        >
+                                                            مقایسه
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="cart.html"
+                                                            class="nav-link"
+                                                        >
+                                                            سبد خرید
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="checkout.html"
+                                                            class="nav-link"
+                                                        >
+                                                            ادامه خرید
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="wishlist.html"
+                                                            class="nav-link"
+                                                        >
+                                                            علاقه‌مندی‌ها
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="my-account.html"
+                                                            class="nav-link"
+                                                        >
+                                                            اکانت من
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="faq.html"
+                                                    class="nav-link"
+                                                >
+                                                    پرسش و پاسخ{" "}
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="team.html"
+                                                    class="nav-link"
+                                                >
+                                                    تیم
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="testimonials.html"
+                                                    class="nav-link"
+                                                >
+                                                    رضایت مشتریان
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    کاربر
+                                                    <i class="bx bx-chevron-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="log-in.html"
+                                                            class="nav-link"
+                                                        >
+                                                            ورود
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="register.html"
+                                                            class="nav-link"
+                                                        >
+                                                            ثبت‌نام
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a
+                                                            href="forget-password.html"
+                                                            class="nav-link"
+                                                        >
+                                                            فراموشی رمزعبور
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="terms-condition.html"
+                                                    class="nav-link"
+                                                >
+                                                    شرایط و مقررات
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="privacy-policy.html"
+                                                    class="nav-link"
+                                                >
+                                                    سیاست حریم شخصی
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="404.html"
+                                                    class="nav-link"
+                                                >
+                                                    404 صفحه
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="search-page.html"
+                                                    class="nav-link"
+                                                >
+                                                    صفحه جستجو
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a
+                                                    href="coming-soon.html"
+                                                    class="nav-link"
+                                                >
+                                                    به زودی
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            فروشگاه
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a
+                                                    href="shop-left-sidebar.html"
+                                                    class="nav-link"
+                                                >
+                                                    فروشگاه با سایدبار راست
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="shop-right-sidebar.html"
+                                                    class="nav-link"
+                                                >
+                                                    فروشگاه با سایدبار چپ
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="shop-grid.html"
+                                                    class="nav-link"
+                                                >
+                                                    فروشگاه با گرید
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="shop-full-width-sidebar.html"
+                                                    class="nav-link"
+                                                >
+                                                    فروشگاه با عرض کامل سایدبار{" "}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            دسته‌بندی
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a
+                                                    href="categories-1.html"
+                                                    class="nav-link"
+                                                >
+                                                    دسته‌بندی(2 در صف)
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="categories-2.html"
+                                                    class="nav-link"
+                                                >
+                                                    دسته‌بندی (3 در صف)
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="categories-full-width.html"
+                                                    class="nav-link"
+                                                >
+                                                    دسته‌بندی تمام عرض
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            بلاگ
+                                            <i class="bx bx-chevron-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a
+                                                    href="blog-1.html"
+                                                    class="nav-link"
+                                                >
+                                                    بلاگ استایل یک
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="blog-2.html"
+                                                    class="nav-link"
+                                                >
+                                                    بلاگ استایل دو
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a
+                                                    href="blog-details.html"
+                                                    class="nav-link"
+                                                >
+                                                    بلاگ جزییات
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="contact.html" class="nav-link">
+                                            ارتباط با ما
+                                        </a>
+                                    </li>
+
+                                    {/* <li class="nav-item-btn ">
+                                    <a href="log-in.html" class="default-btn border-radius-5 btn-bg-one">وارد شوید</a>
+                                </li> */}
+                                </ul>
+
+                                <div class="nav-btn">
+                                    <Link
+                                        to="/login"
+                                        class="default-btn border-radius-5 btn-bg-one"
+                                    >
+                                        وارد شوید
+                                    </Link>
+                                </div>
+                            </div>
                         </nav>
                     </div>
                 </div>
-            </header>
+            </div>
+            {/* <!-- End Navbar Area --> */}
         </>
     );
 };
