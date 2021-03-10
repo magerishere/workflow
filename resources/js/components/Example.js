@@ -8,6 +8,7 @@ import Login from "./frontend/form/Login";
 import Register from "./frontend/form/Register";
 import Content from "./frontend/Content";
 import ProductDetails from "./frontend/products/ProductDetails";
+import ForgotPassword from "./frontend/form/ForgotPassword";
 const Example = () => {
     console.log("exampple");
     return (
@@ -24,7 +25,18 @@ const Example = () => {
                     <Route path="/login" exact component={Login} />
                 </Switch>
                 <Switch>
-                    <Route path="/product/:id" exact component={ProductDetails} />
+                    <Route
+                        path="/product/:id"
+                        exact
+                        component={ProductDetails}
+                    />
+                </Switch>
+                <Switch>
+                    <Route
+                        path="/forgotpassword"
+                        exact
+                        component={ForgotPassword}
+                    />
                 </Switch>
                 <Footer />
             </Router>

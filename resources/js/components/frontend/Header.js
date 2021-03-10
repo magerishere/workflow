@@ -95,21 +95,21 @@ const Header = () => {
             <div class="navbar-area">
                 {/* <!-- Menu For Mobile Device --> */}
                 <div class="mobile-nav">
-                    <a href="index-2.html" class="logo">
+                    <Link to="/" class="logo">
                         <img src="assets/images/logos/logo-1.png" alt="Logo" />
-                    </a>
+                    </Link>
                 </div>
 
                 {/* <!-- Menu For Desktop Device --> */}
                 <div class="main-nav">
                     <div class="container">
                         <nav class="navbar navbar-expand-md navbar-light ">
-                            <a class="navbar-brand" href="index-2.html">
+                            <Link class="navbar-brand" to="/">
                                 <img
                                     src="assets/images/logos/logo-1.png"
                                     alt="Logo"
                                 />
-                            </a>
+                            </Link>
 
                             <div
                                 class="collapse navbar-collapse mean-menu"

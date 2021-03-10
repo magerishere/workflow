@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProductDescription from "./ProductDescription";
 import ProductComments from "./ProductComments";
 import ProductAddress from "./ProductAddress";
-const ProductTab = ({comments}) => {
+const ProductTab = ({comments,productId}) => {
     const [active, setActive] = useState(1);
     return (
         <>
@@ -51,7 +51,7 @@ const ProductTab = ({comments}) => {
                                                 <ProductDescription />
                                             )}
                                             {active === 2 && (
-                                                <ProductComments comments={comments} />
+                                                <ProductComments comments={comments} productId={productId} />
                                             )}
                                             {active === 3 && <ProductAddress />}
                                         </div>

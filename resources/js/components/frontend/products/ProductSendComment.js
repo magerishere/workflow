@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-const ProductSendComment = () => {
+const ProductSendComment = ({ productId }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [body, setBody] = useState("");
@@ -8,7 +8,7 @@ const ProductSendComment = () => {
 
     const sendComment = async (e) => {
         e.preventDefault();
-        const data = { name, email, body };
+        const data = { name, email, body, productId };
         const res = await axios.post("/comment", data);
         if (res.data.status === 200) {
             setName("");
@@ -19,7 +19,7 @@ const ProductSendComment = () => {
     };
     return (
         <>
-            <p>{message}</p>
+            <p className="bg-success text-dark">{message}</p>
             <form id="contactForm" onSubmit={sendComment}>
                 <div className="row">
                     <div className="col-lg-6 col-sm-6">

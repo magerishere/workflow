@@ -39,7 +39,7 @@ class CommentController extends Controller
         //
         $comment = Comment::create([
             'user_id'=>1,
-            'productId'=>2,
+            'productId'=>$request->productId,
             'name'=>$request->name,
             'email'=>$request->email,
             'body'=>$request->body

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Events\UserHandlerEvent;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ForgotPassword;
+
 
 
 
@@ -106,6 +109,23 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return response()->json(['status'=>450]);
+    }
+
+    public function forgotPassword(Request $request)
+    {
+        $newPassword = rand(9999,999999);
+        $user =  User::where(['email'=>$request->email])->first();
+        if($user) {
+            $user->update([
+                'password'=>bcrypt($newPassword),
+            ]);
+            Mail::to($request->email)->send(new ForgotPassword($newPassword));
+            return response()->json(['status'=>200]);
+        }
+
+        return response()->json(['status'=>400]);
+
+            
     }
 
 

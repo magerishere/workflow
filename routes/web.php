@@ -27,3 +27,5 @@ Route::get('/test',function(){
 
 Route::resource('/product',ProductController::class);
 Route::resource('/comment',CommentController::class);
+
+Route::post('/forgotpassword',[UserController::class,'forgotPassword']);

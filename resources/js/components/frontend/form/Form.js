@@ -137,13 +137,13 @@ const Form = ({ isRegister }) => {
                                                 <div className="col-lg-12 form-condition">
                                                     <div className="agree-label">
                                                         <label for="chb1">
-                                                            <a
+                                                            <Link
                                                                 className="forget"
-                                                                href="forget-password.html"
+                                                                to="/forgotpassword"
                                                             >
                                                                 فراموشی رمز
                                                                 عبور؟
-                                                            </a>
+                                                            </Link>
                                                         </label>
                                                     </div>
                                                 </div>
