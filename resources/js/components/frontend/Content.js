@@ -7,6 +7,9 @@ class Content extends Component {
         super(props);
         this.state = {
             products: [],
+            cart: localStorage.getItem("usercart")
+                ? JSON.parse(localStorage.getItem("usercart"))
+                : [],
         };
     }
 
@@ -14,8 +17,26 @@ class Content extends Component {
         const res = await axios.get("/product");
         const products = res.data.products;
         this.setState({ products });
-        this.state.products.map((product) => console.log(product.image));
+        console.log(this.state.cart);
     }
+
+    addToCart = (product) => {
+        let cart = this.state.cart.slice();
+        let alreadyInCart = false;
+        cart.forEach((item) => {
+            if (item.id === product.id) {
+                item.count++;
+                alreadyInCart = true;
+            }
+        });
+
+        if (!alreadyInCart) {
+            cart.push({ ...product, count: 1 });
+        }
+        this.setState({ cart });
+
+        localStorage.setItem("usercart", JSON.stringify(cart));
+    };
 
     render() {
         const { products } = this.state;
@@ -64,12 +85,14 @@ class Content extends Component {
                         </div>
                         <hr className="line-bottom" />
 
-                            <div id="Container" className="row">
-                        {products.map((product) => (
+                        <div id="Container" className="row">
+                            {products.map((product) => (
                                 <div className="col-lg-3 col-sm-6">
                                     <div className="arrival-product">
                                         <div className="arrival-img">
-                                            <Link to={`/product/${product.productId}`}>
+                                            <Link
+                                                to={`/product/${product.productId}`}
+                                            >
                                                 <img
                                                     src={product.image}
                                                     alt="تصویر محصول"
@@ -98,7 +121,10 @@ class Content extends Component {
 
                                             <div className="add-btn">
                                                 <a
-                                                    href="shop-details.html"
+                                                    onClick={() =>
+                                                        this.addToCart(product)
+                                                    }
+                                                    href="#"
                                                     className="add-cart-btn"
                                                 >
                                                     خرید
@@ -132,8 +158,8 @@ class Content extends Component {
                                         </div>
                                     </div>
                                 </div>
-                        ))}
-                            </div>
+                            ))}
+                        </div>
                     </div>
                 </section>
                 {/* <!-- Product New Arrival End --> */}

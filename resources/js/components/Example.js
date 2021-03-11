@@ -9,6 +9,9 @@ import Register from "./frontend/form/Register";
 import Content from "./frontend/Content";
 import ProductDetails from "./frontend/products/ProductDetails";
 import ForgotPassword from "./frontend/form/ForgotPassword";
+import UserCart from './frontend/cart/UserCart';
+
+
 const Example = () => {
     console.log("exampple");
     return (
@@ -37,6 +40,9 @@ const Example = () => {
                         exact
                         component={ForgotPassword}
                     />
+                </Switch>
+                <Switch>
+                    <Route path="/usercart" exact component={UserCart} />
                 </Switch>
                 <Footer />
             </Router>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserCartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +17,23 @@ use App\Http\Controllers\CommentController;
 |
 */
 
+Route::resource('/user',UserController::class);
+Route::resource('/product',ProductController::class);
+Route::resource('/comment',CommentController::class);
+Route::resource('/usercart',UserCartController::class);
+
+
+Route::post('/logout',[UserController::class,'logout']);
+Route::post('/forgotpassword',[UserController::class,'forgotPassword']);
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/user',UserController::class);
-Route::post('/logout',[UserController::class,'logout']);
+
+
 Route::get('/test',function(){
     return view('test');
 });
-
-Route::resource('/product',ProductController::class);
-Route::resource('/comment',CommentController::class);
-
-Route::post('/forgotpassword',[UserController::class,'forgotPassword']);
