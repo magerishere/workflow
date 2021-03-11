@@ -51,7 +51,7 @@ const ProductTab = ({comments,productId}) => {
                                                 <ProductDescription />
                                             )}
                                             {active === 2 && (
-                                                <ProductComments comments={comments} productId={productId} />
+                                                <ProductComments comments={comments} />
                                             )}
                                             {active === 3 && <ProductAddress />}
                                         </div>

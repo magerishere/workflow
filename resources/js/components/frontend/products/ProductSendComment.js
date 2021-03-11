@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-const ProductSendComment = ({ productId }) => {
+import Context from "../Context";
+
+const ProductSendComment = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [body, setBody] = useState("");
     const [message, setMessage] = useState("");
-
+    const { productId } = useContext(Context);
     const sendComment = async (e) => {
         e.preventDefault();
         const data = { name, email, body, productId };

@@ -17,7 +17,13 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         \App\Events\UserHandlerEvent::class => [
             \App\Listeners\UserHandlerListener::class,
-        ]
+        ],
+        \App\Events\ForgotPasswordEvent::class => [
+            \App\Listeners\ForgotPasswordListener::class,
+        ],
+        \App\Events\LogoutEvent::class => [
+            \App\Listeners\LogoutListener::class,
+        ],
     ];
 
     /**

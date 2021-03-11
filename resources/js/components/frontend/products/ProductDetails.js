@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import ProductTab from "./ProductTab";
-
+import {Provider} from '../Context';
 class ProductDetails extends Component {
     constructor(props) {
         super(props);
@@ -126,8 +126,10 @@ class ProductDetails extends Component {
                 {/* <!-- Product Details Area End --> */}
 
                 {/* <!-- Product Tab --> */}
+                <Provider value={{productId}}>
 
-                <ProductTab comments={comments} productId={productId} />
+                <ProductTab comments={comments} />
+                </Provider>
                 {/* <!-- Product Tab End --> */}
             </>
         );

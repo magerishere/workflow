@@ -3,17 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use App\Events\UserHandlerEvent;
-use App\Mail\ForgotPassword;
-use App\Events\ForgotPasswordEvent;
-use App\Events\LogoutEvent;
 
-
-
-
-class UserController extends Controller
+class UserCartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,10 +14,6 @@ class UserController extends Controller
     public function index()
     {
         //
-        if(Auth::check())  return 'auth' . Auth::id();
-     
-        return 'customer';
-
     }
 
     /**
@@ -47,11 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // for login and register users
-
-        return  $result = event(new UserHandlerEvent($request));
-
-             
+        //
     }
 
     /**
@@ -98,19 +81,4 @@ class UserController extends Controller
     {
         //
     }
-
-    public function logout(Request $request)
-    {
-
-        $event = event(new LogoutEvent($request));
-     
-    }
-
-    public function forgotPassword(Request $request)
-    {
-        return  $event = event(new ForgotPasswordEvent($request->email));
-            
-    }
-
-
 }

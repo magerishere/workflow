@@ -96,7 +96,7 @@ const Header = () => {
                 {/* <!-- Menu For Mobile Device --> */}
                 <div class="mobile-nav">
                     <Link to="/" class="logo">
-                        <img src="assets/images/logos/logo-1.png" alt="Logo" />
+                        <img src="/images/logos/elahe.png" alt="Logo" />
                     </Link>
                 </div>
 
@@ -106,7 +106,9 @@ const Header = () => {
                         <nav class="navbar navbar-expand-md navbar-light ">
                             <Link class="navbar-brand" to="/">
                                 <img
-                                    src="assets/images/logos/logo-1.png"
+                                    width="109px"
+                                    height="80px"
+                                    src="/images/logos/elahe.png"
                                     alt="Logo"
                                 />
                             </Link>

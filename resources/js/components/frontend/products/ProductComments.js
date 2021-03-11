@@ -58,7 +58,7 @@ const ProductComments = ({ comments,productId }) => {
                                         <i className="bx bxs-star-half"></i>
                                     </div>
 
-                                    <ProductSendComment productId={productId} />
+                                    <ProductSendComment />
                                 </div>
                             </div>
                         </div>
