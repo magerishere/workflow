@@ -21,7 +21,9 @@ const ProductSendComment = () => {
     };
     return (
         <>
-            <p className="bg-success text-dark">{message}</p>
+            <div className="alert alert-success">
+                <p>{message}</p>
+            </div>
             <form id="contactForm" onSubmit={sendComment}>
                 <div className="row">
                     <div className="col-lg-6 col-sm-6">

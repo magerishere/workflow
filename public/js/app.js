@@ -3509,6 +3509,36 @@ var UserCart = function UserCart() {
       orders = _useState2[0],
       setOrders = _useState2[1];
 
+  var reduceCount = function reduceCount(id) {
+    var data = orders.slice();
+    data.forEach(function (item) {
+      if (item.id === id) {
+        if (item.count > 1) {
+          item.count--;
+        }
+      }
+    });
+    setOrders(data);
+  };
+
+  var increaseCount = function increaseCount(id) {
+    var data = orders.slice();
+    data.forEach(function (item) {
+      if (item.id === id) {
+        item.count++;
+      }
+    });
+    setOrders(data);
+  };
+
+  var deleteOrder = function deleteOrder(id) {
+    var data = orders.filter(function (order) {
+      return order.id !== id;
+    });
+    localStorage.setItem("usercart", JSON.stringify(data));
+    setOrders(data);
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
       className: "cart-wraps-area ptb-100",
@@ -3518,7 +3548,7 @@ var UserCart = function UserCart() {
           className: "row",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "col-lg-12 col-md-12",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+            children: orders.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "cart-wraps",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -3566,7 +3596,7 @@ var UserCart = function UserCart() {
                             className: "product-price",
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
                               className: "unit-amount",
-                              children: [order.price, " \u062A\u0648\u0645\u0627\u0646"]
+                              children: [order.price, " ", "\u062A\u0648\u0645\u0627\u0646"]
                             })
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
                             className: "product-quantity",
@@ -3574,6 +3604,9 @@ var UserCart = function UserCart() {
                               className: "input-counter",
                               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                                 className: "minus-btn",
+                                onClick: function onClick() {
+                                  return reduceCount(order.id);
+                                },
                                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
                                   className: "bx bx-minus"
                                 })
@@ -3582,6 +3615,9 @@ var UserCart = function UserCart() {
                                 value: order.count
                               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                                 className: "plus-btn",
+                                onClick: function onClick() {
+                                  return increaseCount(order.id);
+                                },
                                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
                                   className: "bx bx-plus"
                                 })
@@ -3591,10 +3627,13 @@ var UserCart = function UserCart() {
                             className: "product-subtotal",
                             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
                               className: "subtotal-amount",
-                              children: [order.price * order.count, " \u062A\u0648\u0645\u0627\u0646"]
+                              children: [order.price * order.count, " ", "\u062A\u0648\u0645\u0627\u0646"]
                             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                               href: "#",
                               className: "remove",
+                              onClick: function onClick() {
+                                return deleteOrder(order.id);
+                              },
                               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
                                 className: "bx bx-trash"
                               })
@@ -3632,6 +3671,11 @@ var UserCart = function UserCart() {
                 className: "row",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Transition__WEBPACK_IMPORTED_MODULE_2__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CalculateCart__WEBPACK_IMPORTED_MODULE_1__.default, {})]
               })]
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "alert alert-danger mt-5 text-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "\u0645\u062D\u0635\u0648\u0644\u06CC \u062F\u0631 \u0633\u0628\u062F \u062E\u0631\u06CC\u062F \u0634\u0645\u0627 \u0648\u062C\u0648\u062F \u0646\u062F\u0627\u0631\u062F"
+              })
             })
           })
         })
@@ -4779,9 +4823,11 @@ var ProductSendComment = function ProductSendComment() {
   }();
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      className: "bg-success text-dark",
-      children: message
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "alert alert-success",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: message
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
       id: "contactForm",
       onSubmit: sendComment,
