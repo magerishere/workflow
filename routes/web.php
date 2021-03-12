@@ -5,6 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserCartController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,14 @@ Route::resource('/usercart',UserCartController::class);
 
 Route::post('/logout',[UserController::class,'logout']);
 Route::post('/forgotpassword',[UserController::class,'forgotPassword']);
+
+Route::post('/discountcode',function(Request $request){
+
+    if(DB::table('discount_code')->where('code',$request->code)->exists()) {
+        return response()->json(['status'=>200]);
+    }
+    return response()->json(['status'=>400]);
+});
 
 
 

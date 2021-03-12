@@ -17,12 +17,12 @@ class Content extends Component {
         const res = await axios.get("/product");
         const products = res.data.products;
         this.setState({ products });
-        console.log(this.state.cart);
     }
 
     addToCart = (product) => {
         let cart = this.state.cart.slice();
         let alreadyInCart = false;
+
         cart.forEach((item) => {
             if (item.id === product.id) {
                 item.count++;
@@ -34,7 +34,6 @@ class Content extends Component {
             cart.push({ ...product, count: 1 });
         }
         this.setState({ cart });
-
         localStorage.setItem("usercart", JSON.stringify(cart));
     };
 
@@ -87,7 +86,10 @@ class Content extends Component {
 
                         <div id="Container" className="row">
                             {products.map((product) => (
-                                <div className="col-lg-3 col-sm-6">
+                                <div
+                                    className="col-lg-3 col-sm-6"
+                                    key={product.id}
+                                >
                                     <div className="arrival-product">
                                         <div className="arrival-img">
                                             <Link

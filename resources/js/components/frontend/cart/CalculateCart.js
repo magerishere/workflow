@@ -1,6 +1,6 @@
 import React from "react";
 
-const CalculateCart = () => {
+const CalculateCart = ({ orders, resultCode }) => {
     return (
         <>
             <div className="col-lg-6">
@@ -8,14 +8,21 @@ const CalculateCart = () => {
                     <h3>جمع سبد خرید</h3>
                     <ul>
                         <li>
-                            جمع کل <span>15000 تومان</span>
+                            جمع کل{" "}
+                            <span>
+                                {orders.reduce(
+                                    (a, c) => a + c.price * c.count,
+                                    0
+                                )}{" "}
+                                تومان
+                            </span>
                         </li>
                         <li>
                             ارسال<span>3000 تومان</span>
                         </li>
                         <li>
                             کد تخفیف
-                            <span>2000 تومان</span>
+                            <span>{resultCode ? "2000" : "0"} تومان</span>
                         </li>
                         <li>
                             جمع{" "}
@@ -32,6 +39,5 @@ const CalculateCart = () => {
         </>
     );
 };
-
 
 export default CalculateCart;

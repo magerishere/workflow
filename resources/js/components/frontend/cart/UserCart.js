@@ -1,41 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useReducer } from "react";
 import CalculateCart from "./CalculateCart";
-import Transition from "./Transition";
+import DiscountCode from "./DiscountCode";
+import ReducerOrder from "./ReducerOrder";
+import axios from "axios";
 
 const UserCart = () => {
-    const [orders, setOrders] = useState(
+    const [orders, dispatch] = useReducer(
+        ReducerOrder,
         localStorage.getItem("usercart")
             ? JSON.parse(localStorage.getItem("usercart"))
             : []
     );
+    const [resultCode, setResultCode] = useState(false);
 
-    const reduceCount = (id) => {
-        let data = orders.slice();
-        data.forEach((item) => {
-            if (item.id === id) {
-                if (item.count > 1) {
-                    item.count--;
-                }
-            }
-        });
-        setOrders(data);
+    const applyCode = async (code) => {
+        const res = await axios.post("/discountcode", { code });
+        res.data.status === 200 && setResultCode(true);
     };
 
-    const increaseCount = (id) => {
-        let data = orders.slice();
-        data.forEach((item) => {
-            if (item.id === id) {
-                item.count++;
-            }
-        });
-        setOrders(data);
-    };
-
-    const deleteOrder = (id) => {
-        const data = orders.filter((order) => order.id !== id);
-        localStorage.setItem("usercart", JSON.stringify(data));
-        setOrders(data);
-    };
     return (
         <>
             {/* <!-- Start Cart Area --> */}
@@ -98,8 +80,13 @@ const UserCart = () => {
                                                                     <span
                                                                         className="minus-btn"
                                                                         onClick={() =>
-                                                                            reduceCount(
-                                                                                order.id
+                                                                            dispatch(
+                                                                                {
+                                                                                    type:
+                                                                                        "reduce",
+                                                                                    payload:
+                                                                                        order.id,
+                                                                                }
                                                                             )
                                                                         }
                                                                     >
@@ -110,12 +97,20 @@ const UserCart = () => {
                                                                         value={
                                                                             order.count
                                                                         }
+                                                                        onChange={() =>
+                                                                            countHandler()
+                                                                        }
                                                                     />
                                                                     <span
                                                                         className="plus-btn"
                                                                         onClick={() =>
-                                                                            increaseCount(
-                                                                                order.id
+                                                                            dispatch(
+                                                                                {
+                                                                                    type:
+                                                                                        "add",
+                                                                                    payload:
+                                                                                        order.id,
+                                                                                }
                                                                             )
                                                                         }
                                                                     >
@@ -135,8 +130,13 @@ const UserCart = () => {
                                                                     href="#"
                                                                     className="remove"
                                                                     onClick={() =>
-                                                                        deleteOrder(
-                                                                            order.id
+                                                                        dispatch(
+                                                                            {
+                                                                                type:
+                                                                                    "remove",
+                                                                                payload:
+                                                                                    order.id,
+                                                                            }
                                                                         )
                                                                     }
                                                                 >
@@ -175,8 +175,8 @@ const UserCart = () => {
                                     </div>
 
                                     <div className="row">
-                                        <Transition />
-                                        <CalculateCart />
+                                        <DiscountCode applyCode={applyCode} />
+                                        <CalculateCart orders={orders} resultCode={resultCode} />
                                     </div>
                                 </form>
                             ) : (
