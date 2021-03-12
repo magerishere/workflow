@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,12 +26,15 @@ Route::resource('/product',ProductController::class);
 Route::resource('/comment',CommentController::class);
 Route::resource('/usercart',UserCartController::class);
 
-
+//For logout users
 Route::post('/logout',[UserController::class,'logout']);
+// For send email when tap in forgotpassword
 Route::post('/forgotpassword',[UserController::class,'forgotPassword']);
+//For Auth Check
+Route::post('/auth',[UserController::class,'auth']);
 
+// if discount code is true
 Route::post('/discountcode',function(Request $request){
-
     if(DB::table('discount_code')->where('code',$request->code)->exists()) {
         return response()->json(['status'=>200]);
     }
@@ -41,7 +45,9 @@ Route::post('/discountcode',function(Request $request){
 
 
 Route::get('/', function () {
+      
     return view('welcome');
+    
 });
 
 

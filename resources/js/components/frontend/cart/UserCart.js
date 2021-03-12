@@ -1,4 +1,4 @@
-import React, { useState,useReducer } from "react";
+import React, { useState, useReducer } from "react";
 import CalculateCart from "./CalculateCart";
 import DiscountCode from "./DiscountCode";
 import ReducerOrder from "./ReducerOrder";
@@ -11,11 +11,11 @@ const UserCart = () => {
             ? JSON.parse(localStorage.getItem("usercart"))
             : []
     );
-    const [resultCode, setResultCode] = useState(false);
+    const [resultCode, setResultCode] = useState(-1);
 
     const applyCode = async (code) => {
         const res = await axios.post("/discountcode", { code });
-        res.data.status === 200 && setResultCode(true);
+        res.data.status === 200 ? setResultCode(1) : setResultCode(0);
     };
 
     return (
@@ -97,8 +97,23 @@ const UserCart = () => {
                                                                         value={
                                                                             order.count
                                                                         }
-                                                                        onChange={() =>
-                                                                            countHandler()
+                                                                        onChange={(
+                                                                            e
+                                                                        ) =>
+                                                                            dispatch(
+                                                                                {
+                                                                                    type:
+                                                                                        "manual",
+                                                                                    payload: {
+                                                                                        id:
+                                                                                            order.id,
+                                                                                        count:
+                                                                                            e
+                                                                                                .target
+                                                                                                .value,
+                                                                                    },
+                                                                                }
+                                                                            )
                                                                         }
                                                                     />
                                                                     <span
@@ -148,35 +163,17 @@ const UserCart = () => {
                                                 </tbody>
                                             </table>
                                         </div>
-
-                                        <div className="cart-buttons">
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-7 col-sm-7 col-md-7">
-                                                    <div className="continue-shopping-box">
-                                                        <a
-                                                            href="#"
-                                                            className="default-btn btn-bg-three"
-                                                        >
-                                                            ادامه خرید
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col-lg-5 col-sm-5 col-md-5 text-right">
-                                                    <a
-                                                        href="#"
-                                                        className="default-btn btn-bg-three"
-                                                    >
-                                                        بروزرسانی سبدخرید
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div className="row">
-                                        <DiscountCode applyCode={applyCode} />
-                                        <CalculateCart orders={orders} resultCode={resultCode} />
+                                        <DiscountCode
+                                            applyCode={applyCode}
+                                            resultCode={resultCode}
+                                        />
+                                        <CalculateCart
+                                            orders={orders}
+                                            resultCode={resultCode}
+                                        />
                                     </div>
                                 </form>
                             ) : (

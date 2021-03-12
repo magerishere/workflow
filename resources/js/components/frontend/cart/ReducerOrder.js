@@ -22,7 +22,15 @@ const ReducerOrder = (state, action) => {
                 (item) => item.id !== action.payload
             );
             return setLocalStorage(filterData);
-
+        case "manual":
+            data.forEach((item) => {
+                if (item.id === action.payload.id) {
+                    action.payload.count > 1
+                        ? (item.count = action.payload.count)
+                        : (item.count = 1);
+                }
+            });
+            return setLocalStorage(data);
         default:
             return state;
     }

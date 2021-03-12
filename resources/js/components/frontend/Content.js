@@ -16,6 +16,7 @@ class Content extends Component {
     async componentDidMount() {
         const res = await axios.get("/product");
         const products = res.data.products;
+
         this.setState({ products });
     }
 
