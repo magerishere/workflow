@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comment;
+use App\Models\Order;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-
-class CommentController extends Controller
+use App\Models\Bill;
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,10 @@ class CommentController extends Controller
     public function index()
     {
         //
-        
+       $orders =  Order::where(['user_id'=>Auth::id()])->get();
+
+        return response()->json(['status'=>200,'orders'=>$orders]);
+      
     }
 
     /**
@@ -38,15 +42,24 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
-        $comment = Comment::create([
-            'user_id'=>Auth::id(),
-            'product_id'=>$request->product_id,
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'body'=>$request->body
+        $bill = Bill::create([
+            'address'=>'$request->address',
+            'cost'=>3000,
         ]);
+        foreach($request->orders as $order) {
 
-        return response()->json(['status'=>200]);
+            Order::create([
+                'user_id'=>Auth::id(),
+                'product_id'=>$order['id'],
+                'quantity'=>$order['count'],
+                'status'=>false,
+                'bill_id'=>$bill->id,
+            ]);
+        }
+
+        // return response()->json(['orders'=>$request->orders[0]['price']]);
+    
+
     }
 
     /**

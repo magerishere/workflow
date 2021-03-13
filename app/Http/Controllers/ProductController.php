@@ -50,8 +50,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
-        $product = Product::where(['productId'=>$id])->first();
-        $comments = Comment::where(['productId'=>$id])->get();
+        $product = Product::where(['product_id'=>$id])->first();
+        $comments = Comment::where(['product_id'=>$id])->get();
         return response()->json(['product'=>$product,'comments'=>$comments]);
     }
 

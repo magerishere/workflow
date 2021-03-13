@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserCartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ Route::resource('/user',UserController::class);
 Route::resource('/product',ProductController::class);
 Route::resource('/comment',CommentController::class);
 Route::resource('/usercart',UserCartController::class);
-
+Route::resource('/order',OrderController::class);
 //For logout users
 Route::post('/logout',[UserController::class,'logout']);
 // For send email when tap in forgotpassword

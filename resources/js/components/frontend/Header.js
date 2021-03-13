@@ -16,6 +16,7 @@ class Header extends Component {
         const logout = async () => {
             const res = await axios.post("/logout", null);
         };
+        const { auth } = this.state;
         return (
             <>
                 {/* <!-- Top Header Start --> */}
@@ -47,7 +48,7 @@ class Header extends Component {
                                     id="navbarSupportedContent"
                                 >
                                     <ul class="navbar-nav m-auto">
-                                        {this.state.auth && (
+                                        {auth && (
                                             <li>
                                                 <Link onClick={logout}>
                                                     خروج
@@ -458,12 +459,21 @@ class Header extends Component {
                                     </div>
 
                                     <div class="nav-btn nav-other-btn">
-                                        <Link
-                                            to="/login"
-                                            class="default-btn btn-bg-three"
-                                        >
-                                            وارد شوید
-                                        </Link>
+                                        {auth ? (
+                                            <Link
+                                                to="/panel"
+                                                class="default-btn btn-bg-three"
+                                            >
+                                                پنل کاربری
+                                            </Link>
+                                        ) : (
+                                            <Link
+                                                to="/login"
+                                                class="default-btn btn-bg-three"
+                                            >
+                                                وارد شوید
+                                            </Link>
+                                        )}
                                     </div>
                                 </div>
                             </nav>

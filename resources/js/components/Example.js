@@ -10,6 +10,7 @@ import Content from "./frontend/Content";
 import ProductDetails from "./frontend/products/ProductDetails";
 import ForgotPassword from "./frontend/form/ForgotPassword";
 import UserCart from './frontend/cart/UserCart';
+import UserPanel from "./frontend/panel/UserPanel";
 
 
 const Example = () => {
@@ -43,6 +44,9 @@ const Example = () => {
                 </Switch>
                 <Switch>
                     <Route path="/usercart" exact component={UserCart} />
+                </Switch>
+                <Switch>
+                    <Route path="/panel" exact component={UserPanel} />
                 </Switch>
                 <Footer />
             </Router>

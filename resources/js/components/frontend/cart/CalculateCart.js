@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const CalculateCart = ({ orders, resultCode }) => {
+const CalculateCart = ({ orders, resultCode,finalPurchase }) => {
     const [total, setTotal] = useState(
         orders.reduce((a, c) => a + c.price * c.count, 0)
     );
@@ -38,7 +38,7 @@ const CalculateCart = ({ orders, resultCode }) => {
                     </ul>
                     <div className="col-lg-12 row">
                         <div className="col-lg-6">
-                            <a href="#" className="default-btn btn-bg-three">
+                            <a  onClick={() => finalPurchase(total - offPrice)} className="default-btn btn-bg-three">
                                 ادامه خرید
                             </a>
                         </div>

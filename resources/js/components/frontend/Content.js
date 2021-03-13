@@ -94,7 +94,7 @@ class Content extends Component {
                                     <div className="arrival-product">
                                         <div className="arrival-img">
                                             <Link
-                                                to={`/product/${product.productId}`}
+                                                to={`/product/${product.id}`}
                                             >
                                                 <img
                                                     src={product.image}
@@ -113,7 +113,7 @@ class Content extends Component {
                                                 </a>
                                             </h3>
                                             <span>
-                                                کد محصول # {product.productId}
+                                                کد محصول # {product.id}
                                             </span>
                                             <div className="price-tag">
                                                 <h4>

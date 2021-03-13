@@ -15,7 +15,7 @@ class CreateDiscountCodeTable extends Migration
     {
         Schema::create('discount_code', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('code',50);
         });
     }
 

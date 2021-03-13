@@ -12,10 +12,17 @@ const UserCart = () => {
             : []
     );
     const [resultCode, setResultCode] = useState(-1);
+    const [address, setAddress] = useState("");
 
+    //For check discount code
     const applyCode = async (code) => {
         const res = await axios.post("/discountcode", { code });
         res.data.status === 200 ? setResultCode(1) : setResultCode(0);
+    };
+
+    const finalPurchase = async (cost) => {
+        const res = await axios.post("/order", { orders, address });
+        console.log(res);
     };
 
     return (
@@ -169,10 +176,14 @@ const UserCart = () => {
                                         <DiscountCode
                                             applyCode={applyCode}
                                             resultCode={resultCode}
+                                            applyAddress={(address) =>
+                                                setAddress(address)
+                                            }
                                         />
                                         <CalculateCart
                                             orders={orders}
                                             resultCode={resultCode}
+                                            finalPurchase={finalPurchase}
                                         />
                                     </div>
                                 </form>
