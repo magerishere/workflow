@@ -1,10 +1,16 @@
 import React from "react";
 
-const Bill = ({ orders }) => {
+const Bill = ({ bill,details, closeBill }) => {
     return (
         <>
             <div class="page-content container">
                 <div class="page-header text-blue-d2">
+                    <button
+                        className="default-btn btn-bg-three"
+                        onClick={closeBill}
+                    >
+                        X
+                    </button>
                     <h1 class="page-title text-secondary-d1">
                         Invoice
                         <small class="page-info">
@@ -129,16 +135,17 @@ const Bill = ({ orders }) => {
 
                                         <tbody class="text-95 text-secondary-d3">
                                             <tr></tr>
-
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Domain registration</td>
-                                                <td>2</td>
-                                                <td class="text-95">$10</td>
-                                                <td class="text-secondary-d2">
-                                                    $20
-                                                </td>
-                                            </tr>
+                                            {details.map((detail) => (
+                                                <tr>
+                                                    <td>{detail.id}</td>
+                                                    <td>{detail.name}</td>
+                                                    <td>{detail.quantity}</td>
+                                                    <td class="text-95">{detail.price}</td>
+                                                    <td class="text-secondary-d2">
+                                                       {detail.price * detail.quantity}
+                                                    </td>
+                                                </tr>
+                                            ))}
                                         </tbody>
                                     </table>
                                 </div>
@@ -150,35 +157,14 @@ const Bill = ({ orders }) => {
                                     </div>
 
                                     <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
-                                        <div class="row my-2">
-                                            <div class="col-7 text-right">
-                                                SubTotal
-                                            </div>
-                                            <div class="col-5">
-                                                <span class="text-120 text-secondary-d1">
-                                                    $2,250
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        <div class="row my-2">
-                                            <div class="col-7 text-right">
-                                                Tax (10%)
-                                            </div>
-                                            <div class="col-5">
-                                                <span class="text-110 text-secondary-d1">
-                                                    $225
-                                                </span>
-                                            </div>
-                                        </div>
-
+                            
                                         <div class="row my-2 align-items-center bgc-primary-l3 p-2">
                                             <div class="col-7 text-right">
                                                 Total Amount
                                             </div>
                                             <div class="col-5">
                                                 <span class="text-150 text-success-d3 opacity-2">
-                                                    $2,475
+                                                    {bill.cost}
                                                 </span>
                                             </div>
                                         </div>

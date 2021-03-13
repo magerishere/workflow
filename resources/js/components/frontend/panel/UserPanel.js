@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './Bill.css';
-import Bill from './Bill';
-
+import "./Bill.css";
+import Bills from "./Bills";
 
 class UserPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = [];
+        this.state = { bills: [] };
     }
 
     async componentDidMount() {
         const res = await axios.get("/order");
-        res.data.status === 200 && this.setState(res.data.orders);
+        res.data.status === 200 && this.setState({ bills: res.data.bills });
     }
     render() {
+        const { bills } = this.state;
         return (
             <>
                 <section className="product-new-arrival pt-100 pb-70">
@@ -61,7 +61,7 @@ class UserPanel extends Component {
                         <hr className="line-bottom" />
 
                         <div id="Container" className="row">
-                            <Bill orders={this.state} />
+                            <Bills bills={bills} />
                         </div>
                     </div>
                 </section>

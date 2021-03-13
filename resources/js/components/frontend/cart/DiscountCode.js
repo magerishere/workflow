@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const DiscountCode = ({ applyAddress,applyCode, resultCode }) => {
+const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
     const [discountCode, setDiscountCode] = useState("");
     const [address, setAddress] = useState("");
     return (
@@ -43,7 +43,7 @@ const DiscountCode = ({ applyAddress,applyCode, resultCode }) => {
                         </div>
                     )}
 
-                    <div className="cart-wraps-form mt-3">
+                    <div className="cart-wraps-form mt-5">
                         <h3>لطفا نشانی خود را به طور دقیق بنویسید</h3>
 
                         <div className="form-group">
@@ -53,9 +53,9 @@ const DiscountCode = ({ applyAddress,applyCode, resultCode }) => {
                                 placeholder="تهران تهران منطقه خیابان کوچه پلاک ..."
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
+                                onBlur={() => applyAddress(address)}
                             />
                         </div>
-                        <a onClick={() => applyAddress(address)} className="default-btn btn-bg-three">تایید آدرس</a>
                     </div>
                 </div>
             </div>

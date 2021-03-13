@@ -7,6 +7,8 @@ use App\Models\Order;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Bill;
+use App\Models\Product;
+
 class OrderController extends Controller
 {
     /**
@@ -17,9 +19,9 @@ class OrderController extends Controller
     public function index()
     {
         //
-       $orders =  Order::where(['user_id'=>Auth::id()])->get();
+       $bills =  Bill::where(['user_id'=>Auth::id()])->get();
 
-        return response()->json(['status'=>200,'orders'=>$orders]);
+        return response()->json(['status'=>200,'bills'=>$bills]);
       
     }
 
@@ -43,21 +45,26 @@ class OrderController extends Controller
     {
         //
         $bill = Bill::create([
-            'address'=>'$request->address',
-            'cost'=>3000,
+            'user_id'=>Auth::id(),
+            'address'=>$request->address,
+            'cost'=>$request->cost,
         ]);
-        foreach($request->orders as $order) {
-
-            Order::create([
-                'user_id'=>Auth::id(),
-                'product_id'=>$order['id'],
-                'quantity'=>$order['count'],
-                'status'=>false,
-                'bill_id'=>$bill->id,
-            ]);
+        if($bill) {
+            foreach($request->orders as $order) {
+    
+                Order::create([
+                    'user_id'=>Auth::id(),
+                    'product_id'=>$order['id'],
+                    'quantity'=>$order['count'],
+                    'status'=>false,
+                    'bill_id'=>$bill->id,
+                ]);
+            }
+            return response()->json(['status'=>200]);
         }
 
-        // return response()->json(['orders'=>$request->orders[0]['price']]);
+        return response()->json(['status'=>400]);
+
     
 
     }
@@ -71,6 +78,21 @@ class OrderController extends Controller
     public function show($id)
     {
         //
+        $bill = Bill::find($id)->first();
+       $orders = Order::where(['bill_id'=>$id])->get();
+      
+        $details = array();
+        foreach($orders as $order) {
+        array_push($details,$order->product()->first());
+        }
+
+        for($i = 0;$i < count($details);$i++) {
+            $details[$i]['quantity'] = $orders[$i]->quantity;
+        }
+        
+    
+        
+        return response()->json(['status'=>200,'bill'=>$bill,'details'=>$details]);
     }
 
     /**

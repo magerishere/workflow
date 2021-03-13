@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Bill extends Model
 {
     use HasFactory;
-    protected $fillable = ['address','cost'];
+    protected $fillable = ['user_id','address','cost'];
+
+    public function orders() {
+        return $this->hasMany('App\Models\Order');
+    }
 }

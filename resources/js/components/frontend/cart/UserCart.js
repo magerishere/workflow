@@ -11,6 +11,7 @@ const UserCart = () => {
             ? JSON.parse(localStorage.getItem("usercart"))
             : []
     );
+    const [resultPurchase, setResultPurchase] = useState(0);
     const [resultCode, setResultCode] = useState(-1);
     const [address, setAddress] = useState("");
 
@@ -20,9 +21,18 @@ const UserCart = () => {
         res.data.status === 200 ? setResultCode(1) : setResultCode(0);
     };
 
+    //Final step of buy
     const finalPurchase = async (cost) => {
-        const res = await axios.post("/order", { orders, address });
-        console.log(res);
+        if (address) {
+            const res = await axios.post("/order", { orders, address,cost });
+            if (res.data.status === 200) {
+                setResultPurchase(1);
+                localStorage.setItem("usercart", []);
+            }
+        } else {
+            //-1 = if dont set address return back message
+            setResultPurchase(-1);
+        }
     };
 
     return (
@@ -184,6 +194,7 @@ const UserCart = () => {
                                             orders={orders}
                                             resultCode={resultCode}
                                             finalPurchase={finalPurchase}
+                                            resultPurchase={resultPurchase}
                                         />
                                     </div>
                                 </form>
