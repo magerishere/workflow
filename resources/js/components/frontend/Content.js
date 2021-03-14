@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 class Content extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +11,7 @@ class Content extends Component {
             cart: localStorage.getItem("usercart")
                 ? JSON.parse(localStorage.getItem("usercart"))
                 : [],
+            isLoading: true,
         };
     }
 
@@ -17,7 +19,8 @@ class Content extends Component {
         const res = await axios.get("/product");
         const products = res.data.products;
 
-        this.setState({ products });
+        this.setState({ products,isLoading:false });
+       
     }
 
     addToCart = (product) => {
@@ -39,9 +42,17 @@ class Content extends Component {
     };
 
     render() {
-        const { products } = this.state;
+        const { products, isLoading } = this.state;
         return (
             <>
+            {isLoading && 
+                <div class="preloader">
+                    <div class="spinner">
+                        <div class="dot1"></div>
+                        <div class="dot2"></div>
+                    </div>
+                </div>
+                }
                 <section className="product-new-arrival pt-100 pb-70">
                     <div className="container">
                         <div className="row align-items-center">
@@ -84,85 +95,88 @@ class Content extends Component {
                             </div>
                         </div>
                         <hr className="line-bottom" />
-
-                        <div id="Container" className="row">
-                            {products.map((product) => (
-                                <div
-                                    className="col-lg-3 col-sm-6"
-                                    key={product.id}
-                                >
-                                    <div className="arrival-product">
-                                        <div className="arrival-img">
-                                            <Link
-                                                to={`/product/${product.id}`}
-                                            >
-                                                <img
-                                                    src={product.image}
-                                                    alt="تصویر محصول"
-                                                />
-                                            </Link>
-                                            <div className="new-tag">
-                                                <h3>جدید</h3>
-                                            </div>
-                                        </div>
-
-                                        <div className="content">
-                                            <h3>
-                                                <a href="shop-details.html">
-                                                    {product.name}
-                                                </a>
-                                            </h3>
-                                            <span>
-                                                کد محصول # {product.id}
-                                            </span>
-                                            <div className="price-tag">
-                                                <h4>
-                                                    {product.price} تومان
-                                                    <del>159 تومان</del>
-                                                </h4>
-                                            </div>
-
-                                            <div className="add-btn">
-                                                <a
-                                                    onClick={() =>
-                                                        this.addToCart(product)
-                                                    }
-                                                    href="#"
-                                                    className="add-cart-btn"
+                 
+                            <div id="Container" className="row">
+                                {products.map((product) => (
+                                    <div
+                                        className="col-lg-3 col-sm-6"
+                                        key={product.id}
+                                    >
+                                        <div className="arrival-product">
+                                            <div className="arrival-img">
+                                                <Link
+                                                    to={`/product/${product.id}`}
                                                 >
-                                                    خرید
-                                                </a>
+                                                    <img
+                                                        src={product.image}
+                                                        alt="تصویر محصول"
+                                                    />
+                                                </Link>
+                                                <div className="new-tag">
+                                                    <h3>جدید</h3>
+                                                </div>
                                             </div>
 
-                                            <ul className="products-action">
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="افزودن در علاقه‌مندی‌ها"
-                                                    >
-                                                        <i className="bx bx-heart"></i>
+                                            <div className="content">
+                                                <h3>
+                                                    <a href="shop-details.html">
+                                                        {product.name}
                                                     </a>
-                                                </li>
-                                                <li>
+                                                </h3>
+                                                <span>
+                                                    کد محصول # {product.id}
+                                                </span>
+                                                <div className="price-tag">
+                                                    <h4>
+                                                        {product.price} تومان
+                                                        <del>159 تومان</del>
+                                                    </h4>
+                                                </div>
+
+                                                <div className="add-btn">
                                                     <a
+                                                        onClick={() =>
+                                                            this.addToCart(
+                                                                product
+                                                            )
+                                                        }
                                                         href="#"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top"
-                                                        title="نمایش سریع"
-                                                        data-toggle="modal"
-                                                        data-target="#productsQuickView"
+                                                        className="add-cart-btn"
                                                     >
-                                                        <i className="bx bx-show-alt"></i>
+                                                        خرید
                                                     </a>
-                                                </li>
-                                            </ul>
+                                                </div>
+
+                                                <ul className="products-action">
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            data-tooltip="tooltip"
+                                                            data-placement="top"
+                                                            title="افزودن در علاقه‌مندی‌ها"
+                                                        >
+                                                            <i className="bx bx-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            data-tooltip="tooltip"
+                                                            data-placement="top"
+                                                            title="نمایش سریع"
+                                                            data-toggle="modal"
+                                                            data-target="#productsQuickView"
+                                                        >
+                                                            <i className="bx bx-show-alt"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
+                       
                     </div>
                 </section>
                 {/* <!-- Product New Arrival End --> */}

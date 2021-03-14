@@ -14,7 +14,7 @@ class Header extends Component {
     }
     render() {
         const logout = async () => {
-            const res = await axios.post("/logout", null);
+            await axios.post("/logout", null);
         };
         const { auth } = this.state;
         return (

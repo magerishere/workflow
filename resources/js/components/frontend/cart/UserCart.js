@@ -24,8 +24,8 @@ const UserCart = () => {
     //Final step of buy
     const finalPurchase = async (cost) => {
         if (address) {
-            const res = await axios.post("/order", { orders, address,cost });
-            if (res.data.status === 200) {
+            const res = await axios.post("/order", { orders, address, cost });
+            if (res.data[0].original.status === 200) {
                 setResultPurchase(1);
                 localStorage.setItem("usercart", []);
             }

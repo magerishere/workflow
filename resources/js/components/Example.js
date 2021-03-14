@@ -14,7 +14,7 @@ import UserPanel from "./frontend/panel/UserPanel";
 
 
 const Example = () => {
-    console.log("exampple");
+    
     return (
         <>
             <Router>

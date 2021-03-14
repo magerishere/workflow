@@ -1,8 +1,10 @@
 import React from "react";
-
-const Bill = ({ bill,details, closeBill }) => {
+import moment from "moment-jalaali";
+moment.locale("fa");
+const Bill = ({ bill, details, closeBill, email }) => {
     return (
         <>
+    
             <div class="page-content container">
                 <div class="page-header text-blue-d2">
                     <button
@@ -11,13 +13,7 @@ const Bill = ({ bill,details, closeBill }) => {
                     >
                         X
                     </button>
-                    <h1 class="page-title text-secondary-d1">
-                        Invoice
-                        <small class="page-info">
-                            <i class="fa fa-angle-double-right text-80"></i>
-                            ID: #111-222
-                        </small>
-                    </h1>
+                    <h1 class="page-title text-secondary-d1">workflow.local</h1>
 
                     <div class="page-tools">
                         <div class="action-buttons">
@@ -44,16 +40,6 @@ const Bill = ({ bill,details, closeBill }) => {
                 <div class="container px-0">
                     <div class="row mt-4">
                         <div class="col-12 col-lg-10 offset-lg-1">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="text-center text-150">
-                                        <i class="fa fa-book fa-2x text-success-m2 mr-1"></i>
-                                        <span class="text-default-d3">
-                                            Bootdey.com
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                             {/* <!-- .row --> */}
 
                             <hr class="row brc-default-l1 mx-n1 mb-4" />
@@ -65,15 +51,12 @@ const Bill = ({ bill,details, closeBill }) => {
                                             To:
                                         </span>
                                         <span class="text-600 text-110 text-blue align-middle">
-                                            Alex Doe
+                                            {email}
                                         </span>
                                     </div>
                                     <div class="text-grey-m2">
-                                        <div class="my-1">Street, City</div>
-                                        <div class="my-1">State, Country</div>
-                                        <div class="my-1">
-                                            <i class="fa fa-phone fa-flip-horizontal text-secondary"></i>{" "}
-                                            <b class="text-600">111-111-111</b>
+                                        <div class="">
+                                            آدرس : {bill.address}
                                         </div>
                                     </div>
                                 </div>
@@ -83,33 +66,9 @@ const Bill = ({ bill,details, closeBill }) => {
                                     <hr class="d-sm-none" />
                                     <div class="text-grey-m2">
                                         <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
-                                            Invoice
-                                        </div>
-
-                                        <div class="my-2">
-                                            <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>{" "}
-                                            <span class="text-600 text-90">
-                                                ID:
-                                            </span>{" "}
-                                            #111-222
-                                        </div>
-
-                                        <div class="my-2">
-                                            <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>{" "}
-                                            <span class="text-600 text-90">
-                                                Issue Date:
-                                            </span>{" "}
-                                            Oct 12, 2019
-                                        </div>
-
-                                        <div class="my-2">
-                                            <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>{" "}
-                                            <span class="text-600 text-90">
-                                                Status:
-                                            </span>{" "}
-                                            <span class="badge badge-warning badge-pill px-25">
-                                                Unpaid
-                                            </span>
+                                            {moment(bill.created_at).format(
+                                                "jYYYY/jM/jD"
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -128,8 +87,10 @@ const Bill = ({ bill,details, closeBill }) => {
                                                 <th class="opacity-2">#</th>
                                                 <th>نام محصول</th>
                                                 <th>تعداد</th>
-                                                <th>قیمت</th>
-                                                <th width="140">قیمت کل</th>
+                                                <th>قیمت (تومان)</th>
+                                                <th width="140">
+                                                    (تومان) قیمت کل
+                                                </th>
                                             </tr>
                                         </thead>
 
@@ -140,9 +101,12 @@ const Bill = ({ bill,details, closeBill }) => {
                                                     <td>{detail.id}</td>
                                                     <td>{detail.name}</td>
                                                     <td>{detail.quantity}</td>
-                                                    <td class="text-95">{detail.price}</td>
+                                                    <td class="text-95">
+                                                        {detail.price}
+                                                    </td>
                                                     <td class="text-secondary-d2">
-                                                       {detail.price * detail.quantity}
+                                                        {detail.price *
+                                                            detail.quantity}
                                                     </td>
                                                 </tr>
                                             ))}
@@ -152,15 +116,13 @@ const Bill = ({ bill,details, closeBill }) => {
 
                                 <div class="row mt-3">
                                     <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
-                                        Extra note such as company or payment
-                                        information...
+                                        ممنون از خرید شما
                                     </div>
 
                                     <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
-                            
                                         <div class="row my-2 align-items-center bgc-primary-l3 p-2">
                                             <div class="col-7 text-right">
-                                                Total Amount
+                                                جمع کل
                                             </div>
                                             <div class="col-5">
                                                 <span class="text-150 text-success-d3 opacity-2">
@@ -172,18 +134,6 @@ const Bill = ({ bill,details, closeBill }) => {
                                 </div>
 
                                 <hr />
-
-                                <div>
-                                    <span class="text-secondary-d1 text-105">
-                                        Thank you for your business
-                                    </span>
-                                    <a
-                                        href="#"
-                                        class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0"
-                                    >
-                                        Pay Now
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>

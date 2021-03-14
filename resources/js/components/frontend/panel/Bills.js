@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Bill from "./Bill";
+import moment from "moment-jalaali";
 
+moment.locale("fa");
 const Bills = ({ bills }) => {
     const [bill, setBill] = useState(null);
     const [details, setDetails] = useState([]);
+    const [email, setEmail] = useState("");
     const showBill = async (id) => {
         const res = await axios.get(`/order/${id}`);
-        console.log(res);
+
         //set specific orders in bill
-        setBill(res.data.bill);
+        setBill(res.data[0].original.bill);
         let list = [];
 
-        for (let i = 0; i < res.data.details.length; i++) {
-            list.push(res.data.details[i]);
+        for (let i = 0; i < res.data[0].original.details.length; i++) {
+            list.push(res.data[0].original.details[i]);
         }
         setDetails(list);
+        setEmail(res.data[0].original.email);
     };
 
     return (
         <>
             {bill ? (
                 <Bill
+                    email={email}
                     bill={bill}
                     details={details}
                     closeBill={() => setBill(null)}
@@ -41,7 +46,11 @@ const Bills = ({ bills }) => {
                             <tr key={bill.id}>
                                 <td>{bill.address}</td>
                                 <td>{bill.cost}</td>
-                                <td>{bill.created_at}</td>
+                                <td>
+                                    {moment(bill.created_at).format(
+                                        "jYYYY/jM/jD"
+                                    )}
+                                </td>
                                 <td>
                                     <button
                                         className="default-btn btn-bg-three"

@@ -8,21 +8,20 @@ class ProductDetails extends Component {
         this.state = {
             product: {},
             comments: [],
-            productId: this.props.match.params["id"],
+            product_id: this.props.match.params["id"],
         };
     }
 
     async componentDidMount() {
-        const productId = this.state.productId;
-        console.log(productId);
-        const res = await axios.get(`/product/${productId}`);
+        const product_id = this.state.product_id;
+        const res = await axios.get(`/product/${product_id}`);
         this.setState({
             product: res.data.product,
             comments: res.data.comments,
         });
     }
     render() {
-        const { product, comments,productId } = this.state;
+        const { product, comments,product_id } = this.state;
         return (
             <>
                 {/* <!-- Product Details Area --> */}
@@ -126,7 +125,7 @@ class ProductDetails extends Component {
                 {/* <!-- Product Details Area End --> */}
 
                 {/* <!-- Product Tab --> */}
-                <Provider value={{productId}}>
+                <Provider value={{product_id}}>
 
                 <ProductTab comments={comments} />
                 </Provider>

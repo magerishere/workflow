@@ -43,7 +43,9 @@ Route::post('/discountcode',function(Request $request){
 });
 
 
-
+Route::get('/panel',function(){
+    return view('welcome');
+});
 
 Route::get('/', function () {
       

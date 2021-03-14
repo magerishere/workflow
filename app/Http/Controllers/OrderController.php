@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Order;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Bill;
-use App\Models\Product;
+use App\Events\OrderStoreEvent;
+use App\Events\OrderShowEvent;
 
 class OrderController extends Controller
 {
@@ -19,7 +18,7 @@ class OrderController extends Controller
     public function index()
     {
         //
-       $bills =  Bill::where(['user_id'=>Auth::id()])->get();
+       $bills =  Bill::where(['user_id'=>Auth::id()])->orderBy('created_at','desc')->get();
 
         return response()->json(['status'=>200,'bills'=>$bills]);
       
@@ -44,28 +43,8 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
-        $bill = Bill::create([
-            'user_id'=>Auth::id(),
-            'address'=>$request->address,
-            'cost'=>$request->cost,
-        ]);
-        if($bill) {
-            foreach($request->orders as $order) {
-    
-                Order::create([
-                    'user_id'=>Auth::id(),
-                    'product_id'=>$order['id'],
-                    'quantity'=>$order['count'],
-                    'status'=>false,
-                    'bill_id'=>$bill->id,
-                ]);
-            }
-            return response()->json(['status'=>200]);
-        }
 
-        return response()->json(['status'=>400]);
-
-    
+        return event(new OrderStoreEvent($request));
 
     }
 
@@ -78,21 +57,8 @@ class OrderController extends Controller
     public function show($id)
     {
         //
-        $bill = Bill::find($id)->first();
-       $orders = Order::where(['bill_id'=>$id])->get();
+        return event(new OrderShowEvent($id));
       
-        $details = array();
-        foreach($orders as $order) {
-        array_push($details,$order->product()->first());
-        }
-
-        for($i = 0;$i < count($details);$i++) {
-            $details[$i]['quantity'] = $orders[$i]->quantity;
-        }
-        
-    
-        
-        return response()->json(['status'=>200,'bill'=>$bill,'details'=>$details]);
     }
 
     /**

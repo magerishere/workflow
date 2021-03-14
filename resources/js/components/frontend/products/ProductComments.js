@@ -1,7 +1,7 @@
 import React from "react";
 import ProductSendComment from "./ProductSendComment";
 import moment from "moment";
-const ProductComments = ({ comments,productId }) => {
+const ProductComments = ({ comments }) => {
     return (
         <>
             <div className="tabs_item">

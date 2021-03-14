@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use App\Events\UserHandlerEvent;
-use App\Mail\ForgotPassword;
 use App\Events\ForgotPasswordEvent;
 use App\Events\LogoutEvent;
 
@@ -49,7 +47,7 @@ class UserController extends Controller
     {
         // for login and register users
 
-        return  $result = event(new UserHandlerEvent($request));
+        return  event(new UserHandlerEvent($request));
 
              
     }
@@ -102,13 +100,13 @@ class UserController extends Controller
     public function logout(Request $request)
     {
 
-        $event = event(new LogoutEvent($request));
+      return event(new LogoutEvent($request));
      
     }
 
     public function forgotPassword(Request $request)
     {
-        return  $event = event(new ForgotPasswordEvent($request->email));
+        return event(new ForgotPasswordEvent($request->email));
             
     }
 

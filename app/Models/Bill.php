@@ -13,4 +13,8 @@ class Bill extends Model
     public function orders() {
         return $this->hasMany('App\Models\Order');
     }
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
 }

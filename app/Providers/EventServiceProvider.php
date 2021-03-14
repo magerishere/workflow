@@ -24,6 +24,15 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\LogoutEvent::class => [
             \App\Listeners\LogoutListener::class,
         ],
+        \App\Events\CommentHandlerEvent::class => [
+            \App\Listeners\CommentStoreListener::class,
+        ],
+        \App\Events\OrderStoreEvent::class => [
+            \App\Listeners\OrderStoreListener::class,
+        ],
+        \App\Events\OrderShowEvent::class => [
+            \App\Listeners\OrderShowListener::class,
+        ],
     ];
 
     /**

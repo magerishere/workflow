@@ -7,12 +7,13 @@ const ProductSendComment = () => {
     const [email, setEmail] = useState("");
     const [body, setBody] = useState("");
     const [message, setMessage] = useState("");
-    const { productId } = useContext(Context);
+    const { product_id } = useContext(Context);
     const sendComment = async (e) => {
         e.preventDefault();
-        const data = { name, email, body, productId };
+        const data = { name, email, body, product_id };
         const res = await axios.post("/comment", data);
-        if (res.data.status === 200) {
+        console.log(res);
+        if (res.data[0].original.status === 200) {
             setName("");
             setEmail("");
             setBody("");

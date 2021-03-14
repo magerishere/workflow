@@ -16,8 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all();
-        return response()->json(['products'=>$products]);
+        return response()->json(['products'=>Product::all()]);
     }
 
     /**
@@ -50,8 +49,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
-        $product = Product::where(['product_id'=>$id])->first();
-        $comments = Comment::where(['product_id'=>$id])->get();
+        $product = Product::find($id);
+        $comments = $product->comment()->get();
         return response()->json(['product'=>$product,'comments'=>$comments]);
     }
 
