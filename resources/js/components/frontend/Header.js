@@ -8,9 +8,8 @@ class Header extends Component {
     }
     //For Auth check response
     async componentDidMount() {
-        const result = await axios.post("/auth", null);
-        console.log(result);
-        this.setState({ auth: result.data.auth });
+        const res = await axios.post("/auth", null);
+        this.setState({ auth: res.data.auth });
     }
     render() {
         const logout = async () => {
@@ -26,7 +25,7 @@ class Header extends Component {
                     <div class="mobile-nav">
                         <a href="index-2.html" class="logo">
                             <img
-                                src="assets/images/logos/logo-1.png"
+                                src="assets/images/logos/logo-3.png"
                                 alt="Logo"
                             />
                         </a>
@@ -38,7 +37,7 @@ class Header extends Component {
                             <nav class="navbar navbar-expand-md navbar-light ">
                                 <Link class="navbar-brand" to="/">
                                     <img
-                                        src="assets/images/logos/logo-3.png"
+                                        src="/images/logos/logo-3.png"
                                         alt="Logo"
                                     />
                                 </Link>
@@ -453,7 +452,17 @@ class Header extends Component {
                                                 >
                                                     <i class="bx bx-cart"></i>
                                                 </Link>
-                                                <span>1</span>
+                                                <span>
+                                                    {localStorage.getItem(
+                                                        "usercart"
+                                                    )
+                                                        ? JSON.parse(
+                                                              localStorage.getItem(
+                                                                  "usercart"
+                                                              )
+                                                          ).length
+                                                        : "0"}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

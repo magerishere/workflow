@@ -10,16 +10,16 @@ const Bills = ({ bills }) => {
     const [email, setEmail] = useState("");
     const showBill = async (id) => {
         const res = await axios.get(`/order/${id}`);
-
         //set specific orders in bill
-        setBill(res.data[0].original.bill);
-        let list = [];
-
-        for (let i = 0; i < res.data[0].original.details.length; i++) {
-            list.push(res.data[0].original.details[i]);
+        if (res.data[0].original.status === 200) {
+            setBill(res.data[0].original.bill);
+            let list = [];
+            for (let i = 0; i < res.data[0].original.details.length; i++) {
+                list.push(res.data[0].original.details[i]);
+            }
+            setDetails(list);
+            setEmail(res.data[0].original.email);
         }
-        setDetails(list);
-        setEmail(res.data[0].original.email);
     };
 
     return (

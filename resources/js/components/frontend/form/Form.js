@@ -18,15 +18,13 @@ const Form = ({ isRegister }) => {
                 document.getElementById("message").classList.add("bg-success");
                 setTimeout(() => {
                     window.location.replace("/");
-                }, 3000);
+                }, 2000);
             }
         } else {
             const response = await axios.post("/user", { email, password });
-            if (response.data[0].original.status === 200) {
-                window.location.replace("/user");
-            } else {
-                setMessage("ایمیل یا رمز عبور اشتباه است");
-            }
+            response.data[0].original.status === 200
+                ? window.location.replace("/user")
+                : setMessage("ایمیل یا رمز عبور اشتباه است");
         }
     };
 

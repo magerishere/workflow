@@ -20,7 +20,7 @@ const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
                                 </div>
                             )}
                             <div className="row">
-                                <div className="form-group col-lg-8">
+                                <div className="form-group col-lg-7">
                                     <input
                                         type="text"
                                         className="form-control"
@@ -31,13 +31,14 @@ const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
                                         }
                                     />
                                 </div>
-                                <div className="col-lg-4 form-controll">
-                                    <a
+                                <div className="col-lg-5 form-controll">
+                                    <button
+                                        type="button"
                                         onClick={() => applyCode(discountCode)}
                                         className="default-btn btn-bg-three"
                                     >
                                         اعمال تخفیف
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,6 @@ import axios from "axios";
 import "./Bill.css";
 import Bills from "./Bills";
 
-
 class UserPanel extends Component {
     constructor(props) {
         super(props);
@@ -12,8 +11,9 @@ class UserPanel extends Component {
 
     async componentDidMount() {
         const res = await axios.get("/order");
-        res.data.status === 200 && this.setState({ bills: res.data.bills });
-        this.setState({ isLoading: false });
+        console.log(res);
+        res.data.status === 200 &&
+            this.setState({ bills: res.data.bills, isLoading: false });
     }
     render() {
         const { bills, isLoading } = this.state;

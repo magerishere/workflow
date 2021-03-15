@@ -12,7 +12,6 @@ export const validation = async (email, password, confirm) => {
             : "رمز بایدبیشتر از 8 رقم باشد";
 
     if (response) {
-        console.log(response);
         result =
             response.data[0].original.status === 200
                 ? "موفق! درحال آماده سازی حساب شما ..."

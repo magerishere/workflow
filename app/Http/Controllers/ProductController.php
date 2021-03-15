@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return response()->json(['products'=>Product::all()]);
+        return response()->json(['status'=>200,'products'=>Product::all()]);
     }
 
     /**
@@ -51,7 +51,7 @@ class ProductController extends Controller
         //
         $product = Product::find($id);
         $comments = $product->comment()->get();
-        return response()->json(['product'=>$product,'comments'=>$comments]);
+        return response()->json(['status'=>200,'product'=>$product,'comments'=>$comments]);
     }
 
     /**

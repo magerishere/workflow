@@ -22,9 +22,11 @@ const ProductSendComment = () => {
     };
     return (
         <>
-            <div className="alert alert-success">
-                <p>{message}</p>
-            </div>
+            {message && (
+                <div className="alert alert-success">
+                    <p>{message}</p>
+                </div>
+            )}
             <form id="contactForm" onSubmit={sendComment}>
                 <div className="row">
                     <div className="col-lg-6 col-sm-6">

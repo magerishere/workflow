@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProductDescription from "./ProductDescription";
 import ProductComments from "./ProductComments";
 import ProductAddress from "./ProductAddress";
-const ProductTab = ({comments,productId}) => {
+const ProductTab = ({comments}) => {
     const [active, setActive] = useState(1);
     return (
         <>
@@ -46,7 +46,7 @@ const ProductTab = ({comments,productId}) => {
                                     </div>
 
                                     <div className="col-lg-12 col-md-12">
-                                        <div className="tab_content current active">
+                                        <div id="comments" className="tab_content current active">
                                             {active === 1 && (
                                                 <ProductDescription />
                                             )}

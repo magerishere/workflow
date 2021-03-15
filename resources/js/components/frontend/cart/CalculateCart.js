@@ -54,22 +54,15 @@ const CalculateCart = ({
                             </ul>
                             <div className="col-lg-12 row">
                                 <div className="col-lg-6">
-                                    <a
+                                    <button
+                                        type="button"
                                         onClick={() =>
                                             finalPurchase(total - offPrice)
                                         }
                                         className="default-btn btn-bg-three"
                                     >
                                         ادامه خرید
-                                    </a>
-                                </div>
-                                <div className="col-lg-6">
-                                    <a
-                                        href="#"
-                                        className="default-btn btn-bg-three"
-                                    >
-                                        بروزرسانی سبد خرید
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </>
