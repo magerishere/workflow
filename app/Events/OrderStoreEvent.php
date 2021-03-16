@@ -25,6 +25,7 @@ class OrderStoreEvent
         $this->address = $request->address;
         $this->cost = $request->cost;
         $this->orders = $request->orders;
+        $this->phoneNumber = $request->phoneNumber;
     
     }
 

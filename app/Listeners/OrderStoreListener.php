@@ -33,6 +33,7 @@ class OrderStoreListener
             'user_id'=>Auth::id(),
             'address'=>$event->address,
             'cost'=>$event->cost,
+            'phone_number'=>$event->phoneNumber,
         ]);
         if($bill) {
             foreach($event->orders as $order) {

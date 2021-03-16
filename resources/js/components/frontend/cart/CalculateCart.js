@@ -29,11 +29,7 @@ const CalculateCart = ({
                     ) : (
                         <>
                             <h3>جمع سبد خرید</h3>
-                            {resultPurchase === -1 && (
-                                <div className="alert alert-danger">
-                                    <p>آدرس خود را وارد نمایید</p>
-                                </div>
-                            )}
+
                             <ul>
                                 <li>
                                     جمع کل <span>{total} تومان</span>

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import ProductTab from "./ProductTab";
 import { Provider } from "../Context";
-import { Context } from "../Content";
+
 
 class ProductDetails extends Component {
     constructor(props) {
@@ -61,10 +61,10 @@ class ProductDetails extends Component {
         return (
             <>
                 {isLoading && (
-                    <div class="preloader">
-                        <div class="spinner">
-                            <div class="dot1"></div>
-                            <div class="dot2"></div>
+                    <div className="preloader">
+                        <div className="spinner">
+                            <div className="dot1"></div>
+                            <div className="dot2"></div>
                         </div>
                     </div>
                 )}
@@ -217,5 +217,5 @@ class ProductDetails extends Component {
     }
 }
 
-ProductDetails.contextType = Context;
+
 export default ProductDetails;

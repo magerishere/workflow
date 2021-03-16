@@ -37,7 +37,6 @@ class UserHandlerListener
              if(!User::where(['email'=>$event->email])->exists()) 
              {
                  $user = User::create([
-                    'name'=> str_replace('@gmail.com','',$event->email),
                     'email'=>$event->email,
                     'password'=>bcrypt($event->password)
                 ]);

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 class Content extends Component {
     constructor(props) {
         super(props);
@@ -44,10 +43,10 @@ class Content extends Component {
         return (
             <>
                 {isLoading && (
-                    <div class="preloader">
-                        <div class="spinner">
-                            <div class="dot1"></div>
-                            <div class="dot2"></div>
+                    <div className="preloader">
+                        <div className="spinner">
+                            <div className="dot1"></div>
+                            <div className="dot2"></div>
                         </div>
                     </div>
                 )}
@@ -116,7 +115,7 @@ class Content extends Component {
                                         <div className="content">
                                             <h3>
                                                 <a href="shop-details.html">
-                                                    {product.name}
+                                                    {product.title}
                                                 </a>
                                             </h3>
                                             <span>کد محصول # {product.id}</span>

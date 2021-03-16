@@ -8,6 +8,7 @@ use App\Events\UserHandlerEvent;
 use App\Events\ForgotPasswordEvent;
 use App\Events\LogoutEvent;
 
+use Illuminate\Support\Str;
 
 
 
@@ -24,6 +25,8 @@ class UserController extends Controller
         if(Auth::check())  return 'auth' . Auth::id();
      
         return 'customer';
+       
+      
 
     }
 

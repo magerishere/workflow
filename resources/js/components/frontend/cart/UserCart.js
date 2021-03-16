@@ -14,6 +14,7 @@ const UserCart = () => {
     const [resultPurchase, setResultPurchase] = useState(0);
     const [resultCode, setResultCode] = useState(-1);
     const [address, setAddress] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
 
     //For check discount code
     const applyCode = async (code) => {
@@ -23,8 +24,13 @@ const UserCart = () => {
 
     //Final step of buy
     const finalPurchase = async (cost) => {
-        if (address) {
-            const res = await axios.post("/order", { orders, address, cost });
+        if (address && phoneNumber.length >= 11) {
+            const res = await axios.post("/order", {
+                orders,
+                address,
+                cost,
+                phoneNumber,
+            });
             if (res.data[0].original.status === 200) {
                 setResultPurchase(1);
                 localStorage.setItem("usercart", []);
@@ -184,10 +190,14 @@ const UserCart = () => {
 
                                     <div className="row">
                                         <DiscountCode
+                                            resultPurchase={resultPurchase}
                                             applyCode={applyCode}
                                             resultCode={resultCode}
                                             applyAddress={(address) =>
                                                 setAddress(address)
+                                            }
+                                            applyPhoneNumber={(phoneNumber) =>
+                                                setPhoneNumber(phoneNumber)
                                             }
                                         />
                                         <CalculateCart

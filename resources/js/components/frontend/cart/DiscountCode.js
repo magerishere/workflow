@@ -1,8 +1,18 @@
-import React, { useState } from "react";
-
-const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
+import React, { useState, useContext } from "react";
+import AuthContext from "../authorization/isAuth";
+const DiscountCode = ({
+    resultPurchase,
+    applyAddress,
+    applyCode,
+    resultCode,
+    applyPhoneNumber,
+}) => {
+    // check authorization
+    const { auth } = useContext(AuthContext);
     const [discountCode, setDiscountCode] = useState("");
     const [address, setAddress] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+
     return (
         <>
             <div className="col-lg-6">
@@ -13,7 +23,6 @@ const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
                         </div>
                     ) : (
                         <div className="cart-wraps-form">
-                            <h3>کد تخفیف خود را اینجا وارد کنید</h3>
                             {resultCode === 0 && (
                                 <div className="alert alert-danger">
                                     <p>کد وارد شده اشتباه است</p>
@@ -46,7 +55,11 @@ const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
 
                     <div className="cart-wraps-form mt-5">
                         <h3>لطفا نشانی خود را به طور دقیق بنویسید</h3>
-
+                        {resultPurchase === -1 && !address && (
+                            <div className="alert alert-danger">
+                                <p>آدرس خود را وارد نمایید</p>
+                            </div>
+                        )}
                         <div className="form-group">
                             <input
                                 type="text"
@@ -58,6 +71,29 @@ const DiscountCode = ({ applyAddress, applyCode, resultCode }) => {
                             />
                         </div>
                     </div>
+                    {!auth && (
+                        <div className="cart-wraps-form mt-5">
+                            <h3>لطفا شماره تلفن همراه خود را وارد کنید</h3>
+                            {resultPurchase === -1 && phoneNumber.length < 11 && (
+                                <div className="alert alert-danger">
+                                    <p>شماره تلفن  معتبر وارد نمایید</p>
+                                </div>
+                            )}
+                            <div className="form-group">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="09......"
+                                    value={phoneNumber}
+                                    onChange={(e) =>
+                                        setPhoneNumber(e.target.value)
+                                    }
+                                    onBlur={() => applyPhoneNumber(phoneNumber)}
+                                 
+                                />
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </>

@@ -1,29 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "../frontend/authorization/isAuth";
+
 class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { auth: false };
-    }
-    //For Auth check response
-    async componentDidMount() {
-        const res = await axios.post("/auth", null);
-        this.setState({ auth: res.data.auth });
-    }
+  
+    logout = async () => {
+        await axios.post("/logout", null);
+    };
     render() {
-        const logout = async () => {
-            await axios.post("/logout", null);
-        };
-        const { auth } = this.state;
+        // check authorization 
+        const { auth } = this.context;
         return (
             <>
                 {/* <!-- Top Header Start --> */}
 
-                <div class="navbar-area">
+                <div className="navbar-area">
                     {/* <!-- Menu For Mobile Device --> */}
-                    <div class="mobile-nav">
-                        <a href="index-2.html" class="logo">
+                    <div className="mobile-nav">
+                        <a href="index-2.html" className="logo">
                             <img
                                 src="assets/images/logos/logo-3.png"
                                 alt="Logo"
@@ -32,10 +27,10 @@ class Header extends Component {
                     </div>
 
                     {/* <!-- Menu For Desktop Device --> */}
-                    <div class="main-nav nav-three">
-                        <div class="container">
-                            <nav class="navbar navbar-expand-md navbar-light ">
-                                <Link class="navbar-brand" to="/">
+                    <div className="main-nav nav-three">
+                        <div className="container">
+                            <nav className="navbar navbar-expand-md navbar-light ">
+                                <Link className="navbar-brand" to="/">
                                     <img
                                         src="/images/logos/logo-3.png"
                                         alt="Logo"
@@ -43,160 +38,167 @@ class Header extends Component {
                                 </Link>
 
                                 <div
-                                    class="collapse navbar-collapse mean-menu"
+                                    className="collapse navbar-collapse mean-menu"
                                     id="navbarSupportedContent"
                                 >
-                                    <ul class="navbar-nav m-auto">
+                                    <ul className="navbar-nav m-auto">
                                         {auth && (
-                                            <li>
-                                                <Link onClick={logout}>
+                                            <li className="nav-item">
+                                                <a
+                                                    className="nav-link"
+                                                    href="#"
+                                                    onClick={this.logout}
+                                                >
                                                     خروج
-                                                </Link>
+                                                </a>
                                             </li>
                                         )}
 
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                        <li className="nav-item">
+                                            <a href="#" className="nav-link">
                                                 خانه
-                                                <i class="bx bx-chevron-down"></i>
+                                                <i className="bx bx-chevron-down"></i>
                                             </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
+                                            <ul className="dropdown-menu">
+                                                <li className="nav-item">
                                                     <a
                                                         href="index-2.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         خانه یک
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="index-3.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         خانه دو
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="index-4.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         خانه سه
                                                     </a>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link active">
+                                        <li className="nav-item">
+                                            <a
+                                                href="#"
+                                                className="nav-link active"
+                                            >
                                                 صفحات
-                                                <i class="bx bx-chevron-down"></i>
+                                                <i className="bx bx-chevron-down"></i>
                                             </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
+                                            <ul className="dropdown-menu">
+                                                <li className="nav-item">
                                                     <a
                                                         href="about.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         درباره ما
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="#"
-                                                        class="nav-link active"
+                                                        className="nav-link active"
                                                     >
                                                         فروشگاه
-                                                        <i class="bx bx-chevron-down"></i>
+                                                        <i className="bx bx-chevron-down"></i>
                                                     </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li class="nav-item">
+                                                    <ul className="dropdown-menu">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="shop-details.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 جزییات محصول
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="shop-details-left-sidebar.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 جزییات محصول با
                                                                 سایدبار چپ
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="shop-details-right-sidebar.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 جزییات محصول با
                                                                 سایدبار راست
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="tracking-order.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 پیگیری سفارش
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="size-guides.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 راهنمای سایزبندی
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="customer-services.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 خدمات مشتری
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="compare.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 مقایسه
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="cart.html"
-                                                                class="nav-link active"
+                                                                className="nav-link active"
                                                             >
                                                                 سبد خرید
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="checkout.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 ادامه خرید
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="wishlist.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 علاقه‌مندی‌ها
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="my-account.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 اکانت من
                                                             </a>
@@ -204,62 +206,62 @@ class Header extends Component {
                                                     </ul>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="faq.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         پرسش و پاسخ{" "}
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="team.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         تیم
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="testimonials.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         رضایت مشتریان
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="#"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         کاربر
-                                                        <i class="bx bx-chevron-down"></i>
+                                                        <i className="bx bx-chevron-down"></i>
                                                     </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li class="nav-item">
+                                                    <ul className="dropdown-menu">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="log-in.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 ورود
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="register.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 ثبت‌نام
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        <li className="nav-item">
                                                             <a
                                                                 href="forget-password.html"
-                                                                class="nav-link"
+                                                                className="nav-link"
                                                             >
                                                                 فراموشی رمزعبور
                                                             </a>
@@ -267,46 +269,46 @@ class Header extends Component {
                                                     </ul>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="terms-condition.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         شرایط و مقررات
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="privacy-policy.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         سیاست حریم شخصی
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="404.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         404 صفحه
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="search-page.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         صفحه جستجو
                                                     </a>
                                                 </li>
 
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="coming-soon.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         به زودی
                                                     </a>
@@ -314,40 +316,40 @@ class Header extends Component {
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                        <li className="nav-item">
+                                            <a href="#" className="nav-link">
                                                 فروشگاه
-                                                <i class="bx bx-chevron-down"></i>
+                                                <i className="bx bx-chevron-down"></i>
                                             </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
+                                            <ul className="dropdown-menu">
+                                                <li className="nav-item">
                                                     <a
                                                         href="shop-left-sidebar.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         فروشگاه با سایدبار راست
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="shop-right-sidebar.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         فروشگاه با سایدبار چپ
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="shop-grid.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         فروشگاه با گرید
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="shop-full-width-sidebar.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         فروشگاه با عرض کامل
                                                         سایدبار{" "}
@@ -356,32 +358,32 @@ class Header extends Component {
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                        <li className="nav-item">
+                                            <a href="#" className="nav-link">
                                                 دسته‌بندی
-                                                <i class="bx bx-chevron-down"></i>
+                                                <i className="bx bx-chevron-down"></i>
                                             </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
+                                            <ul className="dropdown-menu">
+                                                <li className="nav-item">
                                                     <a
                                                         href="categories-1.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         دسته‌بندی(2 در صف)
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="categories-2.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         دسته‌بندی (3 در صف)
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="categories-full-width.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         دسته‌بندی تمام عرض
                                                     </a>
@@ -389,32 +391,32 @@ class Header extends Component {
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                        <li className="nav-item">
+                                            <a href="#" className="nav-link">
                                                 بلاگ
-                                                <i class="bx bx-chevron-down"></i>
+                                                <i className="bx bx-chevron-down"></i>
                                             </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
+                                            <ul className="dropdown-menu">
+                                                <li className="nav-item">
                                                     <a
                                                         href="blog-1.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         بلاگ استایل یک
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="blog-2.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         بلاگ استایل دو
                                                     </a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li className="nav-item">
                                                     <a
                                                         href="blog-details.html"
-                                                        class="nav-link"
+                                                        className="nav-link"
                                                     >
                                                         بلاگ جزییات
                                                     </a>
@@ -422,20 +424,20 @@ class Header extends Component {
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item">
+                                        <li className="nav-item">
                                             <a
                                                 href="contact.html"
-                                                class="nav-link"
+                                                className="nav-link"
                                             >
                                                 ارتباط با ما
                                             </a>
                                         </li>
                                     </ul>
 
-                                    <div class="nav-other">
-                                        <div class="nav-other-item">
-                                            <div class="language-list">
-                                                <select class="language-list-item">
+                                    <div className="nav-other">
+                                        <div className="nav-other-item">
+                                            <div className="language-list">
+                                                <select className="language-list-item">
                                                     <option>English</option>
                                                     <option>العربيّة</option>
                                                     <option>Deutsch</option>
@@ -444,13 +446,13 @@ class Header extends Component {
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="nav-other-item">
-                                            <div class="cart-btn-area">
+                                        <div className="nav-other-item">
+                                            <div className="cart-btn-area">
                                                 <Link
                                                     to="/usercart"
-                                                    class="cart-btn"
+                                                    className="cart-btn"
                                                 >
-                                                    <i class="bx bx-cart"></i>
+                                                    <i className="bx bx-cart"></i>
                                                 </Link>
                                                 <span>
                                                     {localStorage.getItem(
@@ -467,18 +469,18 @@ class Header extends Component {
                                         </div>
                                     </div>
 
-                                    <div class="nav-btn nav-other-btn">
+                                    <div className="nav-btn nav-other-btn">
                                         {auth ? (
                                             <Link
                                                 to="/panel"
-                                                class="default-btn btn-bg-three"
+                                                className="default-btn btn-bg-three"
                                             >
                                                 پنل کاربری
                                             </Link>
                                         ) : (
                                             <Link
                                                 to="/login"
-                                                class="default-btn btn-bg-three"
+                                                className="default-btn btn-bg-three"
                                             >
                                                 وارد شوید
                                             </Link>
@@ -489,25 +491,25 @@ class Header extends Component {
                         </div>
                     </div>
 
-                    <div class="side-nav-responsive">
-                        <div class="container">
-                            <div class="dot-menu">
-                                <div class="circle-inner">
-                                    <div class="circle circle-one"></div>
-                                    <div class="circle circle-two"></div>
-                                    <div class="circle circle-three"></div>
+                    <div className="side-nav-responsive">
+                        <div className="container">
+                            <div className="dot-menu">
+                                <div className="circle-inner">
+                                    <div className="circle circle-one"></div>
+                                    <div className="circle circle-two"></div>
+                                    <div className="circle circle-three"></div>
                                 </div>
                             </div>
 
-                            <div class="container">
-                                <div class="side-nav-inner">
-                                    <div class="side-nav justify-content-center align-items-center">
-                                        <div class="side-item">
-                                            <div class="nav-other-item">
-                                                <div class="language-list">
-                                                    <div class="dropdown language-list-dropdown">
+                            <div className="container">
+                                <div className="side-nav-inner">
+                                    <div className="side-nav justify-content-center align-items-center">
+                                        <div className="side-item">
+                                            <div className="nav-other-item">
+                                                <div className="language-list">
+                                                    <div className="dropdown language-list-dropdown">
                                                         <button
-                                                            class="btn dropdown-toggle"
+                                                            className="btn dropdown-toggle"
                                                             type="button"
                                                             id="dropdownMenuButton-two"
                                                             data-toggle="dropdown"
@@ -515,14 +517,14 @@ class Header extends Component {
                                                             aria-expanded="false"
                                                         >
                                                             زبان
-                                                            <i class="bx bx-chevron-down"></i>
+                                                            <i className="bx bx-chevron-down"></i>
                                                         </button>
                                                         <div
-                                                            class="dropdown-menu"
+                                                            className="dropdown-menu"
                                                             aria-labelledby="dropdownMenuButton-two"
                                                         >
                                                             <a
-                                                                class="dropdown-item"
+                                                                className="dropdown-item"
                                                                 href="#"
                                                             >
                                                                 <img
@@ -564,23 +566,23 @@ class Header extends Component {
                                                 </div>
                                             </div>
 
-                                            <div class="nav-other-item">
-                                                <div class="cart-btn-area">
+                                            <div className="nav-other-item">
+                                                <div className="cart-btn-area">
                                                     <Link
                                                         to="usercart"
-                                                        class="cart-btn"
+                                                        className="cart-btn"
                                                     >
-                                                        <i class="bx bx-cart"></i>
+                                                        <i className="bx bx-cart"></i>
                                                     </Link>
                                                     <span>1</span>
                                                 </div>
                                             </div>
 
-                                            <div class="nav-other-item">
-                                                <div class="option-btn">
+                                            <div className="nav-other-item">
+                                                <div className="option-btn">
                                                     <a
                                                         href="log-in.html"
-                                                        class="default-btn"
+                                                        className="default-btn"
                                                     >
                                                         وارد شوید
                                                     </a>
@@ -599,5 +601,5 @@ class Header extends Component {
         );
     }
 }
-
+Header.contextType = AuthContext;
 export default Header;

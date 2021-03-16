@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import ReactDOM from "react-dom";
 import "../../css/app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -11,11 +11,14 @@ import ProductDetails from "./frontend/products/ProductDetails";
 import ForgotPassword from "./frontend/form/ForgotPassword";
 import UserCart from "./frontend/cart/UserCart";
 import UserPanel from "./frontend/panel/UserPanel";
+import {AuthProvider} from '../components/frontend/authorization/isAuth';
+
 
 class Example extends Component {
     render() {
         return (
             <>
+            <AuthProvider>
                 <Router>
                     <Header />
                     <Switch>
@@ -49,6 +52,7 @@ class Example extends Component {
                     </Switch>
                     <Footer />
                 </Router>
+                </AuthProvider>
             </>
         );
     }
