@@ -4414,22 +4414,30 @@ var Form = function Form(_ref) {
 
   var register = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-      var result, response;
+      var res, result, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user", {
+                email: email
+              });
+
+            case 3:
+              res = _context.sent;
+              console.log(res);
 
               if (!isRegister) {
-                _context.next = 9;
+                _context.next = 13;
                 break;
               }
 
-              _context.next = 4;
+              _context.next = 8;
               return (0,_validation__WEBPACK_IMPORTED_MODULE_3__.validation)(email, password, confirm);
 
-            case 4:
+            case 8:
               result = _context.sent;
               setMessage(result);
 
@@ -4440,21 +4448,21 @@ var Form = function Form(_ref) {
                 }, 2000);
               }
 
-              _context.next = 13;
+              _context.next = 17;
               break;
 
-            case 9:
-              _context.next = 11;
+            case 13:
+              _context.next = 15;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user", {
                 email: email,
                 password: password
               });
 
-            case 11:
+            case 15:
               response = _context.sent;
-              response.data[0].original.status === 200 ? window.location.replace("/user") : setMessage("ایمیل یا رمز عبور اشتباه است");
+              response.data[2].original.status === 200 ? window.location.replace("/user") : setMessage("ایمیل،شماره تلفن یا رمز عبور اشتباه است");
 
-            case 13:
+            case 17:
             case "end":
               return _context.stop();
           }
@@ -4514,8 +4522,8 @@ var Form = function Form(_ref) {
                           type: "text",
                           className: "form-control",
                           required: true,
-                          "data-error": "\u0644\u0637\u0641\u0627 \u0627\u06CC\u0645\u06CC\u0644 \u062E\u0648\u062F \u0631\u0627 \u0648\u0627\u0631\u062F \u0646\u0645\u0627\u06CC\u06CC\u062F",
-                          placeholder: "\u0627\u06CC\u0645\u06CC\u0644",
+                          "data-error": "\u0644\u0637\u0641\u0627 \u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646 \u062E\u0648\u062F \u0631\u0627 \u0648\u0627\u0631\u062F \u0646\u0645\u0627\u06CC\u06CC\u062F",
+                          placeholder: "\u0627\u06CC\u0645\u06CC\u0644 \u06CC\u0627 \u0634\u0645\u0627\u0631\u0647 \u062A\u0644\u0641\u0646",
                           value: email,
                           onChange: function onChange(e) {
                             return setEmail(e.target.value);
@@ -4728,7 +4736,7 @@ var validation = /*#__PURE__*/function () {
             result = _context.t0;
 
             if (response) {
-              result = response.data[0].original.status === 200 ? "موفق! درحال آماده سازی حساب شما ..." : "ایمیل وجود دارد";
+              result = response.data[2].original.status === 200 ? "موفق! درحال آماده سازی حساب شما ..." : "ایمیل یا شماره تلفن وجود دارد";
             }
 
             return _context.abrupt("return", result);

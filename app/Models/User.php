@@ -18,6 +18,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'email',
+        'phone_number',
         'password',
     ];
 
@@ -37,10 +38,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'verified_at' => 'datetime',
     ];
 
-    public function userCart() {
-        return $this->belongsTo('App\Models\UserCart');
-    }
 }

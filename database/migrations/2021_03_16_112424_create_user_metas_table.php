@@ -16,7 +16,6 @@ class CreateUserMetasTable extends Migration
         Schema::create('user_metas', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('user_id');
-            $table->string('phone_number',11);
             $table->string('photo')->nullable();
             $table->timestamps();
         });

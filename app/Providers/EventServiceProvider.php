@@ -16,7 +16,9 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         \App\Events\UserHandlerEvent::class => [
-            \App\Listeners\UserHandlerListener::class,
+            \App\Listeners\UserRegisterWithEmailListener::class,
+            \App\Listeners\UserRegisterWithPhoneNumberListener::class,
+            \App\Listeners\UserLoginListener::class,
         ],
         \App\Events\ForgotPasswordEvent::class => [
             \App\Listeners\ForgotPasswordListener::class,

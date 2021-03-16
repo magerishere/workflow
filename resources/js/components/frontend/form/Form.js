@@ -11,6 +11,8 @@ const Form = ({ isRegister }) => {
 
     const register = async (e) => {
         e.preventDefault();
+        const res = await axios.post("/user", { email });
+        console.log(res);
         if (isRegister) {
             const result = await validation(email, password, confirm);
             setMessage(result);
@@ -22,9 +24,9 @@ const Form = ({ isRegister }) => {
             }
         } else {
             const response = await axios.post("/user", { email, password });
-            response.data[0].original.status === 200
+            response.data[2].original.status === 200
                 ? window.location.replace("/user")
-                : setMessage("ایمیل یا رمز عبور اشتباه است");
+                : setMessage("ایمیل،شماره تلفن یا رمز عبور اشتباه است");
         }
     };
 
@@ -68,8 +70,8 @@ const Form = ({ isRegister }) => {
                                                         type="text"
                                                         className="form-control"
                                                         required
-                                                        data-error="لطفا ایمیل خود را وارد نمایید"
-                                                        placeholder="ایمیل"
+                                                        data-error="لطفا ایمیل یا شماره تلفن خود را وارد نمایید"
+                                                        placeholder="ایمیل یا شماره تلفن"
                                                         value={email}
                                                         onChange={(e) =>
                                                             setEmail(

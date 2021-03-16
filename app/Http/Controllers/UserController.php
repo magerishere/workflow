@@ -49,7 +49,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // for login and register users
-
         return  event(new UserHandlerEvent($request));
 
              
@@ -64,6 +63,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        dd(intval('2'));
+        
     }
 
     /**

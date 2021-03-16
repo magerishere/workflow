@@ -1,34 +1,4 @@
-<?php
-
-namespace App\Listeners;
-
-use App\Events\UserHandlerEvent;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-
-class UserHandlerListener
-{
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
-     * @param  UserHandlerEvent  $event
-     * @return void
-     */
-    public function handle(UserHandlerEvent $event)
-    {
-        // for register and login users
+ // for register and login users
 
 
         $result = false;
@@ -36,7 +6,7 @@ class UserHandlerListener
         if($event->confirm) {
              if(!User::where(['email'=>$event->email])->exists()) 
              {
-                 $user = User::create([
+                  User::create([
                     'email'=>$event->email,
                     'password'=>bcrypt($event->password)
                 ]);
@@ -54,5 +24,3 @@ class UserHandlerListener
         }
 
         return response()->json(['status'=>400]);
-    }
-}

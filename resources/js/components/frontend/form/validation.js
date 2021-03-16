@@ -13,9 +13,9 @@ export const validation = async (email, password, confirm) => {
 
     if (response) {
         result =
-            response.data[0].original.status === 200
+            response.data[2].original.status === 200
                 ? "موفق! درحال آماده سازی حساب شما ..."
-                : "ایمیل وجود دارد";
+                : "ایمیل یا شماره تلفن وجود دارد";
     }
     return result;
 };
