@@ -1,9 +1,9 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useContext } from "react";
 import CalculateCart from "./CalculateCart";
 import DiscountCode from "./DiscountCode";
 import ReducerOrder from "./ReducerOrder";
 import axios from "axios";
-
+import AuthContext from "../authorization/isAuth";
 const UserCart = () => {
     const [orders, dispatch] = useReducer(
         ReducerOrder,
@@ -11,10 +11,14 @@ const UserCart = () => {
             ? JSON.parse(localStorage.getItem("usercart"))
             : []
     );
+    const { auth } = useContext(AuthContext);
     const [resultPurchase, setResultPurchase] = useState(0);
     const [resultCode, setResultCode] = useState(-1);
     const [address, setAddress] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState(
+        auth ? auth.phone_number : ""
+    );
+    const [billPurchase,setBillPurchase] = useState(null);
 
     //For check discount code
     const applyCode = async (code) => {
@@ -24,7 +28,7 @@ const UserCart = () => {
 
     //Final step of buy
     const finalPurchase = async (cost) => {
-        if (address && phoneNumber.length >= 11) {
+        if (address && phoneNumber.length === 11) {
             const res = await axios.post("/order", {
                 orders,
                 address,
@@ -33,6 +37,7 @@ const UserCart = () => {
             });
             if (res.data[0].original.status === 200) {
                 setResultPurchase(1);
+                setBillPurchase(res.data[0].original.bill);
                 localStorage.setItem("usercart", []);
             }
         } else {
@@ -205,6 +210,7 @@ const UserCart = () => {
                                             resultCode={resultCode}
                                             finalPurchase={finalPurchase}
                                             resultPurchase={resultPurchase}
+                                            billPurchase={billPurchase}
                                         />
                                     </div>
                                 </form>

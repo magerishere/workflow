@@ -116,7 +116,7 @@ class UserController extends Controller
 
     public function auth(Request $request)
     {
-        return response()->json(['auth'=>Auth::check()]);
+        return response()->json(['auth'=>Auth::user()]);
     }
 
 

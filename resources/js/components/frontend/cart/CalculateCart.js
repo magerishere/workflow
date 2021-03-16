@@ -5,6 +5,7 @@ const CalculateCart = ({
     resultCode,
     finalPurchase,
     resultPurchase,
+    billPurchase,
 }) => {
     const [total, setTotal] = useState(
         orders.reduce((a, c) => a + c.price * c.count, 0)
@@ -22,9 +23,24 @@ const CalculateCart = ({
         <>
             <div className="col-lg-6">
                 <div className="cart-totals">
-                    {resultPurchase === 1 ? (
+                    {resultPurchase === 1 && billPurchase ? (
                         <div className="alert alert-success">
-                            <p>خرید شما با موفقیت انجام شد</p>
+                            <h3> فاکتور خرید شما کد رهگیری {billPurchase.bill_id}#</h3>
+
+                            <ul>
+                                <li>
+                                    جمع کل <span>{billPurchase.cost} تومان</span>
+                                </li>
+                                <li>
+                                    آدرس<span>{billPurchase.address}</span>
+                                </li>
+                                <li>
+                                    شماره تلفن
+                                    <span>{billPurchase.phone_number}</span>
+                                </li>
+                             
+                            </ul>
+                            <p>فاکتور شما به شماره ارسال میشود</p>
                         </div>
                     ) : (
                         <>

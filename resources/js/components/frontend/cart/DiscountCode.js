@@ -11,7 +11,9 @@ const DiscountCode = ({
     const { auth } = useContext(AuthContext);
     const [discountCode, setDiscountCode] = useState("");
     const [address, setAddress] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState(
+        auth ? auth.phone_number : ""
+    );
 
     return (
         <>
@@ -71,29 +73,25 @@ const DiscountCode = ({
                             />
                         </div>
                     </div>
-                    {!auth && (
-                        <div className="cart-wraps-form mt-5">
-                            <h3>لطفا شماره تلفن همراه خود را وارد کنید</h3>
-                            {resultPurchase === -1 && phoneNumber.length < 11 && (
-                                <div className="alert alert-danger">
-                                    <p>شماره تلفن  معتبر وارد نمایید</p>
-                                </div>
-                            )}
-                            <div className="form-group">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="09......"
-                                    value={phoneNumber}
-                                    onChange={(e) =>
-                                        setPhoneNumber(e.target.value)
-                                    }
-                                    onBlur={() => applyPhoneNumber(phoneNumber)}
-                                 
-                                />
+
+                    <div className="cart-wraps-form mt-5">
+                        <h3>لطفا شماره تلفن همراه خود را وارد کنید</h3>
+                        {resultPurchase === -1 &&  phoneNumber.length !== 11 && (
+                            <div className="alert alert-danger">
+                                <p>شماره تلفن معتبر وارد نمایید</p>
                             </div>
+                        )}
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="09......"
+                                value={phoneNumber}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                onBlur={() => applyPhoneNumber(phoneNumber)}
+                            />
                         </div>
-                    )}
+                    </div>
                 </div>
             </div>
         </>

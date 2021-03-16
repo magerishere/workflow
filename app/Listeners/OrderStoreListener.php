@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Models\Order;
 use App\Models\Bill;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 class OrderStoreListener
 {
     /**
@@ -30,6 +31,7 @@ class OrderStoreListener
     {
         //
         $bill = Bill::create([
+            'bill_id'=> Str::random(),
             'user_id'=>Auth::id(),
             'address'=>$event->address,
             'cost'=>$event->cost,
@@ -46,7 +48,7 @@ class OrderStoreListener
                     'bill_id'=>$bill->id,
                 ]);
             }
-            return response()->json(['status'=>200]);
+            return response()->json(['status'=>200,'bill'=>$bill]);
         }
 
         return response()->json(['status'=>400]);
