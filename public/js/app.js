@@ -2106,13 +2106,13 @@ var Example = /*#__PURE__*/function (_Component) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-                path: "/user/register",
+                path: "/register",
                 exact: true,
                 component: _frontend_form_Register__WEBPACK_IMPORTED_MODULE_6__.default
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-                path: "/user/login",
+                path: "/login",
                 exact: true,
                 component: _frontend_form_Login__WEBPACK_IMPORTED_MODULE_5__.default
               })
@@ -2124,19 +2124,19 @@ var Example = /*#__PURE__*/function (_Component) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-                path: "/user/forgotpassword",
+                path: "/forgotpassword",
                 exact: true,
                 component: _frontend_form_ForgotPassword__WEBPACK_IMPORTED_MODULE_9__.default
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-                path: "/user/cart",
+                path: "/usercart",
                 exact: true,
                 component: _frontend_cart_UserCart__WEBPACK_IMPORTED_MODULE_10__.default
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Switch, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-                path: "/user/panel",
+                path: "/dashboard",
                 exact: true,
                 component: _frontend_panel_UserPanel__WEBPACK_IMPORTED_MODULE_11__.default
               })
@@ -2985,7 +2985,7 @@ var Header = /*#__PURE__*/function (_Component) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "cart-btn-area",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                          to: "/user/cart",
+                          to: "/usercart",
                           className: "cart-btn",
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                             className: "bx bx-cart"
@@ -2998,11 +2998,11 @@ var Header = /*#__PURE__*/function (_Component) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                     className: "nav-btn nav-other-btn",
                     children: auth ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                      to: "/user/panel",
+                      to: "/dashboard",
                       className: "default-btn btn-bg-three",
                       children: "\u067E\u0646\u0644 \u06A9\u0627\u0631\u0628\u0631\u06CC"
                     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                      to: "/user/login",
+                      to: "/login",
                       className: "default-btn btn-bg-three",
                       children: "\u0648\u0627\u0631\u062F \u0634\u0648\u06CC\u062F"
                     })
@@ -3093,7 +3093,7 @@ var Header = /*#__PURE__*/function (_Component) {
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                           className: "cart-btn-area",
                           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                            to: "/user/cart",
+                            to: "/usercart",
                             className: "cart-btn",
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                               className: "bx bx-cart"
@@ -3244,7 +3244,7 @@ var AuthProvider = /*#__PURE__*/function (_Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user/auth", null);
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/auth", null);
 
               case 2:
                 res = _context.sent;
@@ -4468,7 +4468,7 @@ var Login = function Login() {
             case 0:
               e.preventDefault();
               _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user/login", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/login", {
                 email: email,
                 password: password
               });
@@ -4476,7 +4476,7 @@ var Login = function Login() {
             case 3:
               res = _context.sent;
               console.log(res);
-              res.data[0].original.status === 200 ? window.location.replace("/user/panel") : setMessage("ایمیل،شماره تلفن یا رمز عبور اشتباه است");
+              res.data[0].original.status === 200 ? window.location.replace("/dashboard") : setMessage("ایمیل،شماره تلفن یا رمز عبور اشتباه است");
 
             case 6:
             case "end":
@@ -4510,7 +4510,7 @@ var Login = function Login() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
                     children: "\u0634\u0645\u0627 \u0628\u0647 \u0631\u0627\u062D\u062A\u06CC \u062F\u0631 \u0647\u0631 \u0632\u0645\u0627\u0646\u06CC \u0645\u06CC\u062A\u0648\u0627\u0646\u06CC\u062F \u062F\u0631 \u0633\u0627\u06CC\u062A \u0645\u0627 \u062B\u0628\u062A \u0646\u0627\u0645 \u06A9\u0646\u06CC\u062F"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                    to: "/user/register",
+                    to: "/register",
                     className: "user-btn",
                     children: "\u062B\u0628\u062A \u0646\u0627\u0645"
                   })]
@@ -4573,7 +4573,7 @@ var Login = function Login() {
                             "for": "chb1",
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
                               className: "forget",
-                              to: "/user/forgotpassword",
+                              to: "/forgotpassword",
                               children: "\u0641\u0631\u0627\u0645\u0648\u0634\u06CC \u0631\u0645\u0632 \u0639\u0628\u0648\u0631\u061F"
                             })
                           })
@@ -4753,7 +4753,7 @@ var Register = function Register() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
                   children: "\u0634\u0645\u0627 \u0628\u0647 \u0631\u0627\u062D\u062A\u06CC \u062F\u0631 \u0647\u0631 \u0632\u0645\u0627\u0646\u06CC \u0645\u06CC\u062A\u0648\u0627\u0646\u06CC\u062F \u062F\u0631 \u0633\u0627\u06CC\u062A \u0645\u0627 \u062B\u0628\u062A \u0646\u0627\u0645 \u06A9\u0646\u06CC\u062F"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-                  to: "/user/login",
+                  to: "/login",
                   className: "user-btn",
                   children: "\u0648\u0631\u0648\u062F"
                 })]
@@ -5279,13 +5279,12 @@ var UserPanel = /*#__PURE__*/function (_Component) {
 
               case 2:
                 res = _context.sent;
-                console.log(res);
                 res.data.status === 200 && this.setState({
                   bills: res.data.bills,
                   isLoading: false
                 });
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }

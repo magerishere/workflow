@@ -449,7 +449,7 @@ class Header extends Component {
                                         <div className="nav-other-item">
                                             <div className="cart-btn-area">
                                                 <Link
-                                                    to="/user/cart"
+                                                    to="/usercart"
                                                     className="cart-btn"
                                                 >
                                                     <i className="bx bx-cart"></i>
@@ -472,14 +472,14 @@ class Header extends Component {
                                     <div className="nav-btn nav-other-btn">
                                         {auth ? (
                                             <Link
-                                                to="/user/panel"
+                                                to="/dashboard"
                                                 className="default-btn btn-bg-three"
                                             >
                                                 پنل کاربری
                                             </Link>
                                         ) : (
                                             <Link
-                                                to="/user/login"
+                                                to="/login"
                                                 className="default-btn btn-bg-three"
                                             >
                                                 وارد شوید
@@ -569,7 +569,7 @@ class Header extends Component {
                                             <div className="nav-other-item">
                                                 <div className="cart-btn-area">
                                                     <Link
-                                                        to="/user/cart"
+                                                        to="/usercart"
                                                         className="cart-btn"
                                                     >
                                                         <i className="bx bx-cart"></i>

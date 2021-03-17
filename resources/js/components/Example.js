@@ -25,10 +25,10 @@ class Example extends Component {
                         <Route path="/" exact component={Content} />
                     </Switch>
                     <Switch>
-                        <Route path="/user/register" exact component={Register} />
+                        <Route path="/register" exact component={Register} />
                     </Switch>
                     <Switch>
-                        <Route path="/user/login" exact component={Login} />
+                        <Route path="/login" exact component={Login} />
                     </Switch>
                     <Switch>
                         <Route
@@ -39,16 +39,16 @@ class Example extends Component {
                     </Switch>
                     <Switch>
                         <Route
-                            path="/user/forgotpassword"
+                            path="/forgotpassword"
                             exact
                             component={ForgotPassword}
                         />
                     </Switch>
                     <Switch>
-                        <Route path="/user/cart" exact component={UserCart} />
+                        <Route path="/usercart" exact component={UserCart} />
                     </Switch>
                     <Switch>
-                        <Route path="/user/panel" exact component={UserPanel} />
+                        <Route path="/dashboard" exact component={UserPanel} />
                     </Switch>
                     <Footer />
                 </Router>

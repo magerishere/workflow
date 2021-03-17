@@ -9,10 +9,10 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        const res = await axios.post("/user/login", { email, password });
+        const res = await axios.post("/login", { email, password });
         console.log(res);
         res.data[0].original.status === 200
-            ? window.location.replace("/user/panel")
+            ? window.location.replace("/dashboard")
             : setMessage("ایمیل،شماره تلفن یا رمز عبور اشتباه است");
     };
     return (
@@ -30,7 +30,7 @@ const Login = () => {
                                             سایت ما ثبت نام کنید
                                         </p>
                                         <Link
-                                            to="/user/register"
+                                            to="/register"
                                             className="user-btn"
                                         >
                                             ثبت نام
@@ -93,7 +93,7 @@ const Login = () => {
                                                         <label for="chb1">
                                                             <Link
                                                                 className="forget"
-                                                                to="/user/forgotpassword"
+                                                                to="/forgotpassword"
                                                             >
                                                                 فراموشی رمز
                                                                 عبور؟

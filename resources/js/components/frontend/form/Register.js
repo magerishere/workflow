@@ -45,7 +45,7 @@ const Register = () => {
                                         شما به راحتی در هر زمانی میتوانید در
                                         سایت ما ثبت نام کنید
                                     </p>
-                                    <Link to="/user/login" className="user-btn">
+                                    <Link to="/login" className="user-btn">
                                         ورود
                                     </Link>
                                 </div>

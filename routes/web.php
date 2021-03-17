@@ -27,10 +27,10 @@ Route::resource('/comment',CommentController::class);
 Route::resource('/order',OrderController::class);
 
 // Route Post
-Route::post('/user/login',[UserController::class,'login'])->name('user.login');
-Route::post('/user/logout',[UserController::class,'logout'])->name('user.logout');
-Route::post('/user/forgotpassword',[UserController::class,'forgotPassword'])->name('user.forgotPassword');
-Route::post('/user/auth',[UserController::class,'auth'])->name('user.auth');
+Route::post('/login',[UserController::class,'login']);
+Route::post('/logout',[UserController::class,'logout']);
+Route::post('/forgotpassword',[UserController::class,'forgotPassword']);
+Route::post('/auth',[UserController::class,'auth']);
 
 // if discount code is true
 Route::post('/discountcode',function(Request $request){
@@ -41,5 +41,5 @@ Route::post('/discountcode',function(Request $request){
 });
 
 // Route Get
-Route::get('/user/panel',[UserController::class,'welcome'])->name('user.welcome');
-Route::get('/',[UserController::class,'welcome'])->name('welcome');
+Route::get('/dashboard',[UserController::class,'welcome']);
+Route::get('/',[UserController::class,'welcome']);
