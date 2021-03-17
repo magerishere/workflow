@@ -12,7 +12,7 @@ export class AuthProvider extends Component {
     }
 
     async componentDidMount() {
-        const res = await axios.post("/auth", null);
+        const res = await axios.post("/user/auth", null);
         this.setState({ auth: res.data.auth });
     }
     render() {

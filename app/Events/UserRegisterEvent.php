@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserHandlerEvent
+class UserRegisterEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -22,11 +22,8 @@ class UserHandlerEvent
     public function __construct($request)
     {
         //
-        $this->request = $request;
-        $this->email = $request->email;
-        $this->password = $request->password;
-        $this->confirm = $request->confirm;
-
+        $this->email = $request->email; // can be email OR phone number
+        $this->password = $request->password; 
     }
 
     /**

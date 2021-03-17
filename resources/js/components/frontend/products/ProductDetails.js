@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { Component } from "react";
 import ProductTab from "./ProductTab";
-import { Provider } from "../Context";
-
+import { Provider } from "./Context";
+import Preloader from "../PreLoader";
 
 class ProductDetails extends Component {
     constructor(props) {
@@ -60,14 +60,7 @@ class ProductDetails extends Component {
         const { count } = this.state.product;
         return (
             <>
-                {isLoading && (
-                    <div className="preloader">
-                        <div className="spinner">
-                            <div className="dot1"></div>
-                            <div className="dot2"></div>
-                        </div>
-                    </div>
-                )}
+                {isLoading && <Preloader />}
                 {/* <!-- Product Details Area --> */}
                 <div className="product-details-area pt-100 pb-70">
                     <div className="container">
@@ -216,6 +209,5 @@ class ProductDetails extends Component {
         );
     }
 }
-
 
 export default ProductDetails;

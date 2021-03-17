@@ -1,4 +1,4 @@
-import React, { Component, createContext } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "../../css/app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -6,7 +6,7 @@ import Header from "./frontend/Header";
 import Footer from "./frontend/Footer";
 import Login from "./frontend/form/Login";
 import Register from "./frontend/form/Register";
-import Content from "./frontend/Content";
+import Content from "./frontend/content/Content";
 import ProductDetails from "./frontend/products/ProductDetails";
 import ForgotPassword from "./frontend/form/ForgotPassword";
 import UserCart from "./frontend/cart/UserCart";
@@ -25,10 +25,10 @@ class Example extends Component {
                         <Route path="/" exact component={Content} />
                     </Switch>
                     <Switch>
-                        <Route path="/register" exact component={Register} />
+                        <Route path="/user/register" exact component={Register} />
                     </Switch>
                     <Switch>
-                        <Route path="/login" exact component={Login} />
+                        <Route path="/user/login" exact component={Login} />
                     </Switch>
                     <Switch>
                         <Route
@@ -39,16 +39,16 @@ class Example extends Component {
                     </Switch>
                     <Switch>
                         <Route
-                            path="/forgotpassword"
+                            path="/user/forgotpassword"
                             exact
                             component={ForgotPassword}
                         />
                     </Switch>
                     <Switch>
-                        <Route path="/usercart" exact component={UserCart} />
+                        <Route path="/user/cart" exact component={UserCart} />
                     </Switch>
                     <Switch>
-                        <Route path="/panel" exact component={UserPanel} />
+                        <Route path="/user/panel" exact component={UserPanel} />
                     </Switch>
                     <Footer />
                 </Router>

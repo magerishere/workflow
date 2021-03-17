@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\UserCartController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -21,18 +20,17 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Route Resource
 Route::resource('/user',UserController::class);
 Route::resource('/product',ProductController::class);
 Route::resource('/comment',CommentController::class);
-Route::resource('/usercart',UserCartController::class);
 Route::resource('/order',OrderController::class);
-//For logout users
-Route::post('/logout',[UserController::class,'logout']);
-// For send email when tap in forgotpassword
-Route::post('/forgotpassword',[UserController::class,'forgotPassword']);
-//For Auth Check
-Route::post('/auth',[UserController::class,'auth']);
+
+// Route Post
+Route::post('/user/login',[UserController::class,'login'])->name('user.login');
+Route::post('/user/logout',[UserController::class,'logout'])->name('user.logout');
+Route::post('/user/forgotpassword',[UserController::class,'forgotPassword'])->name('user.forgotPassword');
+Route::post('/user/auth',[UserController::class,'auth'])->name('user.auth');
 
 // if discount code is true
 Route::post('/discountcode',function(Request $request){
@@ -42,18 +40,6 @@ Route::post('/discountcode',function(Request $request){
     return response()->json(['status'=>400]);
 });
 
-
-Route::get('/panel',function(){
-    return view('welcome');
-});
-
-Route::get('/', function () {
-      
-    return view('welcome');
-    
-});
-
-
-Route::get('/test',function(){
-    return view('test');
-});
+// Route Get
+Route::get('/user/panel',[UserController::class,'welcome'])->name('user.welcome');
+Route::get('/',[UserController::class,'welcome'])->name('welcome');

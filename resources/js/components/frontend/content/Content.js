@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Preloader from "../PreLoader";
 
 class Content extends Component {
     constructor(props) {
@@ -43,14 +44,7 @@ class Content extends Component {
         const { products, isLoading, quickView } = this.state;
         return (
             <>
-                {isLoading && (
-                    <div className="preloader">
-                        <div className="spinner">
-                            <div className="dot1"></div>
-                            <div className="dot2"></div>
-                        </div>
-                    </div>
-                )}
+                {isLoading && <Preloader />}
                 <section className="product-new-arrival pt-100 pb-70">
                     <div className="container">
                         <div className="row align-items-center">
@@ -132,7 +126,9 @@ class Content extends Component {
 
                                             <div className="content">
                                                 <h3>
-                                                    <Link to={`/product/${product.id}`}>
+                                                    <Link
+                                                        to={`/product/${product.id}`}
+                                                    >
                                                         {product.title}
                                                     </Link>
                                                 </h3>

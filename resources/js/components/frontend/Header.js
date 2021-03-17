@@ -6,7 +6,7 @@ import AuthContext from "../frontend/authorization/isAuth";
 class Header extends Component {
   
     logout = async () => {
-        await axios.post("/logout", null);
+        await axios.post("/user/logout", null);
     };
     render() {
         // check authorization 
@@ -449,7 +449,7 @@ class Header extends Component {
                                         <div className="nav-other-item">
                                             <div className="cart-btn-area">
                                                 <Link
-                                                    to="/usercart"
+                                                    to="/user/cart"
                                                     className="cart-btn"
                                                 >
                                                     <i className="bx bx-cart"></i>
@@ -472,14 +472,14 @@ class Header extends Component {
                                     <div className="nav-btn nav-other-btn">
                                         {auth ? (
                                             <Link
-                                                to="/panel"
+                                                to="/user/panel"
                                                 className="default-btn btn-bg-three"
                                             >
                                                 پنل کاربری
                                             </Link>
                                         ) : (
                                             <Link
-                                                to="/login"
+                                                to="/user/login"
                                                 className="default-btn btn-bg-three"
                                             >
                                                 وارد شوید
@@ -569,7 +569,7 @@ class Header extends Component {
                                             <div className="nav-other-item">
                                                 <div className="cart-btn-area">
                                                     <Link
-                                                        to="usercart"
+                                                        to="/user/cart"
                                                         className="cart-btn"
                                                     >
                                                         <i className="bx bx-cart"></i>

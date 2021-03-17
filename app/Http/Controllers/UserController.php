@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Events\UserHandlerEvent;
 use App\Events\ForgotPasswordEvent;
+use App\Events\UserLoginEvent;
+use App\Events\UserRegisterEvent;
 use App\Events\LogoutEvent;
-
-use Illuminate\Support\Str;
 
 
 
@@ -48,10 +47,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // for login and register users
-        return  event(new UserHandlerEvent($request));
-
-             
+      return  event(new UserRegisterEvent($request));
     }
 
     /**
@@ -63,7 +59,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        dd(intval('2'));
+       
         
     }
 
@@ -101,6 +97,11 @@ class UserController extends Controller
         //
     }
 
+    public function login(Request $request)
+    {
+        return event(new UserLoginEvent($request));
+    }
+
     public function logout(Request $request)
     {
 
@@ -117,6 +118,11 @@ class UserController extends Controller
     public function auth(Request $request)
     {
         return response()->json(['auth'=>Auth::user()]);
+    }
+
+    public function welcome() 
+    {
+        return view('welcome');
     }
 
 

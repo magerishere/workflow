@@ -1,26 +1,16 @@
- // for register and login users
-
-
-        $result = false;
-        // if request was register 
-        if($event->confirm) {
-             if(!User::where(['email'=>$event->email])->exists()) 
-             {
-                  User::create([
-                    'email'=>$event->email,
-                    'password'=>bcrypt($event->password)
-                ]);
-                if($user) $result = true;
-             }
-          }
-
-          //check if register success OR request was login
-        if($result || !$event->confirm) {
-           if(Auth::attempt(['email'=>$event->email,'password'=>$event->password])) 
-           {
-               $event->request->session()->regenerate();
-               return response()->json(['status'=>200]);
-           }
+  //Check request was email OR phone number to login
+        if(filter_var($event->email,FILTER_VALIDATE_EMAIL)) {
+            if(Auth::attempt(['email'=>$event->email,'password'=>$event->password])) 
+            {
+                $event->request->session()->regenerate();
+                return response()->json(['status'=>200]);
+            }
+        } else if(is_numeric($event->email)) {
+            if(Auth::attempt(['phone_number'=>$event->email,'password'=>$event->password])) 
+            {
+                $event->request->session()->regenerate();
+                return response()->json(['status'=>200]);
+            }
         }
 
         return response()->json(['status'=>400]);

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import Context from "../Context";
+import Context from "./Context";
 
 const ProductSendComment = () => {
     const [name, setName] = useState("");

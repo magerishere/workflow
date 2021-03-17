@@ -6,7 +6,7 @@ const ForgotPassword = () => {
     const [message, setMessage] = useState("");
     const sendForgotPassword = async (e) => {
         e.preventDefault();
-        const res = await axios.post("/forgotpassword", { email });
+        const res = await axios.post("/user/forgotpassword", { email });
         res.data[0].original.status === 200
             ? setMessage("رمز عبور جدید به ایمیل شما ارسال شد")
             : setMessage("ایمیل وجود ندارد !");

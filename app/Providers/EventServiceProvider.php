@@ -15,9 +15,10 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        \App\Events\UserHandlerEvent::class => [
-            \App\Listeners\UserRegisterWithEmailListener::class,
-            \App\Listeners\UserRegisterWithPhoneNumberListener::class,
+        \App\Events\UserRegisterEvent::class => [
+            \App\Listeners\UserRegisterListener::class,
+        ],
+        \App\Events\UserLoginEvent::class => [
             \App\Listeners\UserLoginListener::class,
         ],
         \App\Events\ForgotPasswordEvent::class => [
