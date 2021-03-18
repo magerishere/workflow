@@ -2558,7 +2558,7 @@ var Header = /*#__PURE__*/function (_Component) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user/logout", null);
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/logout", null);
 
             case 2:
             case "end":
@@ -3967,9 +3967,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _PreLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../PreLoader */ "./resources/js/components/frontend/PreLoader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Sort__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sort */ "./resources/js/components/frontend/content/Sort.js");
+/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Filter */ "./resources/js/components/frontend/content/Filter.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Search */ "./resources/js/components/frontend/content/Search.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -4003,6 +4006,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -4048,11 +4054,58 @@ var Content = /*#__PURE__*/function (_Component) {
       localStorage.setItem("usercart", JSON.stringify(cart));
     });
 
+    _defineProperty(_assertThisInitialized(_this), "sortHandler", function (e) {
+      var sort = e.target.value;
+
+      var filterProducts = _this.state.filterProducts.slice().sort(function (a, b) {
+        return sort === "highest" ? a.price < b.price ? 1 : -1 : sort === "lowest" ? a.price > b.price ? 1 : -1 : a.id > b.id ? 1 : -1;
+      });
+
+      _this.setState({
+        sort: sort,
+        filterProducts: filterProducts
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterHandler", function (e) {
+      var result = [];
+
+      if (e.target.value === "") {
+        _this.setState({
+          sort: "",
+          filterValue: e.target.value,
+          filterProducts: _this.state.products
+        });
+      } else {
+        _this.state.products.map(function (product) {
+          if (product.type === e.target.value) {
+            result.push(product);
+          }
+        });
+
+        _this.setState({
+          sort: "",
+          filterValue: e.target.value,
+          filterProducts: result
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "searchHandler", function (e) {
+      _this.setState({
+        search: e.target.value
+      });
+    });
+
     _this.state = {
       products: [],
       cart: localStorage.getItem("usercart") ? JSON.parse(localStorage.getItem("usercart")) : [],
       isLoading: true,
-      quickView: null
+      quickView: null,
+      sort: "",
+      filterValue: "",
+      filterProducts: [],
+      search: ""
     };
     return _this;
   }
@@ -4073,7 +4126,8 @@ var Content = /*#__PURE__*/function (_Component) {
                 res = _context.sent;
                 res.data.status === 200 && this.setState({
                   products: res.data.products,
-                  isLoading: false
+                  isLoading: false,
+                  filterProducts: res.data.products
                 });
 
               case 4:
@@ -4096,64 +4150,78 @@ var Content = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var _this$state = this.state,
-          products = _this$state.products,
+          filterProducts = _this$state.filterProducts,
           isLoading = _this$state.isLoading,
-          quickView = _this$state.quickView;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-        children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_PreLoader__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
+          quickView = _this$state.quickView,
+          sort = _this$state.sort,
+          filterValue = _this$state.filterValue,
+          search = _this$state.search;
+      var filters = this.state.filterProducts.filter(function (product) {
+        return product.title.toLowerCase().indexOf(search) !== -1;
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+        children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_PreLoader__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("section", {
           className: "product-new-arrival pt-100 pb-70",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "row align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "col-lg-3 col-md-3",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                   className: "section-title",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
                     children: "\u062A\u0627\u0632\u0647 \u0631\u0633\u06CC\u062F\u0647 \u0647\u0627"
                   })
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "col-lg-9 col-md-9",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Sort__WEBPACK_IMPORTED_MODULE_4__.default, {
+                  sort: sort,
+                  sortHandler: this.sortHandler
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Filter__WEBPACK_IMPORTED_MODULE_5__.default, {
+                  filterValue: filterValue,
+                  filterHandler: this.filterHandler
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Search__WEBPACK_IMPORTED_MODULE_6__.default, {
+                  search: search,
+                  searchHandler: this.searchHandler
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
                   className: "filter-menu",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                    className: "filter active",
-                    "data-filter": "all",
-                    children: "\u0647\u0645\u0647 \u0645\u062D\u0635\u0648\u0644\u0627\u062A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+                    onClick: function onClick() {
+                      return _this2.sortHandler("highest");
+                    },
                     className: "filter",
                     "data-filter": ".television",
                     children: "\u062A\u0644\u0648\u06CC\u0632\u06CC\u0648\u0646"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
                     className: "filter",
                     "data-filter": ".lamp",
                     children: "\u0644\u0627\u0645\u067E"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
                     className: "filter",
                     "data-filter": ".smartphone",
                     children: "\u06AF\u0648\u0634\u06CC \u0647\u0645\u0631\u0627\u0647"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
                     className: "filter",
                     "data-filter": ".camera",
                     children: "\u062F\u0648\u0631\u0628\u06CC\u0646"
                   })]
-                })
+                })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("hr", {
               className: "line-bottom"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               id: "Container",
               className: "row",
-              children: products.map(function (product) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: filters.map(function (product) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                   className: "col-lg-3 col-sm-6",
-                  children: quickView === product.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  children: quickView === product.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                     className: "arrival-product",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                       className: "arrival-img",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
                         onClick: function onClick() {
                           return _this2.setState({
                             quickView: null
@@ -4162,41 +4230,41 @@ var Content = /*#__PURE__*/function (_Component) {
                         children: product.description
                       })
                     })
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "arrival-product",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                       className: "arrival-img",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
                         to: "/product/".concat(product.id),
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
                           src: product.image,
                           alt: "\u062A\u0635\u0648\u06CC\u0631 \u0645\u062D\u0635\u0648\u0644"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                         className: "new-tag",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
-                          children: "\u062C\u062F\u06CC\u062F"
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+                          children: product.type
                         })
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                       className: "content",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
                           to: "/product/".concat(product.id),
                           children: product.title
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
                         children: ["\u06A9\u062F \u0645\u062D\u0635\u0648\u0644 # ", product.id]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                         className: "price-tag",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
-                          children: [product.price, " \u062A\u0648\u0645\u0627\u0646", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("del", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h4", {
+                          children: [product.price, " \u062A\u0648\u0645\u0627\u0646", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("del", {
                             children: "159 \u062A\u0648\u0645\u0627\u0646"
                           })]
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                         className: "add-btn",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
                           onClick: function onClick() {
                             return _this2.addToCart(product);
                           },
@@ -4204,20 +4272,20 @@ var Content = /*#__PURE__*/function (_Component) {
                           className: "add-cart-btn",
                           children: "\u062E\u0631\u06CC\u062F"
                         })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
                         className: "products-action",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
                             href: "#",
                             "data-tooltip": "tooltip",
                             "data-placement": "top",
                             title: "\u0627\u0641\u0632\u0648\u062F\u0646 \u062F\u0631 \u0639\u0644\u0627\u0642\u0647\u200C\u0645\u0646\u062F\u06CC\u200C\u0647\u0627",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
                               className: "bx bx-heart"
                             })
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
                             href: "#",
                             onClick: function onClick() {
                               return _this2.setState({
@@ -4229,7 +4297,7 @@ var Content = /*#__PURE__*/function (_Component) {
                             title: "\u0646\u0645\u0627\u06CC\u0634 \u0633\u0631\u06CC\u0639",
                             "data-toggle": "modal",
                             "data-target": "#productsQuickView",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
                               className: "bx bx-show-alt"
                             })
                           })
@@ -4250,6 +4318,120 @@ var Content = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Content);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/content/Filter.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/frontend/content/Filter.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Filter = function Filter(_ref) {
+  var filterValue = _ref.filterValue,
+      filterHandler = _ref.filterHandler;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+    value: filterValue,
+    onChange: filterHandler,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: "",
+      children: "\u0646\u0648\u0639 \u0645\u062D\u0635\u0648\u0644"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: "\u0627\u0644\u06A9\u062A\u0631\u0648\u0646\u06CC\u06A9",
+      children: "\u0627\u0644\u06A9\u062A\u0631\u0648\u0646\u06CC\u06A9"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: "\u067E\u0648\u0634\u0627\u06A9",
+      children: "\u067E\u0648\u0634\u0627\u06A9"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Filter);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/content/Search.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/frontend/content/Search.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Search = function Search(_ref) {
+  var search = _ref.search,
+      searchHandler = _ref.searchHandler;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      type: "text",
+      value: search,
+      onChange: searchHandler,
+      placeholder: "\u062C\u0633\u062A\u062C\u0648 \u0645\u062D\u0635\u0648\u0644 ..."
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/content/Sort.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/frontend/content/Sort.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var Sort = function Sort(_ref) {
+  var sort = _ref.sort,
+      sortHandler = _ref.sortHandler;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+    value: sort,
+    onChange: sortHandler,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: "",
+      children: "\u0641\u06CC\u0644\u062A\u0631 \u0642\u06CC\u0645\u062A"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: "highest",
+      children: "\u0628\u06CC\u0634\u062A\u0631\u06CC\u0646"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+      value: "lowest",
+      children: "\u06A9\u0645\u062A\u0631\u06CC\u0646"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sort);
 
 /***/ }),
 
@@ -4314,7 +4496,7 @@ var ForgotPassword = function ForgotPassword() {
             case 0:
               e.preventDefault();
               _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user/forgotpassword", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/forgotpassword", {
                 email: email
               });
 
@@ -4701,14 +4883,14 @@ var Register = function Register() {
               }
 
               _context.next = 10;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/user/login", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/login", {
                 email: email,
                 password: password
               });
 
             case 10:
               res = _context.sent;
-              res.data[0].original.status === 200 && window.location.replace('/user/panel');
+              res.data[0].original.status === 200 && window.location.replace('/dashboard');
               _context.next = 15;
               break;
 

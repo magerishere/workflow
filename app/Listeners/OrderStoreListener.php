@@ -31,7 +31,7 @@ class OrderStoreListener
     {
         //
         $bill = Bill::create([
-            'bill_id'=> Str::random(),
+            'bill_id'=> 'wf' . rand(1,1000000),
             'user_id'=>Auth::id(),
             'address'=>$event->address,
             'cost'=>$event->cost,

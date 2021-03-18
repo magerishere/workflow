@@ -48,9 +48,7 @@
 
         <div id="example"></div>
        
-        <script src="/js/app.js"></script>
-        <script src="/js/main.js"></script>
-
+    
 
         <!-- Jquery Min JS -->
         <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
@@ -79,6 +77,9 @@
         <script src="assets/js/mixitup.min.js"></script>
         <!-- Custom JS -->
         <script src="assets/js/custom.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/app.js"></script>
+
     </body>
 
 

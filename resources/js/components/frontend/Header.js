@@ -6,7 +6,7 @@ import AuthContext from "../frontend/authorization/isAuth";
 class Header extends Component {
   
     logout = async () => {
-        await axios.post("/user/logout", null);
+        await axios.post("/logout", null);
     };
     render() {
         // check authorization 

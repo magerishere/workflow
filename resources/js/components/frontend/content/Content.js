@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Preloader from "../PreLoader";
+import Sort from "./Sort";
+import Filter from "./Filter";
+import Search from "./Search";
 
 class Content extends Component {
     constructor(props) {
@@ -13,13 +16,21 @@ class Content extends Component {
                 : [],
             isLoading: true,
             quickView: null,
+            sort: "",
+            filterValue: "",
+            filterProducts: [],
+            search: "",
         };
     }
 
     async componentDidMount() {
         const res = await axios.get("/product");
         res.data.status === 200 &&
-            this.setState({ products: res.data.products, isLoading: false });
+            this.setState({
+                products: res.data.products,
+                isLoading: false,
+                filterProducts: res.data.products,
+            });
     }
 
     addToCart = (product) => {
@@ -40,8 +51,64 @@ class Content extends Component {
         localStorage.setItem("usercart", JSON.stringify(cart));
     };
 
+    sortHandler = (e) => {
+        const sort = e.target.value;
+        const filterProducts = this.state.filterProducts
+            .slice()
+            .sort((a, b) =>
+                sort === "highest"
+                    ? a.price < b.price
+                        ? 1
+                        : -1
+                    : sort === "lowest"
+                    ? a.price > b.price
+                        ? 1
+                        : -1
+                    : a.id > b.id
+                    ? 1
+                    : -1
+            );
+        this.setState({ sort, filterProducts });
+    };
+
+    filterHandler = (e) => {
+        let result = [];
+        if (e.target.value === "") {
+            this.setState({
+                sort: "",
+                filterValue: e.target.value,
+                filterProducts: this.state.products,
+            });
+        } else {
+            this.state.products.map((product) => {
+                if (product.type === e.target.value) {
+                    result.push(product);
+                }
+            });
+            this.setState({
+                sort: "",
+                filterValue: e.target.value,
+                filterProducts: result,
+            });
+        }
+    };
+
+    searchHandler = (e) => {
+        this.setState({ search: e.target.value });
+    };
+
     render() {
-        const { products, isLoading, quickView } = this.state;
+        const {
+            filterProducts,
+            isLoading,
+            quickView,
+            sort,
+            filterValue,
+            search,
+        } = this.state;
+        let filters = this.state.filterProducts.filter((product) => {
+            return product.title.toLowerCase().indexOf(search) !== -1;
+        });
         return (
             <>
                 {isLoading && <Preloader />}
@@ -55,14 +122,24 @@ class Content extends Component {
                             </div>
 
                             <div className="col-lg-9 col-md-9">
+                                <Sort
+                                    sort={sort}
+                                    sortHandler={this.sortHandler}
+                                />
+                                <Filter
+                                    filterValue={filterValue}
+                                    filterHandler={this.filterHandler}
+                                />
+                                <Search
+                                    search={search}
+                                    searchHandler={this.searchHandler}
+                                />
+
                                 <ul className="filter-menu">
                                     <li
-                                        className="filter active"
-                                        data-filter="all"
-                                    >
-                                        همه محصولات
-                                    </li>
-                                    <li
+                                        onClick={() =>
+                                            this.sortHandler("highest")
+                                        }
                                         className="filter"
                                         data-filter=".television"
                                     >
@@ -89,7 +166,7 @@ class Content extends Component {
                         <hr className="line-bottom" />
 
                         <div id="Container" className="row">
-                            {products.map((product) => (
+                            {filters.map((product) => (
                                 <div
                                     className="col-lg-3 col-sm-6"
                                     key={product.id}
@@ -120,7 +197,7 @@ class Content extends Component {
                                                     />
                                                 </Link>
                                                 <div className="new-tag">
-                                                    <h3>جدید</h3>
+                                                    <h3>{product.type}</h3>
                                                 </div>
                                             </div>
 

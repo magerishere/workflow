@@ -26,8 +26,9 @@ class ProductFactory extends Factory
       
             'title'=>$this->faker->name,
             'price'=>$this->faker->numberBetween(100000,1000000),
-            'image'=>'/images/products/product-img' . rand(1,6) . '.png',
+            'image'=>'/images/products/product-img' . rand(1,30) . '.png',
             'description'=>$this->faker->sentence(),
+            'type'=>'الکترونیک',
         ];
     }
 }

@@ -23,8 +23,8 @@ const Register = () => {
             let res = await axios.post("/user", { email, password });
             console.log(res);
             if (res.data[0].original.status === 200) {
-                res = await axios.post("/user/login", { email, password });
-                res.data[0].original.status === 200 && window.location.replace('/user/panel');
+                res = await axios.post("/login", { email, password });
+                res.data[0].original.status === 200 && window.location.replace('/dashboard');
             } else {
                 setMessage("ایمیل یا شماره تلفن وجود دارد");
             }

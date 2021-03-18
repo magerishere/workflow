@@ -1,15 +1,14 @@
-import React from "react";
+import React from 'react';
 
-const Filter = () => {
+
+const Filter = ({filterValue,filterHandler}) => {
     return (
-        <>
-            <select className="form-select" aria-label="Default select example">
-                <option selected>فیلتر قیمت</option>
-                <option value="highest">بیشترین</option>
-                <option value="lowest">کمترین</option>
-            </select>
-        </>
-    );
-};
+        <select value={filterValue} onChange={filterHandler}>
+            <option value="">نوع محصول</option>
+            <option value="الکترونیک">الکترونیک</option>
+            <option value="پوشاک">پوشاک</option>
 
+        </select>
+    )
+}
 export default Filter;
